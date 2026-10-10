@@ -1,8 +1,5 @@
-# Let op: zoekmachines lezen robots.txt alleen in de root van een domein. Op een subpad
-# (https://pypath-automation.github.io/PyPath/) telt dit bestand dus pas met een eigen domein.
-# Meld de sitemap daarom aan in Google Search Console en Bing Webmaster Tools.
 User-agent: *
 Allow: /
 Disallow: /_bron/
 
-Sitemap: https://pypath-automation.github.io/PyPath/sitemap.xml
+Sitemap: https://www.pypath.nl/sitemap.xml

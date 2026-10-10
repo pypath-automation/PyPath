@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FilteredElementCollector explained with Python | PyPath</title>
+<meta name="description" content="How to get elements from a Revit model with the FilteredElementCollector in Python: OfCategory, OfClass, WhereElementIsNotElementType, filters and pitfalls.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/filteredelementcollector-python.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="FilteredElementCollector explained with Python | PyPath">
+<meta property="og:description" content="How to get elements from a Revit model with the FilteredElementCollector in Python: OfCategory, OfClass, WhereElementIsNotElementType, filters and pitfalls.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FilteredElementCollector explained with Python | PyPath">
+<meta name="twitter:description" content="How to get elements from a Revit model with the FilteredElementCollector in Python: OfCategory, OfClass, WhereElementIsNotElementType, filters and pitfalls.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=71b9e28b1e">
+<script src="../../assets/site.js?v=5c9f974040" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html#webpagina","url":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html","name":"FilteredElementCollector explained with Python | PyPath","description":"How to get elements from a Revit model with the FilteredElementCollector in Python: OfCategory, OfClass, WhereElementIsNotElementType, filters and pitfalls.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html#kruimels"}},{"@type":"TechArticle","@id":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html#artikel","proficiencyLevel":"Beginner","headline":"FilteredElementCollector explained, with Python examples","description":"How to get elements from a Revit model with the FilteredElementCollector in Python: OfCategory, OfClass, WhereElementIsNotElementType, filters and pitfalls.","image":["https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg"],"datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/"},"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"en","mainEntityOfPage":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html#webpagina"},"isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"wordCount":883},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://pypath-automation.github.io/PyPath/en/guides/"},{"@type":"ListItem","position":3,"name":"FilteredElementCollector","item":"https://pypath-automation.github.io/PyPath/en/guides/filteredelementcollector-python.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../gids/filteredelementcollector-python.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="./">Guides</a></li><li><span aria-current="page">FilteredElementCollector</span></li></ol></nav>
+    <h1>FilteredElementCollector explained, with Python examples</h1>
+    <p class="gids-intro">Every Revit script starts by finding elements. How the collector works, which filters you need, and why you sometimes find too many elements or none at all.</p>
+    <p class="gids-meta"><span>4 min read</span><span aria-hidden="true">·</span><span>Updated October 10, 2026</span><span aria-hidden="true">·</span><span>Checked against the Revit API 2025 documentation</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">On this page</summary><ol><li><a href="#what-it-does">What the collector does</a></li><li><a href="#ofcategory">Filtering by category: OfCategory</a></li><li><a href="#types-or-instances">Types or instances?</a></li><li><a href="#ofclass">Filtering by class: OfClass</a></li><li><a href="#reading">Reading: ToElements, FirstElement, GetElementCount</a></li><li><a href="#filter-by-value">Filtering on a parameter value</a></li><li><a href="#pitfall-panel">Pitfall: OfClass(Panel) and OfClass(Mullion)</a></li><li><a href="#speed">Speed: let the collector do the work</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Short answer:</strong> <code>FilteredElementCollector(doc)</code> searches the model for elements. You add one or more filters, such as <code>.OfCategory(BuiltInCategory.OST_Doors)</code> or <code>.OfClass(Wall)</code>, and usually <code>.WhereElementIsNotElementType()</code> to leave out the types. Then you read the result with <code>ToElements()</code>, <code>FirstElement()</code>, <code>GetElementCount()</code> or a for loop.</p>
+</div>
+
+<h2 id="what-it-does">What the collector does</h2>
+<p>A Revit model is one big collection of elements: walls, doors, pipes, but also views, levels and types. With the <code>FilteredElementCollector</code> you ask the model for exactly the part you need. You always start like this:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">BuiltInCategory</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span></code></pre></figure>
+<p>You may not read a collector without a filter. Revit then stops with <code>The collector does not have a filter applied. Extraction or iteration of elements is not permitted without a filter.</code> So you always have to say what you are looking for.</p>
+
+<h2 id="ofcategory">Filtering by category: OfCategory</h2>
+<p>The category is what you see in Revit under <em>Visibility/Graphics</em>: doors, walls, pipes. In code it is a <code>BuiltInCategory</code>: <code>OST_Doors</code>, <code>OST_Walls</code>, <code>OST_PipeCurves</code> (pipes), <code>OST_CurtainWallPanels</code> (curtain wall panels). This is the filter you will use most.</p>
+
+<h2 id="types-or-instances">Types or instances?</h2>
+<p>The classic pitfall. A category also contains the <em>types</em>: the door types from your family are counted too if you do not say otherwise. On the simulated office model it looks like this:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">CountDoors.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: CountDoors.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">BuiltInCategory</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+everything = (<span class="c-revit">FilteredElementCollector</span>(doc)
+              .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_Doors</span>)
+              .<span class="c-revit">GetElementCount</span>())
+doors = (<span class="c-revit">FilteredElementCollector</span>(doc)
+         .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_Doors</span>)
+         .<span class="c-revit">WhereElementIsNotElementType</span>()
+         .<span class="c-revit">GetElementCount</span>())
+<span class="c-bi">print</span>(<span class="c-str">&quot;Including types: {}&quot;</span>.format(everything))
+<span class="c-bi">print</span>(<span class="c-str">&quot;Doors only:      {}&quot;</span>.format(doors))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated office model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated office model"><code class="language-uitvoer">Including types: 17
+Doors only:      13</code></pre></figure>
+<p>If you do want the types (for example all wall types), use <code>WhereElementIsElementType()</code>.</p>
+
+<h2 id="ofclass">Filtering by class: OfClass</h2>
+<p><code>OfClass</code> filters on the kind of object in the API. <code>OfClass(Wall)</code> returns only real walls, no wall types, because those are of class <code>WallType</code>:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">WallTypes.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: WallTypes.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">Wall</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+names = <span class="c-bi">set</span>()
+<span class="c-kw">for</span> wall <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(<span class="c-revit">Wall</span>):
+    names.add(wall.<span class="c-revit">Name</span>)
+<span class="c-kw">for</span> name <span class="c-kw">in</span> <span class="c-bi">sorted</span>(names):
+    <span class="c-bi">print</span>(name)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated office model (Dutch type names)</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated office model (Dutch type names)"><code class="language-uitvoer">Binnenwand 100 metal stud
+Buitenwand 300 kalkzandsteen</code></pre></figure>
+<p>For a wall, <code>Name</code> returns the name of its wall type. That is why there are two names, even though there are twenty walls.</p>
+
+<h2 id="reading">Reading: ToElements, FirstElement, GetElementCount</h2>
+<ul>
+  <li><code>ToElements()</code>: a list of all elements. Handy if you need them more than once; <code>len()</code> works on it.</li>
+  <li><code>FirstElement()</code>: just the first element, or <code>None</code> if there is nothing.</li>
+  <li><code>GetElementCount()</code>: just the number. Faster than fetching everything and counting.</li>
+  <li><code>ToElementIds()</code>: just the <code>ElementId</code>s, for example to make a selection.</li>
+  <li>A <code>for</code> loop straight over the collector, if you visit each element once.</li>
+</ul>
+
+<h2 id="filter-by-value">Filtering on a parameter value</h2>
+<p>You can also have the collector filter on the value of a parameter, for example all pipes thicker than 32 mm. That works with a rule and <code>WherePasses</code>. Note: Revit works in feet internally, so convert the limit first.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">LargePipes.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: LargePipes.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+<span class="c-com"># Rule: diameter greater than 32 mm (Revit works in feet internally)</span>
+limit = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertToInternalUnits</span>(<span class="c-num">32</span>, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Millimeters</span>)
+rule = ParameterFilterRuleFactory.CreateGreaterRule(
+    <span class="c-revit">ElementId</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_DIAMETER_PARAM</span>), limit, <span class="c-num">1e-6</span>)
+
+large = (<span class="c-revit">FilteredElementCollector</span>(doc)
+         .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+         .<span class="c-revit">WhereElementIsNotElementType</span>()
+         .WherePasses(ElementParameterFilter(rule))
+         .<span class="c-revit">GetElementCount</span>())
+<span class="c-bi">print</span>(<span class="c-str">&quot;Pipes larger than 32 mm: {}&quot;</span>.format(large))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse model"><code class="language-uitvoer">Pipes larger than 32 mm: 20</code></pre></figure>
+<p>The <code>1e-6</code> is the tolerance for rounding differences in decimal numbers.</p>
+
+<h2 id="pitfall-panel">Pitfall: OfClass(Panel) and OfClass(Mullion)</h2>
+<p>Curtain wall panels and mullions seem to have their own class, but <code>OfClass(Panel)</code> raises an error:</p>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Error message</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Error message"><code class="language-uitvoer">Autodesk.Revit.Exceptions.ArgumentException: Input type(Autodesk.Revit.DB.Panel) is of an element type that exists in the API, but not in Revit&#x27;s native object model. Try using Autodesk.Revit.DB.FamilyInstance instead, and then post-processing the results to find the elements of interest.</code></pre></figure>
+<p>For panels and mullions, use the category:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Panels.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Panels.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">BuiltInCategory</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+panels = (<span class="c-revit">FilteredElementCollector</span>(doc)
+          .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_CurtainWallPanels</span>)
+          .<span class="c-revit">WhereElementIsNotElementType</span>()
+          .<span class="c-revit">ToElements</span>())
+<span class="c-bi">print</span>(<span class="c-str">&quot;Panels: {}&quot;</span>.format(<span class="c-bi">len</span>(panels)))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated Venlo greenhouse</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated Venlo greenhouse"><code class="language-uitvoer">Panels: 608</code></pre></figure>
+<p>For mullions the category is <code>OST_CurtainWallMullions</code>.</p>
+
+<h2 id="speed">Speed: let the collector do the work</h2>
+<p>In a large model it makes a big difference whether you fetch every element and filter in Python, or let the collector find the right ones straight away. So filter as much as possible in the collector (category, class, parameter rule) and only then loop in Python over what is left. Your code gets shorter too.</p>
+<p>All collector methods are in the <a href="https://www.revitapidocs.com/">Revit API documentation at revitapidocs.com</a>.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <img class="logo" src="../../assets/img/logo-128.png" width="48" height="48" alt="" loading="lazy" decoding="async">
+  <h3 class="probeer-kop" id="probeer-kop">Practise this in PyPath</h3>
+  <p>Practise the collector without Revit: in PyPath you use the same names on a simulated greenhouse model, and week 10 covers exactly this. Week 1 is free. (The lessons are in Dutch for now.)</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Keep reading</h2><ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="revit-set-parameter-python.html"><span class="gids-kaart-meta">Beginners · 5 min read</span><h3 class="gids-kaart-titel">Read and set Revit parameters with Python (with a Transaction)</h3><p>Parameters are the data of your model. How to read them, how to fill them in bulk, and the pitfalls that make Set do nothing or raise an error.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="pyrevit-tutorial-first-button.html"><span class="gids-kaart-meta">Beginners · 4 min read</span><h3 class="gids-kaart-titel">pyRevit tutorial: install it and make your first button</h3><p>From installation to your own button on the ribbon that counts your model. With the folder structure, a working script and the problems everyone runs into.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="learn-python-for-revit.html"><span class="gids-kaart-meta">Beginners · 7 min read</span><h3 class="gids-kaart-titel">Learning Python for Revit: where do you start?</h3><p>An honest step-by-step plan, from your first line of Python to your own pyRevit button. With real example code and the mistakes almost everyone makes.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li></ul><p class="gerelateerd-alle"><a href="./">All guides <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">For employers</p><ul><li><a href="../business.html">For business</a></li><li><a href="../business.html#calculator">Calculate the return</a></li><li><a href="../convince-your-manager.html">Convince your manager</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="./">All guides</a></li><li><a href="learn-python-for-revit.html">Learning Python for Revit</a></li><li><a href="pyrevit-tutorial-first-button.html">pyRevit first button</a></li><li><a href="revit-set-parameter-python.html">Setting parameters</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

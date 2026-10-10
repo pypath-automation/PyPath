@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heating trade pack: Revit tools for heating with Python | PyPath</title>
+<meta name="description" content="Heating trade pack: build your own pyRevit tools for heating installations. Pipes per zone, open ends, velocity and diameter checks. {{prijs:vakpakket}} one-time.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/vakpakket/warmte.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Heating trade pack: Revit tools for heating with Python | PyPath">
+<meta property="og:description" content="Heating trade pack: build your own pyRevit tools for heating installations. Pipes per zone, open ends, velocity and diameter checks. {{prijs:vakpakket}} one-time.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Heating trade pack: Revit tools for heating with Python | PyPath">
+<meta name="twitter:description" content="Heating trade pack: build your own pyRevit tools for heating installations. Pipes per zone, open ends, velocity and diameter checks. {{prijs:vakpakket}} one-time.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=71b9e28b1e">
+<script src="../../assets/site.js?v=5c9f974040" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html#webpagina","url":"https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html","name":"Heating trade pack: Revit tools for heating with Python | PyPath","description":"Heating trade pack: build your own pyRevit tools for heating installations. Pipes per zone, open ends, velocity and diameter checks. {{prijs:vakpakket}} one-time.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html#kruimels"}},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"Trade packs","item":"https://pypath-automation.github.io/PyPath/en/trade-packs.html"},{"@type":"ListItem","position":3,"name":"Heating","item":"https://pypath-automation.github.io/PyPath/en/trade-pack/heating.html"}]}]}</script>
+</head>
+<body class="pagina-pagina">
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html" aria-current="page">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../guides/">Guides</a></li><li><a href="../business.html">For business</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../vakpakket/warmte.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html" aria-current="page">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../guides/">Guides</a></li><li><a href="../business.html">For business</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<header class="pagina-kop">
+  <div class="binnen">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><span aria-current="page">Heating</span></li></ol></nav>
+    <p class="bovenkop">Trade pack <span class="status">Coming soon</span></p>
+    <h1>Heating</h1>
+    <p class="lead">Heating zones, pipes and heat output: your own tools for heating installations, practised on a simulated greenhouse complex with a boiler, combined heat and power, pipe-rail heating and grow pipes.</p>
+  </div>
+</header>
+<div class="inhoud-pagina">
+  <div class="binnen pakket-raster">
+    <div class="tekst">
+      <h2>Who it is for</h2>
+      <p>Drafters, modellers and engineers who draw or calculate heating installations in Revit, in greenhouse horticulture or elsewhere.</p>
+      <h2>Tools you build</h2>
+      <ul>
+        <li>Pipe length per system and per zone, as a list or a CSV for Excel</li>
+        <li>Find open ends: pipes that are not connected to anything</li>
+        <li>Check velocity and diameter against your design rule</li>
+        <li>Find a wrong piping system type</li>
+        <li>Flow and heat output per zone at a glance</li>
+      </ul>
+      <p class="voetnoot">The final list comes with the lessons.</p>
+      <h2>An example</h2>
+      <p>Which pipes run faster than 1.0 m/s? On the simulated greenhouse complex this script finds exactly the zone where a header pipe was drawn too small.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">VelocityCheck.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: VelocityCheck.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Plumbing</span> <span class="c-kw">import</span> <span class="c-revit">Pipe</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+MAX_VELOCITY = <span class="c-num">1.0</span>  <span class="c-com"># m/s, design rule for steel pipes</span>
+
+<span class="c-kw">for</span> pipe <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(<span class="c-revit">Pipe</span>):
+    v = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_VELOCITY_PARAM</span>).<span class="c-revit">AsDouble</span>()
+    v = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(v, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">MetersPerSecond</span>)
+    <span class="c-kw">if</span> v &gt; MAX_VELOCITY:
+        zone = pipe.<span class="c-revit">LookupParameter</span>(<span class="c-str">&quot;Groep&quot;</span>).<span class="c-revit">AsString</span>()
+        dn = pipe.<span class="c-revit">get_Parameter</span>(
+            <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_DIAMETER_PARAM</span>).<span class="c-revit">AsValueString</span>()
+        <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {:.2f} m/s at diameter {}&quot;</span>.format(zone, v, dn))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated model"><code class="language-uitvoer">Afd 2 - Groep 3: 2.09 m/s at diameter 25 mm</code></pre></figure>
+      <p class="voetnoot">"Groep" (zone) is a project parameter of the practice model, which uses Dutch names. Checked against the Revit API 2025 documentation; not yet run in a real Revit.</p>
+    </div>
+    <aside class="pakket-zij">
+      <figure class="model">
+        <div class="model-kop"><span>Simulated model</span><span>Greenhouse complex · plan</span></div>
+        <svg viewBox="0 0 320 190" role="img" aria-labelledby="model-plan-uitleg">
+  <rect x="8" y="8" width="304" height="174" rx="10" class="m-kas"/>
+  <g class="m-raster"><path d="M64 8v174M120 8v174M176 8v174M232 8v174M288 8v174"/></g>
+  <g class="m-lijnen">
+    <path pathLength="1" class="m-lijn m-aanvoer" d="M30 24v146"/>
+    <path pathLength="1" class="m-lijn m-retour" d="M20 30v146"/>
+    <path pathLength="1" class="m-lijn m-aanvoer" d="M30 36h270"/>
+    <path pathLength="1" class="m-lijn m-retour" d="M20 46h280"/>
+    <path pathLength="1" class="m-lijn m-aanvoer" d="M30 72h270"/>
+    <path pathLength="1" class="m-lijn m-retour" d="M20 82h280"/>
+    <path pathLength="1" class="m-lijn m-aanvoer m-fout" d="M30 108h270"/>
+    <path pathLength="1" class="m-lijn m-retour" d="M20 118h280"/>
+    <path pathLength="1" class="m-lijn m-aanvoer" d="M30 144h270"/>
+    <path pathLength="1" class="m-lijn m-retour" d="M20 154h280"/>
+  </g>
+  <circle cx="300" cy="108" r="9" class="m-markering"/>
+</svg>
+
+        <ul class="model-legenda" aria-hidden="true"><li><i style="background:var(--vlam)"></i>Supply</li><li><i style="background:var(--revit)"></i>Return</li><li><i style="background:var(--fout)"></i>Found</li></ul>
+        <figcaption id="model-plan-uitleg" class="vh">Plan of a simulated greenhouse section with supply and return pipes; one zone is marked as found by the script.</figcaption>
+      </figure>
+      <div class="kaart pakket-prijs">
+        <p class="prijs-bedrag">€79.99 <small>one-time, coming soon</small></p>
+        <p>On top of PyPath Basis. Or take PyPath Complete (€249.99) with all three launch packs.</p>
+        <p><a href="../guides/filteredelementcollector-python.html">Guide: the FilteredElementCollector</a></p>
+      </div>
+    </aside>
+  </div>
+  <div class="binnen smal"><aside class="tester kaart" aria-label="Want to test it soon?"><div><p class="tester-kop">Want to test it soon?</p><p>We are looking for drafters and engineers who want to try the app before launch. Let us know via GitHub Issues; please do not include personal data.</p></div><a class="knop knop-zacht" href="https://github.com/pypath-automation/PyPath/issues">Let us know via Issues</a></aside></div>
+</div>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">For employers</p><ul><li><a href="../business.html">For business</a></li><li><a href="../business.html#calculator">Calculate the return</a></li><li><a href="../convince-your-manager.html">Convince your manager</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="../guides/">All guides</a></li><li><a href="../guides/learn-python-for-revit.html">Learning Python for Revit</a></li><li><a href="../guides/pyrevit-tutorial-first-button.html">pyRevit first button</a></li><li><a href="../guides/revit-set-parameter-python.html">Setting parameters</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

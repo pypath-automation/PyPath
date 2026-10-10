@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Water trade pack: Revit tools for irrigation with Python | PyPath</title>
+<meta name="description" content="Water trade pack: build your own pyRevit tools for irrigation water, basins and pipe networks. Material lists, drip lines and checks. {{prijs:vakpakket}} one-time.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/trade-pack/water.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/vakpakket/water.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/trade-pack/water.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/trade-pack/water.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Water trade pack: Revit tools for irrigation with Python | PyPath">
+<meta property="og:description" content="Water trade pack: build your own pyRevit tools for irrigation water, basins and pipe networks. Material lists, drip lines and checks. {{prijs:vakpakket}} one-time.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/trade-pack/water.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water trade pack: Revit tools for irrigation with Python | PyPath">
+<meta name="twitter:description" content="Water trade pack: build your own pyRevit tools for irrigation water, basins and pipe networks. Material lists, drip lines and checks. {{prijs:vakpakket}} one-time.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=71b9e28b1e">
+<script src="../../assets/site.js?v=5c9f974040" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/water.html#webpagina","url":"https://pypath-automation.github.io/PyPath/en/trade-pack/water.html","name":"Water trade pack: Revit tools for irrigation with Python | PyPath","description":"Water trade pack: build your own pyRevit tools for irrigation water, basins and pipe networks. Material lists, drip lines and checks. {{prijs:vakpakket}} one-time.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/water.html#kruimels"}},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/trade-pack/water.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"Trade packs","item":"https://pypath-automation.github.io/PyPath/en/trade-packs.html"},{"@type":"ListItem","position":3,"name":"Water","item":"https://pypath-automation.github.io/PyPath/en/trade-pack/water.html"}]}]}</script>
+</head>
+<body class="pagina-pagina">
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html" aria-current="page">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../guides/">Guides</a></li><li><a href="../business.html">For business</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../vakpakket/water.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html" aria-current="page">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../guides/">Guides</a></li><li><a href="../business.html">For business</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<header class="pagina-kop">
+  <div class="binnen">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><span aria-current="page">Water</span></li></ol></nav>
+    <p class="bovenkop">Trade pack <span class="status">Coming soon</span></p>
+    <h1>Water</h1>
+    <p class="lead">Irrigation water, basins and pipe networks: your own tools for water installations, practised on a simulated greenhouse complex with an irrigation unit, distribution pipes and drip lines.</p>
+  </div>
+</header>
+<div class="inhoud-pagina">
+  <div class="binnen pakket-raster">
+    <div class="tekst">
+      <h2>Who it is for</h2>
+      <p>Drafters and engineers who draw water installations: irrigation in greenhouse horticulture, or pipe networks in other buildings.</p>
+      <h2>Tools you build</h2>
+      <ul>
+        <li>A material list per diameter, ready for ordering</li>
+        <li>Count drip lines and add up their length per section</li>
+        <li>Find open ends and missing end caps</li>
+        <li>Check that every pipe is in the right system</li>
+        <li>Lists to CSV for Excel</li>
+      </ul>
+      <p class="voetnoot">The final list comes with the lessons.</p>
+      <h2>An example</h2>
+      <p>How many metres of irrigation pipe per diameter are in the complex? This script makes the material list.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">IrrigationMaterialList.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: IrrigationMaterialList.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Plumbing</span> <span class="c-kw">import</span> <span class="c-revit">Pipe</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+per_diameter = {}
+<span class="c-kw">for</span> pipe <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(<span class="c-revit">Pipe</span>):
+    system = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_SYSTEM_NAME_PARAM</span>).<span class="c-revit">AsString</span>()
+    <span class="c-kw">if</span> system != <span class="c-str">&quot;Gietwater&quot;</span>:  <span class="c-com"># the irrigation system in the model</span>
+        <span class="c-kw">continue</span>
+    dn = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_DIAMETER_PARAM</span>).<span class="c-revit">AsValueString</span>()
+    length = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">CURVE_ELEM_LENGTH</span>).<span class="c-revit">AsDouble</span>()
+    metres = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(length, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Meters</span>)
+    per_diameter[dn] = per_diameter.get(dn, <span class="c-num">0</span>) + metres
+
+<span class="c-kw">for</span> dn <span class="c-kw">in</span> <span class="c-bi">sorted</span>(per_diameter, key=<span class="c-kw">lambda</span> d: <span class="c-bi">float</span>(d.split()[<span class="c-num">0</span>])):
+    <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {:.1f} m&quot;</span>.format(dn, per_diameter[dn]))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated model"><code class="language-uitvoer">20 mm: 1940.4 m
+32 mm: 6.4 m
+40 mm: 3.2 m
+50 mm: 6.4 m
+63 mm: 11.2 m
+75 mm: 12.8 m
+90 mm: 29.9 m</code></pre></figure>
+      <p class="voetnoot">Checked against the Revit API 2025 documentation; not yet run in a real Revit.</p>
+    </div>
+    <aside class="pakket-zij">
+      <figure class="model">
+        <div class="model-kop"><span>Simulated model</span><span>Irrigation · plan</span></div>
+        <svg viewBox="0 0 320 190" role="img" aria-labelledby="model-plan-uitleg">
+  <rect x="8" y="8" width="304" height="174" rx="10" class="m-kas"/>
+  <g class="m-raster"><path d="M64 8v174M120 8v174M176 8v174M232 8v174M288 8v174"/></g>
+  <rect x="16" y="150" width="34" height="24" rx="5" class="m-kas"/>
+  <g class="m-lijnen">
+    <path pathLength="1" class="m-lijn m-water" d="M33 150V20"/>
+    <path pathLength="1" class="m-lijn m-water m-dun" d="M33 26h270M33 40h270M33 54h270M33 68h270M33 82h270M33 96h270M33 110h270M33 124h270M33 138h270"/>
+  </g>
+</svg>
+
+        <ul class="model-legenda" aria-hidden="true"><li><i style="background:var(--accent)"></i>Irrigation water</li></ul>
+        <figcaption id="model-plan-uitleg" class="vh">Plan of a simulated greenhouse section with an irrigation unit, a distribution pipe and parallel drip lines.</figcaption>
+      </figure>
+      <div class="kaart pakket-prijs">
+        <p class="prijs-bedrag">€79.99 <small>one-time, coming soon</small></p>
+        <p>On top of PyPath Basis. Or take PyPath Complete (€249.99) with all three launch packs.</p>
+        <p><a href="../guides/revit-set-parameter-python.html">Guide: reading and setting parameters</a></p>
+      </div>
+    </aside>
+  </div>
+  <div class="binnen smal"><aside class="tester kaart" aria-label="Want to test it soon?"><div><p class="tester-kop">Want to test it soon?</p><p>We are looking for drafters and engineers who want to try the app before launch. Let us know via GitHub Issues; please do not include personal data.</p></div><a class="knop knop-zacht" href="https://github.com/pypath-automation/PyPath/issues">Let us know via Issues</a></aside></div>
+</div>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">For employers</p><ul><li><a href="../business.html">For business</a></li><li><a href="../business.html#calculator">Calculate the return</a></li><li><a href="../convince-your-manager.html">Convince your manager</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="../guides/">All guides</a></li><li><a href="../guides/learn-python-for-revit.html">Learning Python for Revit</a></li><li><a href="../guides/pyrevit-tutorial-first-button.html">pyRevit first button</a></li><li><a href="../guides/revit-set-parameter-python.html">Setting parameters</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

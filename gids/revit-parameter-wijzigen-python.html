@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Revit-parameters lezen en wijzigen met Python | PyPath</title>
+<meta name="description" content="Zo lees en wijzig je Revit-parameters met Python en pyRevit: get_Parameter, LookupParameter, Set en Transaction, met werkende voorbeelden en de valkuilen.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/revit-set-parameter-python.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/revit-set-parameter-python.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Revit-parameters lezen en wijzigen met Python | PyPath">
+<meta property="og:description" content="Zo lees en wijzig je Revit-parameters met Python en pyRevit: get_Parameter, LookupParameter, Set en Transaction, met werkende voorbeelden en de valkuilen.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revit-parameters lezen en wijzigen met Python | PyPath">
+<meta name="twitter:description" content="Zo lees en wijzig je Revit-parameters met Python en pyRevit: get_Parameter, LookupParameter, Set en Transaction, met werkende voorbeelden en de valkuilen.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg">
+<meta name="twitter:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../assets/site.css?v=71b9e28b1e">
+<script src="../assets/site.js?v=5c9f974040" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html#webpagina","url":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html","name":"Revit-parameters lezen en wijzigen met Python | PyPath","description":"Zo lees en wijzig je Revit-parameters met Python en pyRevit: get_Parameter, LookupParameter, Set en Transaction, met werkende voorbeelden en de valkuilen.","inLanguage":"nl","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html#kruimels"}},{"@type":"TechArticle","@id":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html#artikel","proficiencyLevel":"Beginner","headline":"Revit-parameters lezen en wijzigen met Python (met Transaction)","description":"Zo lees en wijzig je Revit-parameters met Python en pyRevit: get_Parameter, LookupParameter, Set en Transaction, met werkende voorbeelden en de valkuilen.","image":["https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg"],"datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/"},"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"nl","mainEntityOfPage":{"@id":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html#webpagina"},"isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"wordCount":938},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/"},{"@type":"ListItem","position":2,"name":"Gidsen","item":"https://pypath-automation.github.io/PyPath/gids/"},{"@type":"ListItem","position":3,"name":"Parameters wijzigen","item":"https://pypath-automation.github.io/PyPath/gids/revit-parameter-wijzigen-python.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<a class="naar-inhoud" href="#inhoud">Naar de inhoud</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Hoofdmenu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../en/guides/revit-set-parameter-python.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="vh">English</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../ondersteuning.html">Ondersteuning</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Kruimelpad"><ol><li><a href="../">PyPath</a></li><li><a href="./">Gidsen</a></li><li><span aria-current="page">Parameters wijzigen</span></li></ol></nav>
+    <h1>Revit-parameters lezen en wijzigen met Python (met Transaction)</h1>
+    <p class="gids-intro">Parameters zijn de gegevens van je model. Zo lees je ze, zo vul je ze in bulk in, en dit zijn de valkuilen waardoor Set niets doet of een fout geeft.</p>
+    <p class="gids-meta"><span>5 min lezen</span><span aria-hidden="true">·</span><span>Bijgewerkt op 10 oktober 2026</span><span aria-hidden="true">·</span><span>Gecontroleerd tegen de Revit API 2025-documentatie</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">Op deze pagina</summary><ol><li><a href="#ophalen">Een parameter ophalen</a></li><li><a href="#nederlandse-revit">Waarom LookupParameter breekt in een Nederlandse Revit</a></li><li><a href="#lezen">Een waarde lezen</a></li><li><a href="#wijzigen">Een waarde wijzigen: altijd in een Transaction</a></li><li><a href="#kale-transaction">Zonder pyRevit-hulp: een kale Transaction</a></li><li><a href="#valkuilen">Valkuilen</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Kort antwoord:</strong> haal een parameter op met <code>element.get_Parameter(BuiltInParameter...)</code> (of <code>LookupParameter("naam")</code> voor eigen parameters), lees hem met <code>AsString()</code>, <code>AsDouble()</code>, <code>AsInteger()</code> of <code>AsValueString()</code>, en wijzig hem met <code>Set(waarde)</code>. Wijzigen mag alleen binnen een <strong>Transaction</strong>; in pyRevit schrijf je daarvoor <code>with revit.Transaction("naam"):</code>.</p>
+</div>
+
+<h2 id="ophalen">Een parameter ophalen</h2>
+<p>Er zijn twee manieren:</p>
+<ul>
+  <li><code>get_Parameter(BuiltInParameter.X)</code> voor parameters die Revit zelf heeft, zoals lengte, diameter, merk, opmerkingen of systeemnaam. De namen staan in de enum <code>BuiltInParameter</code>, bijvoorbeeld <code>CURVE_ELEM_LENGTH</code>, <code>RBS_PIPE_DIAMETER_PARAM</code>, <code>ALL_MODEL_MARK</code> en <code>ALL_MODEL_INSTANCE_COMMENTS</code>.</li>
+  <li><code>LookupParameter("naam")</code> voor parameters die jullie zelf hebben toegevoegd: projectparameters en shared parameters.</li>
+</ul>
+<p>Weet je niet hoe een parameter in de API heet? Klik het element aan met de gratis add-in RevitLookup en kijk bij de parameters.</p>
+
+<h2 id="nederlandse-revit">Waarom LookupParameter breekt in een Nederlandse Revit</h2>
+<p><code>LookupParameter</code> zoekt op de naam die je in Revit ziet. Die hangt af van de taal van Revit: wat in een Engelse Revit "Length" heet, heet in een Nederlandse Revit "Lengte". Een script met <code>LookupParameter("Length")</code> werkt dan bij de ene collega wel en bij de andere niet. Gebruik voor ingebouwde parameters daarom altijd <code>get_Parameter</code> met een <code>BuiltInParameter</code>: die naam is in elke taal hetzelfde.</p>
+
+<h2 id="lezen">Een waarde lezen</h2>
+<p>Een parameter heeft een opslagtype (<code>StorageType</code>): tekst, kommagetal, geheel getal of een verwijzing naar een ander element. Daar hoort de leesfunctie bij:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Leesparameters.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Leesparameters.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+leiding = (<span class="c-revit">FilteredElementCollector</span>(doc)
+           .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+           .<span class="c-revit">WhereElementIsNotElementType</span>()
+           .<span class="c-revit">FirstElement</span>())
+
+diameter = leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_DIAMETER_PARAM</span>)
+<span class="c-bi">print</span>(diameter.<span class="c-revit">StorageType</span>)        <span class="c-com"># Double</span>
+<span class="c-bi">print</span>(diameter.<span class="c-revit">AsDouble</span>())         <span class="c-com"># in voet</span>
+<span class="c-bi">print</span>(diameter.<span class="c-revit">AsValueString</span>())    <span class="c-com"># zoals Revit hem toont</span>
+systeem = leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_SYSTEM_NAME_PARAM</span>)
+<span class="c-bi">print</span>(systeem.<span class="c-revit">AsString</span>())
+<span class="c-bi">print</span>(leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ELEM_TYPE_PARAM</span>).<span class="c-revit">AsValueString</span>())</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kasmodel</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kasmodel"><code class="language-uitvoer">Double
+0.13123359580052493
+40 mm
+CV Aanvoer
+Staal gelast</code></pre></figure>
+<ul>
+  <li><code>AsDouble()</code> geeft het getal in de interne eenheid van Revit: voet. 0,131 voet is 40 mm.</li>
+  <li><code>AsValueString()</code> geeft de tekst zoals Revit hem toont, met de eenheden van het project. Handig voor een lijst, niet om mee te rekenen.</li>
+  <li><code>AsString()</code> is voor tekstparameters, <code>AsInteger()</code> voor gehele getallen en ja/nee, <code>AsElementId()</code> voor verwijzingen.</li>
+</ul>
+
+<h2 id="wijzigen">Een waarde wijzigen: altijd in een Transaction</h2>
+<p>Alles wat het model verandert, moet binnen een transaction. Met de hulpmodule van pyRevit is dat één regel. Dit script zet een opmerking op alle leidingen en telt hoe vaak het lukte:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Opmerking.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Opmerking.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">pyrevit</span> <span class="c-kw">import</span> <span class="c-revit">revit</span>, <span class="c-revit">DB</span>
+
+leidingen = (<span class="c-revit">DB</span>.<span class="c-revit">FilteredElementCollector</span>(<span class="c-revit">revit</span>.<span class="c-revit">doc</span>)
+             .<span class="c-revit">OfCategory</span>(<span class="c-revit">DB</span>.<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+             .<span class="c-revit">WhereElementIsNotElementType</span>()
+             .<span class="c-revit">ToElements</span>())
+
+gewijzigd = <span class="c-num">0</span>
+<span class="c-kw">with</span> <span class="c-revit">revit</span>.<span class="c-revit">Transaction</span>(<span class="c-str">&quot;Opmerking invullen&quot;</span>):
+    <span class="c-kw">for</span> leiding <span class="c-kw">in</span> leidingen:
+        p = leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">DB</span>.<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_INSTANCE_COMMENTS</span>)
+        <span class="c-kw">if</span> p <span class="c-kw">and</span> <span class="c-kw">not</span> p.IsReadOnly:
+            <span class="c-kw">if</span> p.<span class="c-revit">Set</span>(<span class="c-str">&quot;gecontroleerd&quot;</span>):
+                gewijzigd += <span class="c-num">1</span>
+
+<span class="c-bi">print</span>(<span class="c-str">&quot;Opmerking gezet op {} leidingen&quot;</span>.format(gewijzigd))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kasmodel</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kasmodel"><code class="language-uitvoer">Opmerking gezet op 45 leidingen</code></pre></figure>
+<p>Het hele <code>with</code>-blok is in Revit één stap die je met Ctrl+Z ongedaan maakt. Gaat er halverwege iets mis, dan draait pyRevit alles terug.</p>
+
+<h2 id="kale-transaction">Zonder pyRevit-hulp: een kale Transaction</h2>
+<p>Buiten pyRevit, of als je liever alles zelf regelt, gebruik je de klasse <code>Transaction</code> uit de Revit-API. Vergeet dan het terugdraaien bij een fout niet:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+leiding = (<span class="c-revit">FilteredElementCollector</span>(doc)
+           .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+           .<span class="c-revit">WhereElementIsNotElementType</span>()
+           .<span class="c-revit">FirstElement</span>())
+p = leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_INSTANCE_COMMENTS</span>)
+
+t = <span class="c-revit">Transaction</span>(doc, <span class="c-str">&quot;Opmerking invullen&quot;</span>)
+t.<span class="c-revit">Start</span>()
+<span class="c-kw">try</span>:
+    p.<span class="c-revit">Set</span>(<span class="c-str">&quot;gecontroleerd&quot;</span>)
+    t.<span class="c-revit">Commit</span>()
+<span class="c-kw">except</span> <span class="c-bi">Exception</span>:
+    t.<span class="c-revit">RollBack</span>()
+    <span class="c-kw">raise</span>
+<span class="c-bi">print</span>(t.GetStatus())</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kasmodel</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kasmodel"><code class="language-uitvoer">Committed</code></pre></figure>
+
+<h2 id="valkuilen">Valkuilen</h2>
+<h3>Set geeft geen fout, maar False</h3>
+<p>Geef je een waarde van het verkeerde type, dan doet <code>Set</code> niets en geeft <code>False</code>. Een klassieker: een geheel getal op een parameter met kommagetallen.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+leiding = (<span class="c-revit">FilteredElementCollector</span>(doc)
+           .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+           .<span class="c-revit">WhereElementIsNotElementType</span>()
+           .<span class="c-revit">FirstElement</span>())
+d = leiding.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_PIPE_DIAMETER_PARAM</span>)
+
+t = <span class="c-revit">Transaction</span>(doc, <span class="c-str">&quot;Diameter&quot;</span>)
+t.<span class="c-revit">Start</span>()
+<span class="c-bi">print</span>(d.<span class="c-revit">Set</span>(<span class="c-num">5</span>))                     <span class="c-com"># geheel getal op een Double-parameter</span>
+nieuw = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertToInternalUnits</span>(<span class="c-num">50</span>, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Millimeters</span>)
+<span class="c-bi">print</span>(d.<span class="c-revit">Set</span>(nieuw))                 <span class="c-com"># Double: in voet</span>
+<span class="c-bi">print</span>(d.<span class="c-revit">AsValueString</span>())
+t.<span class="c-revit">RollBack</span>()</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kasmodel</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kasmodel"><code class="language-uitvoer">False
+True
+50 mm</code></pre></figure>
+<p>Controleer daarom de uitkomst van <code>Set</code>, zoals in het voorbeeld met de opmerkingen hierboven.</p>
+<h3>Alleen-lezen parameters</h3>
+<p>Sommige parameters rekent Revit zelf uit, zoals de systeemnaam van een leiding. <code>IsReadOnly</code> is dan <code>True</code>, en <code>Set</code> geeft een fout: <code>The parameter is read-only.</code> Kijk dus eerst naar <code>IsReadOnly</code>.</p>
+<h3>Typeparameters</h3>
+<p>Een deel van de gegevens zit niet op het element, maar op zijn type. Het type haal je op met <code>doc.GetElement(element.GetTypeId())</code>. Wijzig je een typeparameter, dan verandert hij voor <em>alle</em> elementen van dat type. Doe dat dus bewust.</p>
+<h3>Eenheden</h3>
+<p>Lengtes en diameters staan intern in voet. Reken om met <code>UnitUtils.ConvertToInternalUnits</code> en <code>UnitUtils.ConvertFromInternalUnits</code>, met bijvoorbeeld <code>UnitTypeId.Millimeters</code>.</p>
+<p>Wat er precies gebeurt als je de transaction vergeet, lees je in <a href="modify-model-outside-of-transaction.html">"Attempt to modify the model outside of transaction"</a>.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <img class="logo" src="../assets/img/logo-128.png" width="48" height="48" alt="" loading="lazy" decoding="async">
+  <h3 class="probeer-kop" id="probeer-kop">Oefen dit in PyPath</h3>
+  <p>In PyPath zie je meteen wat er misgaat als je de transaction vergeet, zonder je echte model te riskeren. Parameters lezen en wijzigen is de stof van week 11. Week 1 is gratis.</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Verder lezen</h2><ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="filteredelementcollector-python.html"><span class="gids-kaart-meta">Beginners · 4 min lezen</span><h3 class="gids-kaart-titel">FilteredElementCollector uitgelegd, met Python-voorbeelden</h3><p>Elk Revit-script begint met elementen zoeken. Zo werkt de collector, welke filters je nodig hebt, en waarom je soms opeens te veel of helemaal niets vindt.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="modify-model-outside-of-transaction.html"><span class="gids-kaart-meta">Beginners · 4 min lezen</span><h3 class="gids-kaart-titel">&quot;Attempt to modify the model outside of transaction&quot;: zo los je het op</h3><p>De foutmelding die iedereen een keer ziet. Wat hij betekent, hoe je hem in drie regels oplost, en de minder voor de hand liggende varianten.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="python-leren-voor-revit.html"><span class="gids-kaart-meta">Beginners · 7 min lezen</span><h3 class="gids-kaart-titel">Python leren voor Revit: waar begin je?</h3><p>Een eerlijk stappenplan, van je eerste regel Python tot je eigen pyRevit-knop. Met echte voorbeeldcode en de fouten die bijna iedereen maakt.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li></ul><p class="gerelateerd-alle"><a href="./">Alle gidsen <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Leer Python voor Revit en pyRevit. Elke dag tien minuten, op iPhone en Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Het 12-wekenplan</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../#vragen">Veelgestelde vragen</a></li></ul></div><div><p class="voet-kop">Voor werkgevers</p><ul><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../bedrijven.html#rekenvoorbeeld">Bereken wat het oplevert</a></li><li><a href="../voor-je-leidinggevende.html">Overtuig je leidinggevende</a></li></ul></div><div><p class="voet-kop">Leren</p><ul><li><a href="./">Alle gidsen</a></li><li><a href="python-leren-voor-revit.html">Python leren voor Revit</a></li><li><a href="pyrevit-installeren-eerste-knop.html">pyRevit installeren</a></li><li><a href="revit-parameter-wijzigen-python.html">Parameters wijzigen</a></li></ul></div><div><p class="voet-kop">Hulp</p><ul><li><a href="../ondersteuning.html">Ondersteuning</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Vraag of probleem melden</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · Geen cookies, geen tracking, geen account.</p>
+    <p>Revit en Autodesk zijn handelsmerken van Autodesk, Inc. PyPath is een onafhankelijke app en is niet verbonden aan Autodesk of het pyRevit-project.</p>
+  </div>
+</footer>
+</body>
+</html>

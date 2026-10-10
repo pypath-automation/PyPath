@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>pyRevit tutorial: install it and make your first button | PyPath</title>
+<meta name="description" content="Install pyRevit and build your first Revit button step by step: the folder structure, script.py, bundle.yaml, and what to do when it does not work.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/pyrevit-installeren-eerste-knop.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="pyRevit tutorial: install it and make your first button | PyPath">
+<meta property="og:description" content="Install pyRevit and build your first Revit button step by step: the folder structure, script.py, bundle.yaml, and what to do when it does not work.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="pyRevit tutorial: install it and make your first button | PyPath">
+<meta name="twitter:description" content="Install pyRevit and build your first Revit button step by step: the folder structure, script.py, bundle.yaml, and what to do when it does not work.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=71b9e28b1e">
+<script src="../../assets/site.js?v=5c9f974040" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html#webpagina","url":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html","name":"pyRevit tutorial: install it and make your first button | PyPath","description":"Install pyRevit and build your first Revit button step by step: the folder structure, script.py, bundle.yaml, and what to do when it does not work.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html#kruimels"}},{"@type":"TechArticle","@id":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html#artikel","proficiencyLevel":"Beginner","headline":"pyRevit tutorial: install it and make your first button","description":"Install pyRevit and build your first Revit button step by step: the folder structure, script.py, bundle.yaml, and what to do when it does not work.","image":["https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg"],"datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/"},"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"en","mainEntityOfPage":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html#webpagina"},"isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"wordCount":840},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://pypath-automation.github.io/PyPath/en/guides/"},{"@type":"ListItem","position":3,"name":"pyRevit first button","item":"https://pypath-automation.github.io/PyPath/en/guides/pyrevit-tutorial-first-button.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../gids/pyrevit-installeren-eerste-knop.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="./">Guides</a></li><li><span aria-current="page">pyRevit first button</span></li></ol></nav>
+    <h1>pyRevit tutorial: install it and make your first button</h1>
+    <p class="gids-intro">From installation to your own button on the ribbon that counts your model. With the folder structure, a working script and the problems everyone runs into.</p>
+    <p class="gids-meta"><span>4 min read</span><span aria-hidden="true">·</span><span>Updated October 10, 2026</span><span aria-hidden="true">·</span><span>Checked against the Revit API 2025 documentation</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">On this page</summary><ol><li><a href="#what-is-pyrevit">What is pyRevit?</a></li><li><a href="#install">Installing pyRevit</a></li><li><a href="#folders">The folder structure of an extension</a></li><li><a href="#first-script">Your first script.py</a></li><li><a href="#load">Loading the button</a></li><li><a href="#bundle-yaml">Title, tooltip and icon</a></li><li><a href="#troubleshooting">When it does not work</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Short answer:</strong> download pyRevit from the official releases page and install it; a pyRevit tab appears in Revit. Create a folder <code>MyTools.extension</code> containing <code>MyTools.tab/Pipes.panel/Count pipes.pushbutton/script.py</code>, add that folder in the pyRevit settings and choose <em>Reload</em>. Your button is now on the ribbon.</p>
+</div>
+
+<h2 id="what-is-pyrevit">What is pyRevit?</h2>
+<p>pyRevit is a free, open-source add-in for Revit. It turns Python scripts into ribbon buttons: you write a <code>script.py</code> file, pyRevit makes a button for it, and a click runs your script with access to the whole Revit API. No Visual Studio, no compiling.</p>
+<p>By default pyRevit runs your scripts in IronPython 2.7. That is Python as it was around 2010: f-strings do not exist there yet. You can choose Python 3 (CPython) per script with <code>#! python3</code> on the first line, but not all pyRevit helper modules work then. So in buttons, prefer <code>"{}".format(value)</code>: it works in both.</p>
+
+<h2 id="install">Installing pyRevit</h2>
+<ol>
+  <li>Close Revit.</li>
+  <li>Download the installer from the <a href="https://github.com/pyrevitlabs/pyRevit/releases">official pyRevit releases page</a>. At the time of writing (October 2026) the latest version is 6.4.0, supporting Revit up to and including 2027.</li>
+  <li>Install and start Revit. You will see a new <em>pyRevit</em> tab on the ribbon.</li>
+</ol>
+<p>At work you often need your IT department for the installation. pyRevit is open source and does not send anything out on its own, which helps with that conversation. Meanwhile you can already practise without Revit, for example in PyPath.</p>
+
+<h2 id="folders">The folder structure of an extension</h2>
+<p>A set of your own buttons is called an <em>extension</em> in pyRevit. It is simply a folder with subfolders; the suffixes of the folder names decide what ends up where on the ribbon:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">folders</span></figcaption><pre class="code" tabindex="0" aria-label="Code: folders"><code class="language-tekst">MyTools.extension/
+  MyTools.tab/
+    Pipes.panel/
+      Count pipes.pushbutton/
+        script.py
+        bundle.yaml
+        icon.png</code></pre></figure>
+<ul>
+  <li><code>.extension</code>: the whole set. Keep it in its own folder, for example <code>Documents/pyRevit</code>.</li>
+  <li><code>.tab</code>: your own ribbon tab, named after the part before the dot.</li>
+  <li><code>.panel</code>: a group of buttons within that tab.</li>
+  <li><code>.pushbutton</code>: one button. The folder name is the label under the button.</li>
+</ul>
+<p>Later you add a <code>lib</code> folder next to the tab with your own functions; pyRevit makes it available to all your buttons automatically. Step 5 of <a href="learn-python-for-revit.html">Learning Python for Revit</a> shows how.</p>
+
+<h2 id="first-script">Your first script.py</h2>
+<p>Start with a button that only <em>reads</em>: counting how many pipes are in the model. Reading can never break anything.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Count pipes.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Count pipes.pushbutton/script.py"><code class="language-python"><span class="c-com"># -*- coding: utf-8 -*-</span>
+<span class="c-kw">from</span> <span class="c-revit">pyrevit</span> <span class="c-kw">import</span> <span class="c-revit">revit</span>, <span class="c-revit">DB</span>, <span class="c-revit">forms</span>
+
+count = (<span class="c-revit">DB</span>.<span class="c-revit">FilteredElementCollector</span>(<span class="c-revit">revit</span>.<span class="c-revit">doc</span>)
+         .<span class="c-revit">OfCategory</span>(<span class="c-revit">DB</span>.<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+         .<span class="c-revit">WhereElementIsNotElementType</span>()
+         .<span class="c-revit">GetElementCount</span>())
+
+<span class="c-revit">forms</span>.<span class="c-revit">alert</span>(<span class="c-str">&quot;This model contains {} pipes.&quot;</span>.format(count),
+            title=<span class="c-str">&quot;Count pipes&quot;</span>)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Alert on the simulated greenhouse model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Alert on the simulated greenhouse model"><code class="language-uitvoer">Count pipes: This model contains 45 pipes.</code></pre></figure>
+<ul>
+  <li>The first line tells IronPython the file is UTF-8. You need it as soon as you use characters such as é or ².</li>
+  <li><code>revit.doc</code> is the active model; <code>DB</code> is <code>Autodesk.Revit.DB</code>.</li>
+  <li>The <a href="filteredelementcollector-python.html">FilteredElementCollector</a> finds the pipes; <code>WhereElementIsNotElementType()</code> leaves out the pipe types.</li>
+  <li><code>forms.alert</code> shows a message in Revit. Prefer a list? Use <code>print()</code>: pyRevit then opens an output window.</li>
+</ul>
+
+<h2 id="load">Loading the button</h2>
+<ol>
+  <li>In Revit, open the <em>pyRevit</em> tab and open the settings.</li>
+  <li>Under <em>Custom Extension Directories</em>, add the folder that contains <code>MyTools.extension</code>. So the folder above it, not the extension itself.</li>
+  <li>Save the settings and choose <em>Reload</em>. The <em>MyTools</em> tab appears with your button.</li>
+</ol>
+<p>If you then only change <code>script.py</code>, you will see the change on the next click. New buttons, new folder names or a different icon need a <em>Reload</em>.</p>
+
+<h2 id="bundle-yaml">Title, tooltip and icon</h2>
+<p>With a <code>bundle.yaml</code> file next to the script you give the button a proper title and a tooltip that appears when you hover over it:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Count pipes.pushbutton/bundle.yaml</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Count pipes.pushbutton/bundle.yaml"><code class="language-tekst">title: Count pipes
+tooltip: Counts all pipes in the active model.
+author: My name</code></pre></figure>
+<p>An <code>icon.png</code> in the same folder becomes the icon. If you use Revit's dark theme, you can add an <code>icon.dark.png</code> next to it.</p>
+
+<h2 id="troubleshooting">When it does not work</h2>
+<ul>
+  <li><strong>The button does not appear.</strong> Are the suffixes right (<code>.extension</code>, <code>.tab</code>, <code>.panel</code>, <code>.pushbutton</code>)? Did you add the folder <em>above</em> the extension? And did you press <em>Reload</em>?</li>
+  <li><strong><code>SyntaxError</code> on a line with <code>f"..."</code>.</strong> The default engine is IronPython 2.7, which has no f-strings. Write <code>"{}".format(...)</code>, or put <code>#! python3</code> on the first line.</li>
+  <li><strong>Strange characters or an encoding error.</strong> Put <code># -*- coding: utf-8 -*-</code> at the top of the script.</li>
+  <li><strong><code>forms.alert</code> does not work.</strong> Under the Python 3 engine <code>pyrevit.forms</code> is not available; use <code>print()</code> there.</li>
+  <li><strong><code>Attempt to modify the model outside of transaction.</code></strong> Your script changes something outside a transaction. See <a href="modify-model-outside-of-transaction.html">this guide on that error</a>.</li>
+</ul>
+<p>More about pyRevit itself is in the <a href="https://docs.pyrevitlabs.io/">pyRevit documentation</a>.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <img class="logo" src="../../assets/img/logo-128.png" width="48" height="48" alt="" loading="lazy" decoding="async">
+  <h3 class="probeer-kop" id="probeer-kop">Practise this in PyPath</h3>
+  <p>Never written Python? Learn the basics first in PyPath: ten minutes a day, and in week 9 you build this button on a simulated Revit model. Week 1 is free. (The lessons are in Dutch for now.)</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Keep reading</h2><ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="learn-python-for-revit.html"><span class="gids-kaart-meta">Beginners · 7 min read</span><h3 class="gids-kaart-titel">Learning Python for Revit: where do you start?</h3><p>An honest step-by-step plan, from your first line of Python to your own pyRevit button. With real example code and the mistakes almost everyone makes.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="filteredelementcollector-python.html"><span class="gids-kaart-meta">Beginners · 4 min read</span><h3 class="gids-kaart-titel">FilteredElementCollector explained, with Python examples</h3><p>Every Revit script starts by finding elements. How the collector works, which filters you need, and why you sometimes find too many elements or none at all.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="modify-model-outside-of-transaction.html"><span class="gids-kaart-meta">Beginners · 4 min read</span><h3 class="gids-kaart-titel">&quot;Attempt to modify the model outside of transaction&quot;: how to fix it</h3><p>The error message everyone sees at some point. What it means, how to fix it in three lines, and the less obvious variants.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li></ul><p class="gerelateerd-alle"><a href="./">All guides <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">For employers</p><ul><li><a href="../business.html">For business</a></li><li><a href="../business.html#calculator">Calculate the return</a></li><li><a href="../convince-your-manager.html">Convince your manager</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="./">All guides</a></li><li><a href="learn-python-for-revit.html">Learning Python for Revit</a></li><li><a href="pyrevit-tutorial-first-button.html">pyRevit first button</a></li><li><a href="revit-set-parameter-python.html">Setting parameters</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

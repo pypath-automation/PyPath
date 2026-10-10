@@ -77,6 +77,56 @@
     });
   }
 
+  // Rekenvoorbeeld (Voor bedrijven): alles in de browser, niets opslaan of versturen.
+  document.querySelectorAll("form[data-calculator]").forEach(function (form) {
+    var taal = (document.documentElement.lang || "nl").indexOf("en") === 0 ? "en-IE" : "nl-NL";
+    var euro = new Intl.NumberFormat(taal, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+    var getal = function (naam) {
+      var veld = form.elements[naam];
+      var v = parseFloat(String(veld.value).replace(",", "."));
+      return isFinite(v) && v >= 0 ? v : 0;
+    };
+    var zet = function (naam, tekst) { var el = form.querySelector('[data-uit="' + naam + '"]'); if (el) el.textContent = tekst; };
+    var reken = function () {
+      var mensen = getal("mensen"), uren = getal("uren"), tarief = getal("tarief");
+      var leertijd = getal("leertijd"), prijs = getal("prijs"), weken = getal("weken");
+      var investering = mensen * (prijs + leertijd * tarief);
+      var perWeek = mensen * uren * tarief;
+      var besparing = perWeek * weken;
+      var eersteJaar = perWeek * Math.max(0, weken - 12) - investering;
+      zet("investering", euro.format(investering));
+      zet("besparing", euro.format(besparing));
+      zet("netto", euro.format(eersteJaar));
+      zet("terug", perWeek > 0
+        ? form.getAttribute("data-weken").replace("{n}", Math.max(1, Math.round(investering / perWeek)))
+        : form.getAttribute("data-nooit"));
+    };
+    form.hidden = false;
+    form.addEventListener("input", reken);
+    form.addEventListener("change", reken);
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+    reken();
+  });
+
+  // Brief kopiëren
+  document.querySelectorAll("[data-kopieer]").forEach(function (knop) {
+    var doel = document.querySelector(knop.getAttribute("data-kopieer"));
+    if (!doel || !navigator.clipboard) return;
+    knop.hidden = false;
+    var label = knop.textContent;
+    knop.addEventListener("click", function () {
+      navigator.clipboard.writeText(doel.innerText.trim()).then(function () {
+        knop.textContent = knop.getAttribute("data-gekopieerd") || label;
+        setTimeout(function () { knop.textContent = label; }, 1800);
+      });
+    });
+  });
+
+  // Printknop (printversie van de brief)
+  document.querySelectorAll("[data-print]").forEach(function (knop) {
+    knop.addEventListener("click", function () { window.print(); });
+  });
+
   // Mobiel menu
   var menu = document.querySelector("details.menu");
   if (menu) {

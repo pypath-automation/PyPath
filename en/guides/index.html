@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guides: learn Python for Revit and pyRevit | PyPath</title>
+<meta name="description" content="Practical guides on Python for Revit: pyRevit, the Revit API, FilteredElementCollector, parameters and transactions, with real code examples.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/guides/">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Guides: learn Python for Revit and pyRevit | PyPath">
+<meta property="og:description" content="Practical guides on Python for Revit: pyRevit, the Revit API, FilteredElementCollector, parameters and transactions, with real code examples.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/guides/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Guides: learn Python for Revit and pyRevit | PyPath">
+<meta name="twitter:description" content="Practical guides on Python for Revit: pyRevit, the Revit API, FilteredElementCollector, parameters and transactions, with real code examples.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=17b19770e1">
+<script src="../../assets/site.js?v=bbeadca918" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"CollectionPage","@id":"https://pypath-automation.github.io/PyPath/en/guides/#webpagina","url":"https://pypath-automation.github.io/PyPath/en/guides/","name":"Guides: learn Python for Revit and pyRevit | PyPath","description":"Practical guides on Python for Revit: pyRevit, the Revit API, FilteredElementCollector, parameters and transactions, with real code examples.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/#kruimels"}},{"@type":"ItemList","@id":"https://pypath-automation.github.io/PyPath/en/guides/#gidsen","itemListElement":[{"@type":"ListItem","position":1,"url":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html","name":"Learning Python for Revit: where do you start?"}]},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/guides/#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://pypath-automation.github.io/PyPath/en/guides/"}]}]}</script>
+</head>
+<body class="pagina-gids-overzicht">
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><linearGradient id="logo-verloop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc97"/><stop offset="1" stop-color="#06875a"/></linearGradient></defs><symbol id="logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="url(#logo-verloop)"/><path d="M21 20c0 22 22 2 22 24" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/><circle cx="21" cy="19" r="6.5" fill="#fff"/><circle cx="43" cy="45" r="6.5" fill="#fff"/></symbol></svg>
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">Curriculum</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../gids/index.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">Curriculum</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<header class="pagina-kop">
+  <div class="binnen">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><span aria-current="page">Guides</span></li></ol></nav>
+    <h1>Guides</h1>
+    <p class="lead">Practical explanations of Python, pyRevit and the Revit API. With real code and examples from building services and greenhouse construction.</p>
+  </div>
+</header>
+<div class="inhoud-pagina">
+  <div class="binnen">
+    <ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="learn-python-for-revit.html"><span class="gids-kaart-meta">Beginners · 7 min read</span><h2 class="gids-kaart-titel">Learning Python for Revit: where do you start?</h2><p>An honest step-by-step plan, from your first line of Python to your own pyRevit button. With real example code and the mistakes almost everyone makes.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li></ul>
+    <div class="binnenkort">
+      <p><strong>Coming soon:</strong> guides on the <code>FilteredElementCollector</code>, reading and changing parameters, transactions, and setting up your own pyRevit library.</p>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="./">All guides</a></li><li><a href="learn-python-for-revit.html">Learning Python for Revit</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

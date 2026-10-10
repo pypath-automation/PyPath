@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Python leren voor Revit: waar begin je? (stappenplan) | PyPath</title>
+<meta name="description" content="Stappenplan om Python te leren voor Revit en pyRevit: welke Python-basis je nodig hebt, je eerste pyRevit-knop, transactions, en de fouten die iedereen maakt.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Python leren voor Revit: waar begin je? (stappenplan) | PyPath">
+<meta property="og:description" content="Stappenplan om Python te leren voor Revit en pyRevit: welke Python-basis je nodig hebt, je eerste pyRevit-knop, transactions, en de fouten die iedereen maakt.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python leren voor Revit: waar begin je? (stappenplan) | PyPath">
+<meta name="twitter:description" content="Stappenplan om Python te leren voor Revit en pyRevit: welke Python-basis je nodig hebt, je eerste pyRevit-knop, transactions, en de fouten die iedereen maakt.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg">
+<meta name="twitter:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../assets/site.css?v=17b19770e1">
+<script src="../assets/site.js?v=bbeadca918" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html#webpagina","url":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html","name":"Python leren voor Revit: waar begin je? (stappenplan) | PyPath","description":"Stappenplan om Python te leren voor Revit en pyRevit: welke Python-basis je nodig hebt, je eerste pyRevit-knop, transactions, en de fouten die iedereen maakt.","inLanguage":"nl","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html#kruimels"}},{"@type":"TechArticle","@id":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html#artikel","proficiencyLevel":"Beginner","headline":"Python leren voor Revit: waar begin je?","description":"Stappenplan om Python te leren voor Revit en pyRevit: welke Python-basis je nodig hebt, je eerste pyRevit-knop, transactions, en de fouten die iedereen maakt.","image":["https://pypath-automation.github.io/PyPath/assets/img/deel-nl.jpg"],"datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/"},"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"nl","mainEntityOfPage":{"@id":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html#webpagina"},"isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"wordCount":1295},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/"},{"@type":"ListItem","position":2,"name":"Alle gidsen","item":"https://pypath-automation.github.io/PyPath/gids/"},{"@type":"ListItem","position":3,"name":"Python leren voor Revit","item":"https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><linearGradient id="logo-verloop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc97"/><stop offset="1" stop-color="#06875a"/></linearGradient></defs><symbol id="logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="url(#logo-verloop)"/><path d="M21 20c0 22 22 2 22 24" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/><circle cx="21" cy="19" r="6.5" fill="#fff"/><circle cx="43" cy="45" r="6.5" fill="#fff"/></symbol></svg>
+<a class="naar-inhoud" href="#inhoud">Naar de inhoud</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Hoofdmenu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Lesplan</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../ondersteuning.html">Ondersteuning</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../en/guides/learn-python-for-revit.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="vh">English</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Lesplan</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../ondersteuning.html">Ondersteuning</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Kruimelpad"><ol><li><a href="../">PyPath</a></li><li><a href="./">Alle gidsen</a></li><li><span aria-current="page">Python leren voor Revit</span></li></ol></nav>
+    <h1>Python leren voor Revit: waar begin je?</h1>
+    <p class="gids-intro">Een eerlijk stappenplan, van je eerste regel Python tot je eigen pyRevit-knop. Met echte voorbeeldcode en de fouten die bijna iedereen maakt.</p>
+    <p class="gids-meta"><span>6 min lezen</span><span aria-hidden="true">·</span><span>Bijgewerkt op 10 oktober 2026</span><span aria-hidden="true">·</span><span>Gecontroleerd tegen de Revit API 2025-documentatie</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">Op deze pagina</summary><ol><li><a href="#waarom-python">Waarom Python voor Revit?</a></li><li><a href="#wat-heb-je-nodig">Wat heb je nodig?</a></li><li><a href="#stap-1-python">Stap 1: leer eerst gewoon Python</a></li><li><a href="#stap-2-revit-model">Stap 2: snap hoe een Revit-model in elkaar zit</a></li><li><a href="#stap-3-eerste-knop">Stap 3: je eerste pyRevit-knop</a></li><li><a href="#stap-4-transaction">Stap 4: iets wijzigen met een transaction</a></li><li><a href="#stap-5-library">Stap 5: bundel het in je eigen library</a></li><li><a href="#veelgemaakte-fouten">Zes fouten die bijna iedereen maakt</a></li><li><a href="#leerschema">Een haalbaar leerschema</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Kort antwoord:</strong> begin met gewoon Python, niet met Revit. Leer eerst variabelen, lijsten, loops, keuzes, dictionaries en functies. Leer daarna hoe een Revit-model in elkaar zit (elementen, categorieën, parameters) en schrijf een eerste pyRevit-knop die alleen iets <em>leest</em>. Pas als dat lukt, ga je wijzigen met een transaction. Met tien minuten per dag ben je in ongeveer twaalf weken zover dat je je eigen tools schrijft.</p>
+</div>
+
+<h2 id="waarom-python">Waarom Python voor Revit?</h2>
+<p>Revit heeft een uitgebreide programmeerinterface: de Revit-API. Daarmee kun je alles wat je met de muis doet ook in code doen, en vooral: duizend keer achter elkaar zonder fouten. Elementen tellen, parameters in bulk invullen, een model controleren, lijsten exporteren. Precies het saaie werk dat nu uren kost.</p>
+<p>Er zijn drie gangbare manieren om die API te gebruiken:</p>
+<ul>
+  <li><strong>C# en Visual Studio</strong>: de manier voor volwaardige add-ins. Krachtig, maar je moet compileren, en de drempel is hoog.</li>
+  <li><strong>Dynamo</strong>: visueel programmeren met blokjes. Handig voor geometrie, maar grotere logica wordt snel onoverzichtelijk. In Dynamo kun je ook Python-blokken gebruiken.</li>
+  <li><strong>pyRevit</strong>: een gratis add-in die Python-scripts als knoppen op het lint van Revit zet. Script opslaan, knop indrukken, klaar. Geen compileren.</li>
+</ul>
+<p>Voor wie zelf wil leren automatiseren, is <strong>Python met pyRevit</strong> de kortste weg van idee naar werkende knop. En wat je leert, gebruik je ook in Dynamo.</p>
+<p>Naslag die je erbij wilt houden: de <a href="https://docs.pyrevitlabs.io/">documentatie van pyRevit</a> en de doorzoekbare <a href="https://www.revitapidocs.com/">Revit API-documentatie op revitapidocs.com</a>.</p>
+
+<h2 id="wat-heb-je-nodig">Wat heb je nodig?</h2>
+<p>Om te <em>leren</em> heb je bijna niets nodig: geen programmeerervaring en geen dure software. Om je scripts later in het echt te draaien heb je nodig:</p>
+<ul>
+  <li><strong>Revit</strong> op een Windows-pc;</li>
+  <li><strong>pyRevit</strong>, de gratis opensource-add-in;</li>
+  <li>een <strong>teksteditor</strong> voor code, bijvoorbeeld Visual Studio Code;</li>
+  <li>en bij voorkeur <strong>RevitLookup</strong>, een gratis add-in waarmee je op een element klikt en alle eigenschappen en parameters ziet.</li>
+</ul>
+
+<h2 id="stap-1-python">Stap 1: leer eerst gewoon Python</h2>
+<p>De grootste fout is meteen met de Revit-API beginnen. Dan vecht je met twee dingen tegelijk: de taal én het model. Leer daarom eerst de basis van Python, in deze volgorde:</p>
+<ol>
+  <li>variabelen, getallen en tekst (strings);</li>
+  <li>lijsten en <code>for</code>-loops;</li>
+  <li>keuzes met <code>if</code>, <code>elif</code> en <code>else</code>;</li>
+  <li>dictionaries, om dingen te tellen en te groeperen;</li>
+  <li>functies, en later classes en modules.</li>
+</ol>
+<p>Vooral dictionaries zijn goud waard. Dit is het patroon dat je in Revit steeds weer gebruikt: optellen per groep.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">oefenen.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: oefenen.py"><code class="language-python">leidingen = [
+    {<span class="c-str">&quot;systeem&quot;</span>: <span class="c-str">&quot;CV Aanvoer&quot;</span>, <span class="c-str">&quot;lengte&quot;</span>: <span class="c-num">6.0</span>},
+    {<span class="c-str">&quot;systeem&quot;</span>: <span class="c-str">&quot;CV Retour&quot;</span>, <span class="c-str">&quot;lengte&quot;</span>: <span class="c-num">6.0</span>},
+    {<span class="c-str">&quot;systeem&quot;</span>: <span class="c-str">&quot;CV Aanvoer&quot;</span>, <span class="c-str">&quot;lengte&quot;</span>: <span class="c-num">4.5</span>},
+]
+
+per_systeem = {}
+<span class="c-kw">for</span> leiding <span class="c-kw">in</span> leidingen:
+    naam = leiding[<span class="c-str">&quot;systeem&quot;</span>]
+    per_systeem[naam] = per_systeem.get(naam, <span class="c-num">0</span>) + leiding[<span class="c-str">&quot;lengte&quot;</span>]
+
+<span class="c-bi">print</span>(per_systeem)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer"><code class="language-uitvoer">{&#x27;CV Aanvoer&#x27;: 10.5, &#x27;CV Retour&#x27;: 6.0}</code></pre></figure>
+<p>Straks komen de leidingen niet uit een lijstje, maar uit je Revit-model. De rest blijft hetzelfde.</p>
+<p>Wat je in het begin kunt overslaan: webframeworks, data-science en bekende bibliotheken als pandas en NumPy. Die werken bovendien niet in de standaard-engine van pyRevit.</p>
+
+<h2 id="stap-2-revit-model">Stap 2: snap hoe een Revit-model in elkaar zit</h2>
+<p>Voor je code schrijft voor Revit, helpt het om het model te zien zoals de API het ziet:</p>
+<ul>
+  <li><strong>Alles is een element.</strong> Een muur, een leiding, een deur, een aanzicht: allemaal een <code>Element</code> met een eigen <code>ElementId</code>.</li>
+  <li><strong>Elementen horen bij een categorie</strong>, zoals muren, deuren of leidingen. In code: <code>BuiltInCategory.OST_Walls</code>, <code>OST_Doors</code> of <code>OST_PipeCurves</code>.</li>
+  <li><strong>Types en exemplaren zijn verschillend.</strong> Een wandtype is iets anders dan de muur die je tekent. Daarom zie je vaak <code>WhereElementIsNotElementType()</code>: alleen de echte exemplaren.</li>
+  <li><strong>Parameters bevatten de gegevens</strong>: lengte, merk, opmerkingen, systeemnaam. Je leest ze met <code>get_Parameter(...)</code> of <code>LookupParameter("naam")</code>.</li>
+  <li><strong>Revit rekent intern in voet.</strong> Een lengte van 1 betekent 304,8 mm. Reken om met <code>UnitUtils.ConvertFromInternalUnits</code>.</li>
+</ul>
+
+<h2 id="stap-3-eerste-knop">Stap 3: je eerste pyRevit-knop</h2>
+<p>Een pyRevit-knop is gewoon een map met een <code>script.py</code> erin. De mapnamen bepalen waar de knop op het lint komt:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">mappen</span></figcaption><pre class="code" tabindex="0" aria-label="Code: mappen"><code class="language-tekst">MijnTools.extension/
+  MijnTools.tab/
+    Tellen.panel/
+      TelDeuren.pushbutton/
+        script.py</code></pre></figure>
+<p>Voeg de map <code>MijnTools.extension</code> toe in de instellingen van pyRevit (bij de mappen voor eigen extensies) en kies <em>Reload</em>. Je knop staat nu op het lint. Begin met een script dat alleen iets <em>leest</em>:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">TelDeuren.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: TelDeuren.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">BuiltInCategory</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+deuren = (<span class="c-revit">FilteredElementCollector</span>(doc)
+          .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_Doors</span>)
+          .<span class="c-revit">WhereElementIsNotElementType</span>()
+          .<span class="c-revit">ToElements</span>())
+
+<span class="c-bi">print</span>(<span class="c-str">&quot;Aantal deuren: {}&quot;</span>.format(<span class="c-bi">len</span>(deuren)))</code></pre></figure>
+<p>Druk op de knop en pyRevit opent een venster met de uitvoer van <code>print()</code>. Lezen kan nooit iets kapotmaken, dus hier kun je naar hartenlust proberen.</p>
+
+<h2 id="stap-4-transaction">Stap 4: iets wijzigen met een transaction</h2>
+<p>Zodra je iets in het model wilt veranderen, moet dat binnen een <strong>transaction</strong>. Dat is ook je vangnet: gaat er halverwege iets mis, dan draait Revit alles terug. Met de hulpmodule van pyRevit ziet dat er zo uit:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">MarkeerLeidingen.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: MarkeerLeidingen.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">pyrevit</span> <span class="c-kw">import</span> <span class="c-revit">revit</span>, <span class="c-revit">DB</span>
+
+leidingen = (<span class="c-revit">DB</span>.<span class="c-revit">FilteredElementCollector</span>(<span class="c-revit">revit</span>.<span class="c-revit">doc</span>)
+             .<span class="c-revit">OfCategory</span>(<span class="c-revit">DB</span>.<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+             .<span class="c-revit">WhereElementIsNotElementType</span>())
+
+<span class="c-kw">with</span> <span class="c-revit">revit</span>.<span class="c-revit">Transaction</span>(<span class="c-str">&quot;Leidingen markeren&quot;</span>):
+    <span class="c-kw">for</span> leiding <span class="c-kw">in</span> leidingen:
+        opmerking = leiding.<span class="c-revit">get_Parameter</span>(
+            <span class="c-revit">DB</span>.<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_INSTANCE_COMMENTS</span>)
+        opmerking.<span class="c-revit">Set</span>(<span class="c-str">&quot;Gecontroleerd&quot;</span>)</code></pre></figure>
+<p>Laat je de <code>with</code>-regel weg, dan stopt Revit met de melding <code>Attempt to modify the model outside of transaction.</code> Die ga je zeker een keer zien.</p>
+
+<h2 id="stap-5-library">Stap 5: bundel het in je eigen library</h2>
+<p>Na een paar knoppen merk je dat je steeds dezelfde stukjes code schrijft. Zet die in een eigen module in de map <code>lib</code> van je extensie. pyRevit maakt die map automatisch vindbaar voor al je knoppen.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">MijnTools.extension/lib/kaslib.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: MijnTools.extension/lib/kaslib.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">UnitUtils</span>, <span class="c-revit">UnitTypeId</span>
+
+
+<span class="c-kw">def</span> <span class="c-def">elementen</span>(doc, categorie):
+    <span class="c-str">&quot;&quot;&quot;Alle exemplaren (geen types) van één categorie.&quot;&quot;&quot;</span>
+    <span class="c-kw">return</span> (<span class="c-revit">FilteredElementCollector</span>(doc)
+            .<span class="c-revit">OfCategory</span>(categorie)
+            .<span class="c-revit">WhereElementIsNotElementType</span>()
+            .<span class="c-revit">ToElements</span>())
+
+
+<span class="c-kw">def</span> <span class="c-def">naar_mm</span>(waarde):
+    <span class="c-str">&quot;&quot;&quot;Revit rekent intern in voet; dit geeft millimeters.&quot;&quot;&quot;</span>
+    <span class="c-kw">return</span> <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(waarde, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Millimeters</span>)</code></pre></figure>
+<p>In elke knop schrijf je daarna gewoon <code>from kaslib import elementen, naar_mm</code>. Dat is het begin van je eigen library, en het moment dat je echt tijd begint te winnen.</p>
+
+<h2 id="veelgemaakte-fouten">Zes fouten die bijna iedereen maakt</h2>
+<ol>
+  <li><strong>Wijzigen buiten een transaction.</strong> Elke wijziging hoort in een transaction; anders krijg je de foutmelding uit stap 4.</li>
+  <li><strong>Vergeten dat Revit in voet rekent.</strong> Een diameter van 0,164 is geen fout, het is ongeveer 50 mm.</li>
+  <li><strong>Types en exemplaren door elkaar.</strong> Zonder <code>WhereElementIsNotElementType()</code> tel je de types mee.</li>
+  <li><strong>Parameters zoeken op hun naam in een Nederlandse Revit.</strong> <code>LookupParameter("Length")</code> zoekt op de naam die je in Revit ziet; in een Nederlandse Revit heet die anders. Voor ingebouwde parameters is <code>get_Parameter(BuiltInParameter...)</code> betrouwbaarder.</li>
+  <li><strong>f-strings in de standaard-engine.</strong> pyRevit gebruikt standaard IronPython 2.7, en dat kent geen f-strings. Gebruik <code>"{}".format(waarde)</code>, of kies de Python 3-engine met <code>#! python3</code> op de eerste regel.</li>
+  <li><strong>Meteen testen in een echt project.</strong> Probeer een nieuw script altijd eerst op een kopie van je model.</li>
+</ol>
+
+<h2 id="leerschema">Een haalbaar leerschema</h2>
+<p>Je hoeft geen avonden vrij te maken. Korte, dagelijkse sessies werken beter dan één lange zit per week, omdat je de stof vaker terugziet. Een schema dat werkt:</p>
+<ul>
+  <li><strong>Maand 1, Python basis:</strong> variabelen, lijsten, loops, keuzes en dictionaries.</li>
+  <li><strong>Maand 2, gevorderd:</strong> functies, classes, modules, fouten afvangen en bestanden.</li>
+  <li><strong>Maand 3, richting Revit:</strong> pyRevit, elementen verzamelen, parameters wijzigen en je eigen library.</li>
+</ul>
+<p>Met tien minuten per dag, en elke dag even herhalen wat je eerder deed, kom je zo in twaalf weken van je eerste regel code tot je eerste eigen tool.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+  <h3 class="probeer-kop" id="probeer-kop">Probeer dit in PyPath</h3>
+  <p>In PyPath oefen je precies deze stappen, elke dag tien minuten, op een nagebootst Revit-model van een complete kas. Met de echte namen uit de Revit-API, directe feedback en hints. Week 1 is gratis.</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Verder lezen</h2><p>Er komen binnenkort meer gidsen bij. Bekijk intussen het <a href="../#lesplan">12-wekenplan van PyPath</a>.</p><p class="gerelateerd-alle"><a href="./">Alle gidsen <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+      <p>Leer Python voor Revit en pyRevit. Elke dag tien minuten, op iPhone en Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Het 12-wekenplan</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../#vragen">Veelgestelde vragen</a></li></ul></div><div><p class="voet-kop">Hulp</p><ul><li><a href="../ondersteuning.html">Ondersteuning</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Vraag of probleem melden</a></li></ul></div><div><p class="voet-kop">Leren</p><ul><li><a href="./">Alle gidsen</a></li><li><a href="python-leren-voor-revit.html">Python leren voor Revit</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · Geen cookies, geen tracking, geen account.</p>
+    <p>Revit en Autodesk zijn handelsmerken van Autodesk, Inc. PyPath is een onafhankelijke app en is niet verbonden aan Autodesk of het pyRevit-project.</p>
+  </div>
+</footer>
+</body>
+</html>

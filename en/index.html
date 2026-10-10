@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PyPath: learn Python for Revit and pyRevit</title>
+<meta name="description" content="Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Become the person at the office who can automate Revit">
+<meta property="og:description" content="Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Become the person at the office who can automate Revit">
+<meta name="twitter:description" content="Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../assets/site.css?v=17b19770e1">
+<script src="../assets/site.js?v=bbeadca918" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/#webpagina","url":"https://pypath-automation.github.io/PyPath/en/","name":"PyPath: learn Python for Revit and pyRevit","description":"Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"about":{"@id":"https://pypath-automation.github.io/PyPath/#app"}},{"@type":"MobileApplication","@id":"https://pypath-automation.github.io/PyPath/#app","name":"PyPath","description":"Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.","operatingSystem":"iOS 18, iPadOS 18, macOS 15","applicationCategory":"EducationalApplication","applicationSubCategory":"Programming","inLanguage":"nl","url":"https://pypath-automation.github.io/PyPath/en/","publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"image":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","screenshot":["https://pypath-automation.github.io/PyPath/assets/img/app/iphone-vandaag.jpg","https://pypath-automation.github.io/PyPath/assets/img/app/iphone-opdracht.jpg","https://pypath-automation.github.io/PyPath/assets/img/app/mac-oefening.jpg"],"offers":[{"@type":"Offer","name":"Week 1 free","price":"0.00","priceCurrency":"EUR","category":"free","eligibleRegion":{"@type":"Country","name":"NL"}},{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Weeks 2 to 12, one-time purchase"},{"@type":"Offer","name":"Trade pack: Heating","price":"79.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Learning library for one trade, one-time purchase"},{"@type":"Offer","name":"Trade pack: Water","price":"79.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Learning library for one trade, one-time purchase"},{"@type":"Offer","name":"Trade pack: Greenhouse construction","price":"79.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Learning library for one trade, one-time purchase"},{"@type":"Offer","name":"PyPath Complete","price":"249.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Basis + the trade packs Heating, Water, Greenhouse construction"}]},{"@type":"Course","@id":"https://pypath-automation.github.io/PyPath/#cursus","name":"Python for Revit in 12 weeks","description":"In 12 weeks from your first line of Python to your own pyRevit library, with exercises from building services (MEP) and greenhouse construction (curtain walls).","provider":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"nl","educationalLevel":"Beginner","coursePrerequisites":"No programming experience needed","teaches":["Python","pyRevit","Revit API","FilteredElementCollector","Transactions","Parameters","MEP","Curtain walls"],"timeRequired":"P12W","isAccessibleForFree":false,"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","courseSchedule":{"@type":"Schedule","duration":"PT10M","repeatFrequency":"Daily","repeatCount":60}},"offers":[{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Weeks 2 to 12, one-time purchase"},{"@type":"Offer","name":"PyPath Complete","price":"249.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Basis + the trade packs Heating, Water, Greenhouse construction"}],"syllabusSections":[{"@type":"Syllabus","name":"Python basics","description":"You know the core of Python and write small scripts that work.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Intermediate and object-oriented","description":"You write your own functions and classes and work with modules and files.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Towards Revit","description":"You work with pyRevit and the Revit API and bundle your best functions into your own library.","timeRequired":"P4W"}]}]}</script>
+</head>
+<body class="pagina-home">
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><linearGradient id="logo-verloop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc97"/><stop offset="1" stop-color="#06875a"/></linearGradient></defs><symbol id="logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="url(#logo-verloop)"/><path d="M21 20c0 22 22 2 22 24" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/><circle cx="21" cy="19" r="6.5" fill="#fff"/><circle cx="43" cy="45" r="6.5" fill="#fff"/></symbol></svg>
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="./" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#curriculum">Curriculum</a></li><li><a href="#pricing">Pricing</a></li><li><a href="guides/">Guides</a></li><li><a href="support.html">Support</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../index.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#curriculum">Curriculum</a></li><li><a href="#pricing">Pricing</a></li><li><a href="guides/">Guides</a></li><li><a href="support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<section class="held" aria-labelledby="held-kop">
+  <div class="binnen held-raster">
+    <div class="held-tekst">
+      <p class="bovenkop">Python for Revit · pyRevit</p>
+      <h1 id="held-kop">Become the person at the office who <span class="accent">can automate Revit.</span></h1>
+      <p class="lead">PyPath teaches you Python in 12 weeks with one goal: your own pyRevit tools. Ten minutes a day of writing real code, on a simulated Revit model of real greenhouses and building services.</p>
+      <div class="knoppen">
+        <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+        <a class="knop knop-zacht" href="#curriculum">See the curriculum</a>
+      </div>
+      <ul class="notitie">
+        <li>Week 1 free</li>
+        <li>One-time purchase, no subscription</li>
+        <li>No account, works offline</li>
+      </ul>
+      <p class="taalnoot">The lessons are in Dutch for now. English lessons are on the roadmap.</p>
+    </div>
+    <div class="held-beeld">
+      <div class="telefoon telefoon-achter">
+        <img src="../assets/img/app/iphone-feedback-goed.jpg" width="640" height="1391" alt="A checked exercise in PyPath: well done, right the first time, plus 45 XP." loading="lazy" decoding="async">
+      </div>
+      <div class="telefoon telefoon-voor">
+        <img src="../assets/img/app/iphone-vandaag.jpg" width="640" height="1391" alt="PyPath on iPhone: the Today screen with the streak, the daily goal and today's lesson." fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feiten" aria-label="PyPath at a glance">
+  <div class="binnen">
+    <ul>
+      <li><strong>10 min</strong><span>a day, whenever suits you</span></li>
+      <li><strong>12 weeks</strong><span>from first line to your own library</span></li>
+      <li><strong>iPhone + Mac</strong><span>progress synced via iCloud</span></li>
+      <li><strong>0 trackers</strong><span>no account, works offline</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sectie sectie-alt" id="revit" aria-labelledby="revit-kop">
+  <div class="binnen">
+    <div class="sectie-kop verschijn">
+      <p class="bovenkop">What makes PyPath different</p>
+      <h2 id="revit-kop">Practise with the real Revit API. Without Revit.</h2>
+      <p>In PyPath you write the same lines as in pyRevit: <code>FilteredElementCollector</code>, categories, parameters and transactions. The app runs them on a simulated model of a complete greenhouse. So you can practise on the go what you will use at the office, and nothing can go wrong in a real project.</p>
+    </div>
+
+    <div class="verschijn" data-tabs>
+      <div class="tabs" role="tablist" aria-label="Examples by trade" hidden>
+        <button type="button" role="tab" id="tab-mep" aria-controls="paneel-mep" aria-selected="true">Building services</button>
+        <button type="button" role="tab" id="tab-greenhouse" aria-controls="paneel-greenhouse" aria-selected="false" tabindex="-1">Greenhouses</button>
+      </div>
+
+      <div class="tabpaneel" id="paneel-mep" role="tabpanel" aria-labelledby="tab-mep">
+        <h3 class="paneel-titel">Building services: pipe length per system</h3>
+        <div class="troef-raster">
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">PipeLength.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: PipeLength.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+<span class="c-com"># All pipes in the model (no pipe types)</span>
+pipes = (<span class="c-revit">FilteredElementCollector</span>(doc)
+    .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+    .<span class="c-revit">WhereElementIsNotElementType</span>())
+
+per_system = {}
+<span class="c-kw">for</span> pipe <span class="c-kw">in</span> pipes:
+    system = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_SYSTEM_NAME_PARAM</span>).<span class="c-revit">AsString</span>()
+    length = pipe.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">CURVE_ELEM_LENGTH</span>).<span class="c-revit">AsDouble</span>()
+    metres = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(
+        length, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Meters</span>)
+    per_system[system] = per_system.get(system, <span class="c-num">0</span>) + metres
+
+<span class="c-kw">for</span> system, metres <span class="c-kw">in</span> <span class="c-bi">sorted</span>(per_system.items()):
+    <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {:.1f} m&quot;</span>.format(system, metres))</code></pre></figure>
+          <div class="troef-zij">
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output"><code class="language-uitvoer">Heating return: 638.5 m
+Heating supply: 642.0 m
+Zone return: 186.0 m
+Zone supply: 186.0 m</code></pre></figure>
+            <figure class="model" aria-labelledby="model-mep-uitleg">
+              <div class="model-kop"><span>Simulated model</span><span>Greenhouse 3 · plan</span></div>
+              <svg viewBox="0 0 320 190" role="img" aria-labelledby="model-mep-uitleg">
+                <rect x="8" y="8" width="304" height="174" rx="10" class="m-kas"/>
+                <g class="m-raster"><path d="M64 8v174M120 8v174M176 8v174M232 8v174M288 8v174"/></g>
+                <g class="m-lijnen">
+                  <path pathLength="1" class="m-lijn m-aanvoer" d="M30 24v146"/>
+                  <path pathLength="1" class="m-lijn m-retour" d="M20 30v146"/>
+                  <path pathLength="1" class="m-lijn m-aanvoer" d="M30 36h270"/>
+                  <path pathLength="1" class="m-lijn m-retour" d="M20 46h280"/>
+                  <path pathLength="1" class="m-lijn m-aanvoer" d="M30 72h270"/>
+                  <path pathLength="1" class="m-lijn m-retour" d="M20 82h280"/>
+                  <path pathLength="1" class="m-lijn m-aanvoer" d="M30 108h270"/>
+                  <path pathLength="1" class="m-lijn m-retour" d="M20 118h280"/>
+                  <path pathLength="1" class="m-lijn m-aanvoer" d="M30 144h270"/>
+                  <path pathLength="1" class="m-lijn m-retour" d="M20 154h280"/>
+                </g>
+              </svg>
+              <ul class="model-legenda" aria-hidden="true"><li><i style="background:var(--vlam)"></i>Supply</li><li><i style="background:var(--revit)"></i>Return</li></ul>
+              <figcaption id="model-mep-uitleg" class="vh">Plan of the simulated greenhouse model with the heating pipes: supply in orange, return in blue.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabpaneel" id="paneel-greenhouse" role="tabpanel" aria-labelledby="tab-greenhouse">
+        <h3 class="paneel-titel">Greenhouses: glass panels and mullions per facade</h3>
+        <div class="troef-raster">
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">FacadeGlass.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: FacadeGlass.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+<span class="c-kw">for</span> wall <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(<span class="c-revit">Wall</span>):
+    grid = wall.<span class="c-revit">CurtainGrid</span>
+    <span class="c-kw">if</span> grid <span class="c-kw">is</span> <span class="c-const">None</span>:
+        <span class="c-kw">continue</span>  <span class="c-com"># a regular wall, not a curtain wall</span>
+
+    mark = wall.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_MARK</span>).<span class="c-revit">AsString</span>()
+    panels = <span class="c-bi">len</span>(grid.<span class="c-revit">GetPanelIds</span>())
+    mullions = <span class="c-bi">len</span>(grid.<span class="c-revit">GetMullionIds</span>())
+    <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {} panels, {} mullions&quot;</span>.format(
+        mark, panels, mullions))</code></pre></figure>
+          <div class="troef-zij">
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output"><code class="language-uitvoer">North facade: 48 panels, 112 mullions
+South facade: 48 panels, 112 mullions
+East gable: 24 panels, 58 mullions</code></pre></figure>
+            <figure class="model" aria-labelledby="model-gevel-uitleg">
+              <div class="model-kop"><span>Simulated model</span><span>North facade · elevation</span></div>
+              <svg viewBox="0 0 320 190" role="img" aria-labelledby="model-gevel-uitleg">
+                <g class="m-glas">
+                  <path d="M16 70l24-26 24 26zM64 70l24-26 24 26zM112 70l24-26 24 26zM160 70l24-26 24 26zM208 70l24-26 24 26zM256 70l24-26 24 26z"/>
+                  <rect x="16" y="70" width="288" height="110"/>
+                </g>
+                <g class="m-roeden">
+                  <path pathLength="1" class="m-lijn" d="M16 70l24-26 24 26 24-26 24 26 24-26 24 26 24-26 24 26 24-26 24 26 24-26 24 26"/>
+                  <path pathLength="1" class="m-lijn" d="M16 70h288M16 97.5h288M16 125h288M16 152.5h288M16 180h288"/>
+                  <path pathLength="1" class="m-lijn" d="M16 70v110M40 70v110M64 70v110M88 70v110M112 70v110M136 70v110M160 70v110M184 70v110M208 70v110M232 70v110M256 70v110M280 70v110M304 70v110"/>
+                </g>
+              </svg>
+              <figcaption id="model-gevel-uitleg" class="vh">Elevation of a glass greenhouse facade in the simulated model: 12 by 4 glass panels with mullions, with the Venlo roof above.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="legenda" aria-label="Colours in the code">
+      <li><i style="background:var(--c-revit)"></i>Real names from the Revit API and pyRevit</li>
+      <li><i style="background:var(--c-kw)"></i>Python</li>
+      <li><i style="background:var(--c-str)"></i>Text</li>
+    </ul>
+
+    <div class="troef-punten verschijn-groep">
+      <div>
+        <h3>The same names as in Revit</h3>
+        <p>What you type in PyPath is what you will type in pyRevit. No made-up practice language, but the classes and methods you will find in the Revit API.</p>
+      </div>
+      <div>
+        <h3>Errors like the real thing</h3>
+        <p>Forget a transaction and you get an error like the one Revit gives you, with a plain-language explanation next to it.</p>
+      </div>
+      <div>
+        <h3>Safe to practise</h3>
+        <p>The model is simulated. You cannot break anything, and you do not need a Revit licence to practise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" id="how-it-works" aria-labelledby="werkt-kop">
+  <div class="binnen">
+    <div class="sectie-kop verschijn">
+      <p class="bovenkop">How it works</p>
+      <h2 id="werkt-kop">Learn by doing. A little every day.</h2>
+      <p>No hour-long videos. A short explanation, then you type it yourself, and PyPath checks it right away.</p>
+    </div>
+    <ol class="stappen verschijn-groep">
+      <li class="stap">
+        <div class="telefoon"><img src="../assets/img/app/iphone-opdracht.jpg" width="640" height="1391" alt="An exercise in PyPath: ask for the number, length and width of a greenhouse and print its area, with the expected output shown." loading="lazy" decoding="async"></div>
+        <div>
+          <span class="stap-nr" aria-hidden="true">1</span>
+          <h3>Read the exercise</h3>
+          <p>At most ten minutes of explanation in short blocks, with examples from building services and greenhouse construction. Then you know exactly what your code should do.</p>
+        </div>
+      </li>
+      <li class="stap">
+        <div class="telefoon"><img src="../assets/img/app/iphone-typen.jpg" width="640" height="1391" alt="The PyPath code editor with line numbers and an extra key row for brackets, colon and indentation." loading="lazy" decoding="async"></div>
+        <div>
+          <span class="stap-nr" aria-hidden="true">2</span>
+          <h3>Type it yourself</h3>
+          <p>A real code editor, with an extra key row for brackets, colons and indentation. You learn by typing, not by watching.</p>
+        </div>
+      </li>
+      <li class="stap">
+        <div class="telefoon"><img src="../assets/img/app/iphone-feedback-fout.jpg" width="640" height="1391" alt="Feedback in PyPath: your code runs, but your output is still missing a line. With a button for the next hint." loading="lazy" decoding="async"></div>
+        <div>
+          <span class="stap-nr" aria-hidden="true">3</span>
+          <h3>Get instant feedback</h3>
+          <p>If something is off, PyPath tells you in plain language what is missing and gives you a hint. No spoilers: you can see the solution after three attempts.</p>
+        </div>
+      </li>
+      <li class="stap">
+        <div class="telefoon"><img src="../assets/img/app/iphone-herhaling.jpg" width="640" height="1391" alt="The daily review in PyPath: a multiple-choice question about which line creates a variable with the value 120." loading="lazy" decoding="async"></div>
+        <div>
+          <span class="stap-nr" aria-hidden="true">4</span>
+          <h3>Review every day</h3>
+          <p>Three short questions about earlier lessons, right when you are about to forget them. That is how it sticks, long after the twelve weeks.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="motivatie kaart verschijn">
+      <div>
+        <h3>Stay motivated</h3>
+        <p>A streak that forgives one missed day per week, XP and levels per topic, badges for milestones, and a new app theme every time you finish a month.</p>
+      </div>
+      <ul class="chips" aria-label="What you earn">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-6 1-8.5z" fill="var(--vlam)"/></svg>Streak</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13.5h6L10 22l8-11.5h-6z" fill="var(--accent)"/></svg>XP and levels</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/></svg>Badges</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--revit)" stroke-width="2.2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="var(--revit)"/></svg>Themes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie-alt" id="curriculum" aria-labelledby="lesplan-kop">
+  <div class="binnen">
+    <div class="sectie-kop verschijn">
+      <p class="bovenkop">The 12-week plan</p>
+      <h2 id="lesplan-kop">Three months. From your first line to your own library.</h2>
+      <p>About five short lessons a week. Every week ends with a checkpoint, and every lesson shows how it works in Revit.</p>
+    </div>
+    <div class="maanden verschijn-groep">
+      <article class="maand kaart">
+        <p class="maand-label">Month 1 · weeks 1–4</p>
+        <h3>Python basics</h3>
+        <p>You know the core of Python and write small scripts that work.</p>
+        <ol class="weken">
+          <li><b>1</b><span>Variables, numbers and strings</span></li>
+          <li><b>2</b><span>Lists and loops</span></li>
+          <li><b>3</b><span>Conditions and logic</span></li>
+          <li><b>4</b><span>Dictionaries and review</span></li>
+        </ol>
+        <p class="maand-slot"><strong>Wrap-up:</strong> monthly review</p>
+      </article>
+      <article class="maand kaart">
+        <p class="maand-label">Month 2 · weeks 5–8</p>
+        <h3>Intermediate and object-oriented</h3>
+        <p>You write your own functions and classes and work with modules and files.</p>
+        <ol class="weken" start="5">
+          <li><b>5</b><span>Mastering functions</span></li>
+          <li><b>6</b><span>Classes and objects</span></li>
+          <li><b>7</b><span>Modules and handling errors</span></li>
+          <li><b>8</b><span>Reading and writing files</span></li>
+        </ol>
+        <p class="maand-slot"><strong>Wrap-up:</strong> a small building model in objects</p>
+      </article>
+      <article class="maand kaart">
+        <p class="maand-label">Month 3 · weeks 9–12</p>
+        <h3>Towards Revit</h3>
+        <p>You work with pyRevit and the Revit API and bundle your best functions into your own library.</p>
+        <ol class="weken" start="9">
+          <li><b>9</b><span>pyRevit and your first button</span></li>
+          <li><b>10</b><span>Collecting and filtering elements</span></li>
+          <li><b>11</b><span>Reading and changing parameters</span></li>
+          <li><b>12</b><span>Your own library</span></li>
+        </ol>
+        <p class="maand-slot"><strong>Final project:</strong> a pyRevit tool that does a boring task for you</p>
+      </article>
+    </div>
+    <p class="hub-link verschijn">Want to know how to get started on your own first? Read the roadmap <a href="guides/learn-python-for-revit.html">Learning Python for Revit: where do you start?</a></p>
+  </div>
+</section>
+
+<section class="sectie" id="trades" aria-labelledby="vak-kop">
+  <div class="binnen">
+    <div class="sectie-kop verschijn">
+      <p class="bovenkop">Exercises from real work</p>
+      <h2 id="vak-kop">No textbook sums. Your trade.</h2>
+      <p>The exercises are about building services and greenhouses, from very easy to professional level. So every line of code feels like real work.</p>
+    </div>
+    <div class="vakken verschijn-groep">
+      <article class="vak kaart">
+        <div class="vak-beeld" aria-hidden="true">
+          <svg viewBox="0 0 360 180">
+            <rect x="20" y="30" width="70" height="120" rx="10" class="m-kas"/>
+            <circle cx="55" cy="70" r="16" class="m-kas"/>
+            <path d="M47 70h16M55 62v16" class="m-retour" stroke-width="3" stroke-linecap="round"/>
+            <path class="m-aanvoer" d="M90 60h70v-20h170" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path class="m-retour" d="M90 120h80v20h160" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <g class="m-aanvoer" stroke-width="3" fill="none" stroke-linecap="round"><path d="M210 40v40M250 40v40M290 40v40"/></g>
+            <g class="m-retour" stroke-width="3" fill="none" stroke-linecap="round"><path d="M220 140v-40M260 140v-40M300 140v-40"/></g>
+            <g class="m-kas"><rect x="196" y="78" width="122" height="24" rx="6"/></g>
+          </svg>
+        </div>
+        <div class="vak-tekst">
+          <h3>Building services</h3>
+          <p>Heating, water and electrical in greenhouse horticulture: heating pipes and zones, flow rates, heat output, water lines and electrical circuits. In Revit these are pipes, systems and connectors.</p>
+          <ul aria-label="Revit concepts"><li><code>Pipe</code></li><li><code>PipingSystemType</code></li><li><code>MEPSystem</code></li><li><code>Connector</code></li></ul>
+        </div>
+      </article>
+      <article class="vak kaart">
+        <div class="vak-beeld" aria-hidden="true">
+          <svg viewBox="0 0 360 180">
+            <g class="m-glas">
+              <path d="M30 70l30-36 30 36zM90 70l30-36 30 36zM150 70l30-36 30 36zM210 70l30-36 30 36zM270 70l30-36 30 36z"/>
+              <rect x="30" y="70" width="300" height="90"/>
+            </g>
+            <g class="m-roeden" fill="none">
+              <path d="M30 70l30-36 30 36 30-36 30 36 30-36 30 36 30-36 30 36 30-36 30 36"/>
+              <path d="M30 70h300M30 100h300M30 130h300M30 160h300"/>
+              <path d="M30 70v90M67.5 70v90M105 70v90M142.5 70v90M180 70v90M217.5 70v90M255 70v90M292.5 70v90M330 70v90"/>
+            </g>
+          </svg>
+        </div>
+        <div class="vak-tekst">
+          <h3>Greenhouse construction</h3>
+          <p>Glass and curtain walls: glass panels, mullions, facades and roofs. In Revit these are curtain walls with their grid, panels and mullions.</p>
+          <ul aria-label="Revit concepts"><li><code>Wall</code></li><li><code>CurtainGrid</code></li><li><code>Panel</code></li><li><code>Mullion</code></li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie-alt" id="devices" aria-labelledby="apparaten-kop">
+  <div class="binnen apparaten">
+    <div class="verschijn">
+      <p class="bovenkop">iPhone, iPad and Mac</p>
+      <h2 id="apparaten-kop" class="h2">Quick sessions on your iPhone. Big ones on your Mac.</h2>
+      <ul class="lijst-vink">
+        <li><div><strong>One app, all your devices</strong><span>One purchase works on your iPhone, iPad and Mac with the same Apple ID.</span></div></li>
+        <li><div><strong>Progress via iCloud</strong><span>Start an exercise on the train and finish it at your desk.</span></div></li>
+        <li><div><strong>A real workspace on the Mac</strong><span>A code editor with multiple files and a console, for the bigger assignments.</span></div></li>
+        <li><div><strong>Fully offline and private</strong><span>The Python engine runs inside the app. No account, no server, no tracking.</span></div></li>
+      </ul>
+    </div>
+    <div class="apparaten-beeld verschijn">
+      <div class="mac"><img src="../assets/img/app/mac-oefening.jpg" width="1600" height="1058" alt="PyPath on the Mac: the exercise with successful feedback on the left, the code editor with main.py and the console on the right." loading="lazy" decoding="async"></div>
+      <div class="telefoon"><img src="../assets/img/app/iphone-voortgang.jpg" width="640" height="1391" alt="The Progress screen in PyPath with level 3, the XP and the progress per month." loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" id="pricing" aria-labelledby="prijzen-kop">
+  <div class="binnen">
+    <div class="sectie-kop midden verschijn">
+      <p class="bovenkop">Pricing</p>
+      <h2 id="prijzen-kop">Pay once. Yours forever.</h2>
+      <p>Buy what you need, no subscription. Week 1 is free, so you can find out first whether it suits you.</p>
+    </div>
+    <div class="prijzen verschijn-groep">
+      <article class="prijs kaart">
+        <h3>Week 1</h3>
+        <p class="prijs-bedrag">Free <small>no purchase needed</small></p>
+        <p class="prijs-sub">Try the whole first week</p>
+        <ul class="lijst-vink">
+          <li><span>Your first code within two minutes</span></li>
+          <li><span>All lessons and exercises of week 1</span></li>
+          <li><span>The daily review of week 1</span></li>
+        </ul>
+      </article>
+      <article class="prijs kaart">
+        <h3>PyPath Basis</h3>
+        <p class="prijs-bedrag">€99.99 <small>one-time</small></p>
+        <p class="prijs-sub">Weeks 2 to 12</p>
+        <ul class="lijst-vink">
+          <li><span>The full 12-week plan, up to your own library</span></li>
+          <li><span>All exercises on the simulated Revit</span></li>
+          <li><span>On iPhone, iPad and Mac</span></li>
+        </ul>
+      </article>
+      <article class="prijs kaart">
+        <h3>Trade pack</h3>
+        <p class="prijs-bedrag">€79.99 <small>per pack</small></p>
+        <p class="prijs-sub">A learning library for one trade</p>
+        <ul class="lijst-vink">
+          <li><span>You build your own pyRevit library for that trade</span></li>
+          <li><span>At launch: Heating, Water and Greenhouse construction</span></li>
+          <li><span>Later: Electrical and Building</span></li>
+        </ul>
+      </article>
+      <article class="prijs kaart prijs-uitgelicht">
+        <span class="etiket">Best value</span>
+        <h3>PyPath Complete</h3>
+        <p class="prijs-bedrag">€249.99 <small>one-time</small></p>
+        <p class="prijs-sub">Basis + the three launch packs</p>
+        <ul class="lijst-vink">
+          <li><span>Everything in PyPath Basis</span></li>
+          <li><span>Heating, Water and Greenhouse construction</span></li>
+          <li><span>You save €89.97</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="kleine-lettertjes">Prices in euros for the Netherlands, including VAT. Prices may vary by country; the App Store always shows your price. You pay through Apple, and a purchase works on all your devices with the same Apple ID. For businesses: team licences will follow later.</p>
+  </div>
+</section>
+
+<section class="sectie sectie-alt" id="faq" aria-labelledby="vragen-kop">
+  <div class="binnen">
+    <div class="sectie-kop midden verschijn">
+      <p class="bovenkop">FAQ</p>
+      <h2 id="vragen-kop">Good to know</h2>
+    </div>
+    <div class="vragen">
+      <details class="faq">
+        <summary>Is the app in English?</summary>
+        <div class="faq-antwoord"><p>Not yet. The lessons and the app are in Dutch for now; English lessons are on the roadmap. The code itself uses the real English names from Python, the Revit API and pyRevit.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Do I need programming experience?</summary>
+        <div class="faq-antwoord"><p>No. You start at your very first line of Python. Every lesson explains what you need in short pieces and has you type it yourself right away. After three months you write your own pyRevit tools.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Do I need Revit to practise?</summary>
+        <div class="faq-antwoord"><p>No. PyPath has a simulated Revit environment with the real names from the Revit API, on a model of a complete greenhouse. So you practise on your iPhone or Mac. For your own tools at work, you later use Revit with the free pyRevit add-in on a Windows PC.</p></div>
+      </details>
+      <details class="faq">
+        <summary>How much time does it take per day?</summary>
+        <div class="faq-antwoord"><p>About ten minutes. A lesson is a short explanation followed by one to three exercises; the checkpoint at the end of the week takes a bit longer. The whole plan takes twelve weeks.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Do I learn the same Python as in pyRevit?</summary>
+        <div class="faq-antwoord"><p>You learn Python 3. pyRevit uses IronPython 2.7 by default and can also run Python 3. PyPath explains the differences you will run into in practice, such as f-strings versus <code>.format()</code>.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Is it a subscription?</summary>
+        <div class="faq-antwoord"><p>No, everything is a one-time purchase. Week 1 is free. After that you buy PyPath Basis (weeks 2 to 12) and, if you like, trade packs for your field, or everything at once with PyPath Complete. What you buy stays yours.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Does it work on iPhone, iPad and Mac?</summary>
+        <div class="faq-antwoord"><p>Yes. It is one app for iPhone and iPad (iOS 18 or later) and Mac (macOS 15 or later). Your progress syncs via iCloud, and a purchase works on all your devices with the same Apple ID.</p></div>
+      </details>
+      <details class="faq">
+        <summary>What happens to my data?</summary>
+        <div class="faq-antwoord"><p>Nothing. PyPath does not collect any personal data: no account, no tracking, no analytics. Your code runs inside the app, and your progress stays on your device and in your own iCloud. See the <a href="privacy.html">privacy policy</a>.</p></div>
+      </details>
+      <details class="faq">
+        <summary>Is PyPath made by Autodesk or pyRevit?</summary>
+        <div class="faq-antwoord"><p>No. PyPath is an independent app. Revit belongs to Autodesk, and pyRevit is a free open-source project. PyPath teaches you to work with both.</p></div>
+      </details>
+      <details class="faq">
+        <summary>When can I download PyPath?</summary>
+        <div class="faq-antwoord"><p>PyPath is coming soon to the App Store. As soon as it is available, the download button will appear on this page. Questions until then? Visit <a href="support.html">support</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sectie slot" aria-labelledby="slot-kop">
+  <div class="binnen">
+    <svg class="logo logo-groot" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+    <h2 id="slot-kop">Write your first line today.</h2>
+    <p class="lead">Week 1 is free. Ten minutes a day, and in twelve weeks you will be automating Revit.</p>
+    <div class="knoppen">
+      <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+      <a class="knop knop-zacht" href="guides/learn-python-for-revit.html">Read the guide first</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="./" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#curriculum">The 12-week plan</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="guides/">All guides</a></li><li><a href="guides/learn-python-for-revit.html">Learning Python for Revit</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

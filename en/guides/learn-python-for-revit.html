@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learning Python for Revit: where do you start? | PyPath</title>
+<meta name="description" content="A step-by-step plan to learn Python for Revit and pyRevit: the Python basics you need, your first pyRevit button, transactions, and the mistakes everyone makes.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<link rel="alternate" hreflang="nl" href="https://pypath-automation.github.io/PyPath/gids/python-leren-voor-revit.html">
+<link rel="alternate" hreflang="en" href="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<link rel="alternate" hreflang="x-default" href="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Learning Python for Revit: where do you start? | PyPath">
+<meta property="og:description" content="A step-by-step plan to learn Python for Revit and pyRevit: the Python basics you need, your first pyRevit button, transactions, and the mistakes everyone makes.">
+<meta property="og:url" content="https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learning Python for Revit: where do you start? | PyPath">
+<meta name="twitter:description" content="A step-by-step plan to learn Python for Revit and pyRevit: the Python basics you need, your first pyRevit button, transactions, and the mistakes everyone makes.">
+<meta name="twitter:image" content="https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=17b19770e1">
+<script src="../../assets/site.js?v=bbeadca918" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://pypath-automation.github.io/PyPath/#organisatie","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/","logo":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://pypath-automation.github.io/PyPath/#website","url":"https://pypath-automation.github.io/PyPath/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"}},{"@type":"WebPage","@id":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html#webpagina","url":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html","name":"Learning Python for Revit: where do you start? | PyPath","description":"A step-by-step plan to learn Python for Revit and pyRevit: the Python basics you need, your first pyRevit button, transactions, and the mistakes everyone makes.","inLanguage":"en","isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html#kruimels"}},{"@type":"TechArticle","@id":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html#artikel","proficiencyLevel":"Beginner","headline":"Learning Python for Revit: where do you start?","description":"A step-by-step plan to learn Python for Revit and pyRevit: the Python basics you need, your first pyRevit button, transactions, and the mistakes everyone makes.","image":["https://pypath-automation.github.io/PyPath/assets/img/deel-en.jpg"],"datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"PyPath","url":"https://pypath-automation.github.io/PyPath/"},"publisher":{"@id":"https://pypath-automation.github.io/PyPath/#organisatie"},"inLanguage":"en","mainEntityOfPage":{"@id":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html#webpagina"},"isPartOf":{"@id":"https://pypath-automation.github.io/PyPath/#website"},"wordCount":1339},{"@type":"BreadcrumbList","@id":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://pypath-automation.github.io/PyPath/en/"},{"@type":"ListItem","position":2,"name":"All guides","item":"https://pypath-automation.github.io/PyPath/en/guides/"},{"@type":"ListItem","position":3,"name":"Learning Python for Revit","item":"https://pypath-automation.github.io/PyPath/en/guides/learn-python-for-revit.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><linearGradient id="logo-verloop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc97"/><stop offset="1" stop-color="#06875a"/></linearGradient></defs><symbol id="logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="url(#logo-verloop)"/><path d="M21 20c0 22 22 2 22 24" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/><circle cx="21" cy="19" r="6.5" fill="#fff"/><circle cx="43" cy="45" r="6.5" fill="#fff"/></symbol></svg>
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">Curriculum</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../gids/python-leren-voor-revit.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">Curriculum</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="./">All guides</a></li><li><span aria-current="page">Learning Python for Revit</span></li></ol></nav>
+    <h1>Learning Python for Revit: where do you start?</h1>
+    <p class="gids-intro">An honest step-by-step plan, from your first line of Python to your own pyRevit button. With real example code and the mistakes almost everyone makes.</p>
+    <p class="gids-meta"><span>7 min read</span><span aria-hidden="true">·</span><span>Updated October 10, 2026</span><span aria-hidden="true">·</span><span>Checked against the Revit API 2025 documentation</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">On this page</summary><ol><li><a href="#why-python">Why Python for Revit?</a></li><li><a href="#what-you-need">What do you need?</a></li><li><a href="#step-1-python">Step 1: learn plain Python first</a></li><li><a href="#step-2-revit-model">Step 2: understand how a Revit model is structured</a></li><li><a href="#step-3-first-button">Step 3: your first pyRevit button</a></li><li><a href="#step-4-transaction">Step 4: change something with a transaction</a></li><li><a href="#step-5-library">Step 5: bundle it into your own library</a></li><li><a href="#common-mistakes">Six mistakes almost everyone makes</a></li><li><a href="#learning-plan">A realistic learning plan</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Short answer:</strong> start with plain Python, not with Revit. First learn variables, lists, loops, conditions, dictionaries and functions. Then learn how a Revit model is structured (elements, categories, parameters) and write a first pyRevit button that only <em>reads</em> something. Once that works, move on to changing the model inside a transaction. At ten minutes a day you can be writing your own tools in about twelve weeks.</p>
+</div>
+
+<h2 id="why-python">Why Python for Revit?</h2>
+<p>Revit has an extensive programming interface: the Revit API. With it you can do in code everything you do with the mouse, and above all: a thousand times in a row without mistakes. Counting elements, filling in parameters in bulk, checking a model, exporting schedules. Exactly the boring work that costs hours today.</p>
+<p>There are three common ways to use that API:</p>
+<ul>
+  <li><strong>C# and Visual Studio</strong>: the way to build full add-ins. Powerful, but you have to compile, and the learning curve is steep.</li>
+  <li><strong>Dynamo</strong>: visual programming with nodes. Handy for geometry, but larger logic quickly gets messy. Dynamo also has Python nodes.</li>
+  <li><strong>pyRevit</strong>: a free add-in that turns Python scripts into buttons on the Revit ribbon. Save the script, press the button, done. No compiling.</li>
+</ul>
+<p>If you want to learn automation yourself, <strong>Python with pyRevit</strong> is the shortest path from idea to working button. And what you learn carries over to Dynamo.</p>
+<p>References worth keeping at hand: the <a href="https://docs.pyrevitlabs.io/">pyRevit documentation</a> and the searchable <a href="https://www.revitapidocs.com/">Revit API documentation at revitapidocs.com</a>.</p>
+
+<h2 id="what-you-need">What do you need?</h2>
+<p>To <em>learn</em> you need almost nothing: no programming experience and no expensive software. To run your scripts for real later on, you need:</p>
+<ul>
+  <li><strong>Revit</strong> on a Windows PC;</li>
+  <li><strong>pyRevit</strong>, the free open-source add-in;</li>
+  <li>a <strong>code editor</strong>, for example Visual Studio Code;</li>
+  <li>and ideally <strong>RevitLookup</strong>, a free add-in that shows all properties and parameters of the element you click.</li>
+</ul>
+
+<h2 id="step-1-python">Step 1: learn plain Python first</h2>
+<p>The biggest mistake is starting with the Revit API straight away. Then you are fighting two things at once: the language and the model. So learn the Python basics first, in this order:</p>
+<ol>
+  <li>variables, numbers and text (strings);</li>
+  <li>lists and <code>for</code> loops;</li>
+  <li>decisions with <code>if</code>, <code>elif</code> and <code>else</code>;</li>
+  <li>dictionaries, to count and group things;</li>
+  <li>functions, and later classes and modules.</li>
+</ol>
+<p>Dictionaries in particular are worth their weight in gold. This is the pattern you will use in Revit over and over: adding up per group.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">practice.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: practice.py"><code class="language-python">pipes = [
+    {<span class="c-str">&quot;system&quot;</span>: <span class="c-str">&quot;Heating supply&quot;</span>, <span class="c-str">&quot;length&quot;</span>: <span class="c-num">6.0</span>},
+    {<span class="c-str">&quot;system&quot;</span>: <span class="c-str">&quot;Heating return&quot;</span>, <span class="c-str">&quot;length&quot;</span>: <span class="c-num">6.0</span>},
+    {<span class="c-str">&quot;system&quot;</span>: <span class="c-str">&quot;Heating supply&quot;</span>, <span class="c-str">&quot;length&quot;</span>: <span class="c-num">4.5</span>},
+]
+
+per_system = {}
+<span class="c-kw">for</span> pipe <span class="c-kw">in</span> pipes:
+    name = pipe[<span class="c-str">&quot;system&quot;</span>]
+    per_system[name] = per_system.get(name, <span class="c-num">0</span>) + pipe[<span class="c-str">&quot;length&quot;</span>]
+
+<span class="c-bi">print</span>(per_system)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output"><code class="language-uitvoer">{&#x27;Heating supply&#x27;: 10.5, &#x27;Heating return&#x27;: 6.0}</code></pre></figure>
+<p>Later the pipes will not come from a list, but from your Revit model. Everything else stays the same.</p>
+<p>What you can skip at first: web frameworks, data science, and well-known libraries such as pandas and NumPy. Those do not work in pyRevit's default engine anyway.</p>
+
+<h2 id="step-2-revit-model">Step 2: understand how a Revit model is structured</h2>
+<p>Before you write code for Revit, it helps to see the model the way the API sees it:</p>
+<ul>
+  <li><strong>Everything is an element.</strong> A wall, a pipe, a door, a view: all of them are an <code>Element</code> with its own <code>ElementId</code>.</li>
+  <li><strong>Elements belong to a category</strong>, such as walls, doors or pipes. In code: <code>BuiltInCategory.OST_Walls</code>, <code>OST_Doors</code> or <code>OST_PipeCurves</code>.</li>
+  <li><strong>Types and instances are different things.</strong> A wall type is not the wall you draw. That is why you often see <code>WhereElementIsNotElementType()</code>: only the actual instances.</li>
+  <li><strong>Parameters hold the data</strong>: length, mark, comments, system name. You read them with <code>get_Parameter(...)</code> or <code>LookupParameter("name")</code>.</li>
+  <li><strong>Revit works in feet internally.</strong> A length of 1 means 304.8 mm. Convert with <code>UnitUtils.ConvertFromInternalUnits</code>.</li>
+</ul>
+
+<h2 id="step-3-first-button">Step 3: your first pyRevit button</h2>
+<p>A pyRevit button is simply a folder with a <code>script.py</code> in it. The folder names decide where the button appears on the ribbon:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">folders</span></figcaption><pre class="code" tabindex="0" aria-label="Code: folders"><code class="language-tekst">MyTools.extension/
+  MyTools.tab/
+    Count.panel/
+      CountDoors.pushbutton/
+        script.py</code></pre></figure>
+<p>Add the <code>MyTools.extension</code> folder in the pyRevit settings (under the folders for custom extensions) and choose <em>Reload</em>. Your button is now on the ribbon. Start with a script that only <em>reads</em>:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">CountDoors.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: CountDoors.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">BuiltInCategory</span>
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+doors = (<span class="c-revit">FilteredElementCollector</span>(doc)
+         .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_Doors</span>)
+         .<span class="c-revit">WhereElementIsNotElementType</span>()
+         .<span class="c-revit">ToElements</span>())
+
+<span class="c-bi">print</span>(<span class="c-str">&quot;Number of doors: {}&quot;</span>.format(<span class="c-bi">len</span>(doors)))</code></pre></figure>
+<p>Press the button and pyRevit opens a window with the output of <code>print()</code>. Reading can never break anything, so this is the place to experiment freely.</p>
+
+<h2 id="step-4-transaction">Step 4: change something with a transaction</h2>
+<p>As soon as you want to change something in the model, it has to happen inside a <strong>transaction</strong>. That is also your safety net: if something goes wrong halfway, Revit rolls everything back. With pyRevit's helper module it looks like this:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">MarkPipes.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: MarkPipes.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">pyrevit</span> <span class="c-kw">import</span> <span class="c-revit">revit</span>, <span class="c-revit">DB</span>
+
+pipes = (<span class="c-revit">DB</span>.<span class="c-revit">FilteredElementCollector</span>(<span class="c-revit">revit</span>.<span class="c-revit">doc</span>)
+         .<span class="c-revit">OfCategory</span>(<span class="c-revit">DB</span>.<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_PipeCurves</span>)
+         .<span class="c-revit">WhereElementIsNotElementType</span>())
+
+<span class="c-kw">with</span> <span class="c-revit">revit</span>.<span class="c-revit">Transaction</span>(<span class="c-str">&quot;Mark pipes&quot;</span>):
+    <span class="c-kw">for</span> pipe <span class="c-kw">in</span> pipes:
+        comment = pipe.<span class="c-revit">get_Parameter</span>(
+            <span class="c-revit">DB</span>.<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_INSTANCE_COMMENTS</span>)
+        comment.<span class="c-revit">Set</span>(<span class="c-str">&quot;Checked&quot;</span>)</code></pre></figure>
+<p>Leave out the <code>with</code> line and Revit stops with the message <code>Attempt to modify the model outside of transaction.</code> You will definitely see that one at some point.</p>
+
+<h2 id="step-5-library">Step 5: bundle it into your own library</h2>
+<p>After a few buttons you notice you keep writing the same bits of code. Put them in your own module in the <code>lib</code> folder of your extension. pyRevit automatically makes that folder available to all your buttons.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">MyTools.extension/lib/mylib.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: MyTools.extension/lib/mylib.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> <span class="c-revit">FilteredElementCollector</span>, <span class="c-revit">UnitUtils</span>, <span class="c-revit">UnitTypeId</span>
+
+
+<span class="c-kw">def</span> <span class="c-def">elements</span>(doc, category):
+    <span class="c-str">&quot;&quot;&quot;All instances (no types) of one category.&quot;&quot;&quot;</span>
+    <span class="c-kw">return</span> (<span class="c-revit">FilteredElementCollector</span>(doc)
+            .<span class="c-revit">OfCategory</span>(category)
+            .<span class="c-revit">WhereElementIsNotElementType</span>()
+            .<span class="c-revit">ToElements</span>())
+
+
+<span class="c-kw">def</span> <span class="c-def">to_mm</span>(value):
+    <span class="c-str">&quot;&quot;&quot;Revit works in feet internally; this returns millimetres.&quot;&quot;&quot;</span>
+    <span class="c-kw">return</span> <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(value, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">Millimeters</span>)</code></pre></figure>
+<p>In every button you then simply write <code>from mylib import elements, to_mm</code>. That is the start of your own library, and the moment you really start saving time.</p>
+
+<h2 id="common-mistakes">Six mistakes almost everyone makes</h2>
+<ol>
+  <li><strong>Changing the model outside a transaction.</strong> Every change belongs in a transaction; otherwise you get the error from step 4.</li>
+  <li><strong>Forgetting that Revit works in feet.</strong> A diameter of 0.164 is not a bug, it is roughly 50 mm.</li>
+  <li><strong>Mixing up types and instances.</strong> Without <code>WhereElementIsNotElementType()</code> you count the types as well.</li>
+  <li><strong>Looking up parameters by name in a localised Revit.</strong> <code>LookupParameter("Length")</code> searches for the name you see in Revit, which differs per language. For built-in parameters, <code>get_Parameter(BuiltInParameter...)</code> is more reliable.</li>
+  <li><strong>f-strings in the default engine.</strong> pyRevit uses IronPython 2.7 by default, which has no f-strings. Use <code>"{}".format(value)</code>, or choose the Python 3 engine with <code>#! python3</code> on the first line.</li>
+  <li><strong>Testing straight away in a live project.</strong> Always try a new script on a copy of your model first.</li>
+</ol>
+
+<h2 id="learning-plan">A realistic learning plan</h2>
+<p>You do not need to free up whole evenings. Short daily sessions work better than one long session a week, because you see the material more often. A plan that works:</p>
+<ul>
+  <li><strong>Month 1, Python basics:</strong> variables, lists, loops, conditions and dictionaries.</li>
+  <li><strong>Month 2, intermediate:</strong> functions, classes, modules, handling errors and files.</li>
+  <li><strong>Month 3, towards Revit:</strong> pyRevit, collecting elements, changing parameters and your own library.</li>
+</ul>
+<p>With ten minutes a day, and a quick daily review of what you did before, that takes you from your first line of code to your first own tool in twelve weeks.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+  <h3 class="probeer-kop" id="probeer-kop">Try this in PyPath</h3>
+  <p>In PyPath you practise exactly these steps, ten minutes a day, on a simulated Revit model of a complete greenhouse. With the real names from the Revit API, instant feedback and hints. Week 1 is free. (The lessons are in Dutch for now.)</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Keep reading</h2><p>More guides are coming soon. In the meantime, have a look at <a href="../#curriculum">the PyPath 12-week plan</a>.</p><p class="gerelateerd-alle"><a href="./">All guides <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#logo"/></svg><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="./">All guides</a></li><li><a href="learn-python-for-revit.html">Learning Python for Revit</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>

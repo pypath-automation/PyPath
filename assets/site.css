@@ -774,6 +774,17 @@ img.logo { object-fit: cover; background: #111317; }
 .status-klaar { background: var(--accent-zacht); color: var(--accent-tekst); }
 .voetnoot { font-size: 0.875rem; color: var(--tekst-zacht); margin-top: 16px; }
 
+/* Demofilm op de home (M7): stil, loopt rond; bij "beperk beweging" alleen het posterbeeld. */
+.demofilm-sectie { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--rand); }
+.demofilm-sectie .sectie-kop { margin-bottom: clamp(24px, 4vw, 40px); }
+.demofilm { margin: 0 auto; max-width: 1120px; }
+.demofilm-video {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: clamp(10px, 1.6vw, 20px); background: #0a0b0e;
+  box-shadow: 0 0 0 1px var(--rand), 0 28px 70px -28px rgb(0 0 0 / 0.55);
+}
+.demofilm figcaption { margin-top: 14px; text-align: center; color: var(--tekst-zacht); font-size: 0.9375rem; }
+
 /* Route Leer → Oefen → Bouw → Gebruik */
 .route { padding-block: clamp(40px, 6vw, 72px); border-top: 1px solid var(--rand); background: var(--bg); }
 .route-kop { max-width: 760px; margin-bottom: 28px; }

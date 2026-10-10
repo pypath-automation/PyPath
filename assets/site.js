@@ -2,7 +2,8 @@
    - elementen rustig laten verschijnen bij scrollen (niet bij "beperk beweging");
    - tabbladen bij de codevoorbeelden;
    - mobiel menu sluiten na een klik, met Escape of buiten het menu;
-   - in gidsen de inhoudsopgave laten meelopen. */
+   - in gidsen de inhoudsopgave laten meelopen;
+   - de demofilm: bij "beperk beweging" alleen het posterbeeld, buiten beeld gepauzeerd. */
 (function () {
   "use strict";
   window.ppKlaar = true;
@@ -168,4 +169,26 @@
       koppen.forEach(function (k) { if (k) spion.observe(k); });
     }
   }
+
+  // Demofilm (stil, loopt rond). Bij "beperk beweging" kiest de browser geen bron (media op <source>);
+  // oudere browsers vangen we hier op. Buiten beeld pauzeren we hem (bespaart batterij). Lukt
+  // automatisch afspelen niet (bijv. energiebesparing), dan krijgt de film gewone knoppen.
+  document.querySelectorAll("video.demofilm-video").forEach(function (film) {
+    if (rustig) {
+      film.pause();
+      film.removeAttribute("autoplay");
+      film.querySelectorAll("source").forEach(function (s) { s.remove(); });
+      film.load();
+      return;
+    }
+    function speel() {
+      var p = film.play();
+      if (p && p.catch) p.catch(function () { film.controls = true; });
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (items) {
+        items.forEach(function (it) { if (it.isIntersecting) speel(); else film.pause(); });
+      }, { threshold: 0.2 }).observe(film);
+    }
+  });
 })();

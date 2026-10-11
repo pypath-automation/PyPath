@@ -37,7 +37,7 @@
 <link rel="icon" href="../assets/img/icoon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
-<link rel="stylesheet" href="../assets/site.css?v=f3ccc8cb3b">
+<link rel="stylesheet" href="../assets/site.css?v=5756c48c25">
 <script src="../assets/site.js?v=bf4b1789b9" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pypath.nl/#organisatie","name":"PyPath","url":"https://www.pypath.nl/","logo":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://www.pypath.nl/#website","url":"https://www.pypath.nl/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://www.pypath.nl/#organisatie"}},{"@type":"WebPage","@id":"https://www.pypath.nl/en/#webpagina","url":"https://www.pypath.nl/en/","name":"PyPath: learn Python for Revit and pyRevit","description":"Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.","inLanguage":"en","isPartOf":{"@id":"https://www.pypath.nl/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/deel-en.jpg","width":1200,"height":630},"about":{"@id":"https://www.pypath.nl/#app"}},{"@type":"MobileApplication","@id":"https://www.pypath.nl/#app","name":"PyPath","description":"Learn Python for Revit and pyRevit in 12 weeks. Ten minutes a day of hands-on coding on a simulated Revit model of greenhouses and building services. Week 1 free.","operatingSystem":"iOS 18, iPadOS 18, macOS 15","applicationCategory":"EducationalApplication","applicationSubCategory":"Programming","inLanguage":"nl","url":"https://www.pypath.nl/en/","publisher":{"@id":"https://www.pypath.nl/#organisatie"},"image":"https://www.pypath.nl/assets/img/icoon-512.png","screenshot":["https://www.pypath.nl/assets/img/app/iphone-vandaag.jpg","https://www.pypath.nl/assets/img/app/iphone-opdracht.jpg","https://www.pypath.nl/assets/img/app/mac-oefening.jpg"],"offers":[{"@type":"Offer","name":"Week 1 free","price":"0.00","priceCurrency":"EUR","category":"free","eligibleRegion":{"@type":"Country","name":"NL"}},{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Weeks 2 to 12, one-time purchase"}]},{"@type":"Course","@id":"https://www.pypath.nl/#cursus","name":"Python for Revit in 12 weeks","description":"In 12 weeks from your first line of Python to your own pyRevit library, with exercises from building services (MEP) and greenhouse construction (curtain walls).","provider":{"@id":"https://www.pypath.nl/#organisatie"},"inLanguage":"nl","educationalLevel":"Beginner","coursePrerequisites":"No programming experience needed","teaches":["Python","pyRevit","Revit API","FilteredElementCollector","Transactions","Parameters","MEP","Curtain walls"],"timeRequired":"P12W","isAccessibleForFree":false,"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","courseSchedule":{"@type":"Schedule","duration":"PT10M","repeatFrequency":"Daily","repeatCount":60}},"offers":[{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Weeks 2 to 12, one-time purchase"}],"syllabusSections":[{"@type":"Syllabus","name":"Python basics","description":"You know the core of Python and write small scripts that work.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Intermediate and object-oriented","description":"You write your own functions and classes and work with modules and files.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Towards Revit","description":"You work with pyRevit and the Revit API and bundle your best functions into your own library.","timeRequired":"P4W"}]}]}</script>
 </head>
@@ -107,7 +107,7 @@
       <li class="route-stap">
         <span class="route-nr" aria-hidden="true">3</span>
         <h3>Build</h3>
-        <p>Your own library per trade: heating, water, greenhouse construction. <a href="trade-packs.html">About the trade packs</a></p>
+        <p>Your own library per trade: Heating, Water, Greenhouse construction and Electrical. <a href="trade-packs.html">About the trade packs</a></p>
         <span class="status status-straks">Trade packs coming</span>
       </li>
       <li class="route-stap">
@@ -321,6 +321,24 @@ Gevel West: 96 panels, 220 mullions</code></pre></figure>
         <h3>Missing panes and bars</h3>
         <p>Finds empty panels in the facades and missing glazing bars in the roof.</p>
         <span class="tool-waar">Greenhouse construction trade pack (coming soon)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Electrical</span>
+        <h3>Fixture schedule</h3>
+        <p>Lighting fixtures per section, type and panel, with kVA and kW, as a CSV for Excel.</p>
+        <span class="tool-waar">Electrical trade pack (coming soon)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Electrical</span>
+        <h3>Circuit check</h3>
+        <p>Fixtures without a circuit, circuits above their breaker rating and unbalanced phases, checked against your own office rules.</p>
+        <span class="tool-waar">Electrical trade pack (coming soon)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Electrical</span>
+        <h3>Panel schedule</h3>
+        <p>Load and phase currents per panel, and whether the demand fits the contracted grid capacity.</p>
+        <span class="tool-waar">Electrical trade pack (coming soon)</span>
       </li>
     </ul>
     <p class="voetnoot">We will measure how much time each tool saves in the field test. Until then, we do not quote numbers.</p>
@@ -553,7 +571,7 @@ Gevel West: 96 panels, 220 mullions</code></pre></figure>
       <p><strong>Less than one day of classroom training</strong>, and you are never away from work for a day.</p>
       <p><strong>Your employer can reimburse it.</strong> <a href="convince-your-manager.html">Send this to your manager</a></p>
     </div>
-    <p class="kleine-lettertjes">Prices in euros for the Netherlands, including VAT. Prices may vary by country; the App Store always shows your price. You pay through Apple, and a purchase works on all your devices with the same Apple ID. Trade packs and PyPath Complete go on sale once the trade packs have lessons.</p>
+    <p class="kleine-lettertjes">Prices in euros for the Netherlands, including VAT. Prices may vary by country; the App Store always shows your price. You pay through Apple, and a purchase works on all your devices with the same Apple ID. Trade packs and PyPath Complete go on sale once the trade packs have lessons. Electrical is a separate trade pack (€79.99) and is not part of PyPath Complete.</p>
   </div>
 </section>
 
@@ -608,7 +626,7 @@ Gevel West: 96 panels, 220 mullions</code></pre></figure>
       </details>
       <details class="faq">
         <summary>Is it a subscription?</summary>
-        <div class="faq-antwoord"><p>No, everything is a one-time purchase. Week 1 is free. After that you buy PyPath Basis (weeks 2 to 12) and, if you like, trade packs for your field, or everything at once with PyPath Complete. What you buy stays yours.</p></div>
+        <div class="faq-antwoord"><p>No, everything is a one-time purchase. Week 1 is free. After that you buy PyPath Basis (weeks 2 to 12) and, if you like, trade packs for your field, or Basis with the three launch packs at once with PyPath Complete (Electrical is sold separately). What you buy stays yours.</p></div>
       </details>
       <details class="faq">
         <summary>Does it work on iPhone, iPad and Mac?</summary>

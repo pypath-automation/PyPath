@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.pypath.nl/bedrijven.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/gids/filteredelementcollector-python.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://www.pypath.nl/gids/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/gids/modify-model-outside-of-transaction.html</loc>
@@ -25,48 +25,56 @@
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
+    <loc>https://www.pypath.nl/gids/revit-armaturen-kringen-python.html</loc>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.pypath.nl/gids/revit-parameter-wijzigen-python.html</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/ondersteuning.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/privacy.html</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
+    <loc>https://www.pypath.nl/vakpakket/elektra.html</loc>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.pypath.nl/vakpakket/glastuinbouw-kassenbouw.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/vakpakket/warmte.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/vakpakket/water.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/vakpakketten.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/voor-je-leidinggevende.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/business.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/convince-your-manager.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/guides/filteredelementcollector-python.html</loc>
@@ -74,7 +82,7 @@
   </url>
   <url>
     <loc>https://www.pypath.nl/en/guides/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/guides/learn-python-for-revit.html</loc>
@@ -89,12 +97,16 @@
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
+    <loc>https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html</loc>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
     <loc>https://www.pypath.nl/en/guides/revit-set-parameter-python.html</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/privacy.html</loc>
@@ -102,22 +114,26 @@
   </url>
   <url>
     <loc>https://www.pypath.nl/en/support.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pypath.nl/en/trade-pack/electrical.html</loc>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/trade-pack/greenhouse-construction.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/trade-pack/heating.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/trade-pack/water.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://www.pypath.nl/en/trade-packs.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
 </urlset>

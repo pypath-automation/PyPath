@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Armaturen tellen en kringen controleren in Revit | PyPath</title>
+<meta name="description" content="Armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen in Revit met Python en pyRevit. Met werkende voorbeelden.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.pypath.nl/gids/revit-armaturen-kringen-python.html">
+<link rel="alternate" hreflang="nl" href="https://www.pypath.nl/gids/revit-armaturen-kringen-python.html">
+<link rel="alternate" hreflang="en" href="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Armaturen tellen en kringen controleren in Revit | PyPath">
+<meta property="og:description" content="Armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen in Revit met Python en pyRevit. Met werkende voorbeelden.">
+<meta property="og:url" content="https://www.pypath.nl/gids/revit-armaturen-kringen-python.html">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://www.pypath.nl/assets/img/deel-nl.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Armaturen tellen en kringen controleren in Revit | PyPath">
+<meta name="twitter:description" content="Armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen in Revit met Python en pyRevit. Met werkende voorbeelden.">
+<meta name="twitter:image" content="https://www.pypath.nl/assets/img/deel-nl.jpg">
+<meta name="twitter:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta property="article:published_time" content="2026-10-11">
+<meta property="article:modified_time" content="2026-10-11">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../assets/site.css?v=5756c48c25">
+<script src="../assets/site.js?v=bf4b1789b9" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pypath.nl/#organisatie","name":"PyPath","url":"https://www.pypath.nl/","logo":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://www.pypath.nl/#website","url":"https://www.pypath.nl/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://www.pypath.nl/#organisatie"}},{"@type":"WebPage","@id":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html#webpagina","url":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html","name":"Armaturen tellen en kringen controleren in Revit | PyPath","description":"Armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen in Revit met Python en pyRevit. Met werkende voorbeelden.","inLanguage":"nl","isPartOf":{"@id":"https://www.pypath.nl/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/deel-nl.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html#kruimels"}},{"@type":"TechArticle","@id":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html#artikel","proficiencyLevel":"Expert","headline":"Armaturen tellen en stroomkringen controleren in Revit met Python (pyRevit)","description":"Armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen in Revit met Python en pyRevit. Met werkende voorbeelden.","image":["https://www.pypath.nl/assets/img/deel-nl.jpg"],"datePublished":"2026-10-11","dateModified":"2026-10-11","author":{"@type":"Organization","name":"PyPath","url":"https://www.pypath.nl/"},"publisher":{"@id":"https://www.pypath.nl/#organisatie"},"inLanguage":"nl","mainEntityOfPage":{"@id":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html#webpagina"},"isPartOf":{"@id":"https://www.pypath.nl/#website"},"wordCount":1484},{"@type":"BreadcrumbList","@id":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://www.pypath.nl/"},{"@type":"ListItem","position":2,"name":"Gidsen","item":"https://www.pypath.nl/gids/"},{"@type":"ListItem","position":3,"name":"Armaturen en kringen","item":"https://www.pypath.nl/gids/revit-armaturen-kringen-python.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<a class="naar-inhoud" href="#inhoud">Naar de inhoud</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Hoofdmenu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../en/guides/revit-lighting-fixtures-circuits-python.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="vh">English</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="./" aria-current="page">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../ondersteuning.html">Ondersteuning</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Kruimelpad"><ol><li><a href="../">PyPath</a></li><li><a href="./">Gidsen</a></li><li><span aria-current="page">Armaturen en kringen</span></li></ol></nav>
+    <h1>Armaturen tellen en stroomkringen controleren in Revit met Python (pyRevit)</h1>
+    <p class="gids-intro">Drie korte pyRevit-scripts voor de E-tekenaar: armaturen per type tellen, armaturen zonder kring vinden en kringen boven hun beveiliging opsporen. Plus de valkuil waar iedereen in loopt: een ElementSet is geen lijst.</p>
+    <p class="gids-meta"><span>7 min lezen</span><span aria-hidden="true">·</span><span>Bijgewerkt op 11 oktober 2026</span><span aria-hidden="true">·</span><span>Gecontroleerd tegen de Revit API 2025-documentatie</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">Op deze pagina</summary><ol><li><a href="#waar-zit-elektra">Waar elektra in de Revit-API zit</a></li><li><a href="#armaturen-per-type">Armaturen per type tellen</a></li><li><a href="#zonder-kring">Armaturen zonder kring vinden</a></li><li><a href="#boven-beveiliging">Kringen boven hun beveiliging</a></li><li><a href="#elementset">ElementSet of lijst: de valkuil in IronPython</a></li><li><a href="#van-script-naar-knop">Van script naar knop</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Kort antwoord:</strong> armaturen haal je op met een <code>FilteredElementCollector</code> op <code>BuiltInCategory.OST_LightingFixtures</code>. De kringen van een armatuur geeft <code>armatuur.MEPModel.GetElectricalSystems()</code>; is die leeg, dan hangt het armatuur in geen enkele kring. Kringen zelf zijn <code>ElectricalSystem</code>-elementen: vergelijk <code>ApparentCurrent</code> met <code>Rating</code> en je ziet welke kring boven zijn beveiliging zit. Let op: <code>kring.Elements</code> is een <code>ElementSet</code>, geen lijst; tel met <code>.Size</code>.</p>
+</div>
+
+<h2 id="waar-zit-elektra">Waar elektra in de Revit-API zit</h2>
+<p>Voor de E-tekenaar draait bijna alles om vier soorten elementen:</p>
+<ul>
+  <li><strong>Armaturen</strong>: categorie <code>OST_LightingFixtures</code>. Wandcontactdozen en andere aansluitpunten zitten in <code>OST_ElectricalFixtures</code>.</li>
+  <li><strong>Verdelers</strong>: categorie <code>OST_ElectricalEquipment</code>, met de naam in <code>RBS_ELEC_PANEL_NAME</code>.</li>
+  <li><strong>Kringen</strong>: de klasse <code>ElectricalSystem</code> uit <code>Autodesk.Revit.DB.Electrical</code>. Een kring weet zijn verdeler (<code>PanelName</code>), zijn nummer (<code>CircuitNumber</code>), zijn omschrijving (<code>LoadName</code>), de stroom (<code>ApparentCurrent</code>) en de beveiliging (<code>Rating</code>).</li>
+  <li><strong>Kabelgoten en buizen</strong>: <code>CableTray</code> en <code>Conduit</code>, ook uit <code>Autodesk.Revit.DB.Electrical</code>.</li>
+</ul>
+<p>Vermogen en spanning staan in Revit, net als lengtes, in interne eenheden. Lees ze daarom altijd met <code>UnitUtils.ConvertFromInternalUnits</code> en <code>UnitTypeId.VoltAmperes</code> of <code>UnitTypeId.Volts</code>, en nooit als kaal getal. De voorbeelden hieronder draaien op een nagebootst kassencomplex met drie afdelingen belichting, 270 armaturen en vier verdelers.</p>
+
+<h2 id="armaturen-per-type">Armaturen per type tellen</h2>
+<p>De eerste vraag is bijna altijd: hoeveel armaturen van welk type, en hoeveel vermogen is dat? Dit script telt ze en telt het schijnbaar vermogen per type op:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">ArmaturenPerType.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: ArmaturenPerType.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+armaturen = (<span class="c-revit">FilteredElementCollector</span>(doc)
+             .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+             .<span class="c-revit">WhereElementIsNotElementType</span>()
+             .<span class="c-revit">ToElements</span>())
+
+per_type = {}
+<span class="c-kw">for</span> armatuur <span class="c-kw">in</span> armaturen:
+    typenaam = armatuur.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ELEM_TYPE_PARAM</span>).<span class="c-revit">AsValueString</span>()
+    va = armatuur.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_ELEC_APPARENT_LOAD</span>).<span class="c-revit">AsDouble</span>()
+    va = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(va, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">VoltAmperes</span>)
+    aantal, totaal = per_type.get(typenaam, (<span class="c-num">0</span>, <span class="c-num">0.0</span>))
+    per_type[typenaam] = (aantal + <span class="c-num">1</span>, totaal + va)
+
+<span class="c-kw">for</span> typenaam <span class="c-kw">in</span> <span class="c-bi">sorted</span>(per_type):
+    aantal, totaal = per_type[typenaam]
+    <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {} armaturen, {:.1f} kVA&quot;</span>.format(
+        typenaam, aantal, totaal / <span class="c-num">1000</span>))
+<span class="c-bi">print</span>(<span class="c-str">&quot;Totaal: {} armaturen&quot;</span>.format(<span class="c-bi">len</span>(armaturen)))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kassencomplex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kassencomplex"><code class="language-uitvoer">LED 520W 230V: 89 armaturen, 47.2 kVA
+LED 645W 400V: 91 armaturen, 59.7 kVA
+SON-T 1000W 400V: 90 armaturen, 96.5 kVA
+Totaal: 270 armaturen</code></pre></figure>
+<ul>
+  <li>De typenaam lees je met <code>ELEM_TYPE_PARAM</code> en <code>AsValueString()</code>. Dat werkt in elke taal van Revit, anders dan een parameter op zijn zichtbare naam zoeken.</li>
+  <li>Een dictionary met <code>.get(sleutel, standaard)</code> is de kortste manier om per type op te tellen.</li>
+  <li>Opvallend: 91 armaturen "LED 645W 400V", terwijl er per afdeling 90 hangen. In het oefenmodel zit er één in de verkeerde afdeling. Precies dit soort afwijkingen vindt een telling eerder dan je oog.</li>
+</ul>
+
+<h2 id="zonder-kring">Armaturen zonder kring vinden</h2>
+<p>Een armatuur dat in geen enkele kring hangt, telt niet mee in de belasting van de verdeler en ontbreekt in de groepenverklaring. <code>GetElectricalSystems()</code> op het <code>MEPModel</code> van het armatuur geeft zijn kringen; is die verzameling leeg, dan heb je er een gevonden.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">ZonderKring.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: ZonderKring.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+armaturen = (<span class="c-revit">FilteredElementCollector</span>(doc)
+             .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+             .<span class="c-revit">WhereElementIsNotElementType</span>()
+             .<span class="c-revit">ToElements</span>())
+
+zonder_kring = []
+<span class="c-kw">for</span> armatuur <span class="c-kw">in</span> armaturen:
+    mep = armatuur.MEPModel
+    kringen = <span class="c-bi">list</span>(mep.GetElectricalSystems()) <span class="c-kw">if</span> mep <span class="c-kw">else</span> []
+    <span class="c-kw">if</span> <span class="c-kw">not</span> kringen:
+        zonder_kring.append(armatuur)
+
+<span class="c-kw">for</span> armatuur <span class="c-kw">in</span> zonder_kring:
+    mark = armatuur.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_MARK</span>).<span class="c-revit">AsString</span>()
+    typenaam = armatuur.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ELEM_TYPE_PARAM</span>).<span class="c-revit">AsValueString</span>()
+    <span class="c-bi">print</span>(<span class="c-str">&quot;Zonder kring: {} ({})&quot;</span>.format(mark, typenaam))
+<span class="c-bi">print</span>(<span class="c-str">&quot;{} van de {} armaturen zonder kring&quot;</span>.format(
+    <span class="c-bi">len</span>(zonder_kring), <span class="c-bi">len</span>(armaturen)))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kassencomplex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kassencomplex"><code class="language-uitvoer">Zonder kring: A1-R2-08 (SON-T 1000W 400V)
+1 van de 270 armaturen zonder kring</code></pre></figure>
+<ul>
+  <li><code>GetElectricalSystems()</code> geeft een .NET-verzameling. Met <code>list(...)</code> eromheen kun je er in Python gewoon mee werken: <code>if not kringen</code>, <code>len(kringen)</code>, <code>kringen[0]</code>.</li>
+  <li>Niet elk element heeft een <code>MEPModel</code>; daarom eerst de controle <code>if mep</code>.</li>
+  <li>Wil je ook wandcontactdozen nalopen, gebruik dan dezelfde lus met <code>OST_ElectricalFixtures</code>.</li>
+</ul>
+
+<h2 id="boven-beveiliging">Kringen boven hun beveiliging</h2>
+<p>Elke kring kent zijn stroom en zijn beveiliging. <code>ApparentCurrent</code> is de stroom in ampère: schijnbaar vermogen gedeeld door de spanning, en bij een 3-polige kring gedeeld door √3 keer de spanning. <code>Rating</code> is de waarde van de beveiliging in ampère. Is de stroom hoger dan de beveiliging, dan klopt er iets niet.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">BovenBeveiliging.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: BovenBeveiliging.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystemType
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+te_zwaar = []
+<span class="c-kw">for</span> kring <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(ElectricalSystem):
+    <span class="c-kw">if</span> kring.SystemType != ElectricalSystemType.PowerCircuit:
+        <span class="c-kw">continue</span>
+    <span class="c-kw">if</span> kring.ApparentCurrent &gt; kring.Rating:
+        te_zwaar.append(<span class="c-str">&quot;{} kring {}: {:.2f} A op {:.0f} A&quot;</span>.format(
+            kring.PanelName, kring.CircuitNumber,
+            kring.ApparentCurrent, kring.Rating))
+
+<span class="c-kw">for</span> regel <span class="c-kw">in</span> <span class="c-bi">sorted</span>(te_zwaar):
+    <span class="c-bi">print</span>(regel)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kassencomplex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kassencomplex"><code class="language-uitvoer">OV-A1 kring 14: 18.76 A op 16 A
+OV-A2 kring 4: 8.20 A op 6 A</code></pre></figure>
+<ul>
+  <li><code>Rating</code> bestaat alleen bij vermogenskringen. Op een data- of brandmeldkring geeft Revit een <code>InvalidOperationException</code>; daarom slaat het script alles over wat geen <code>PowerCircuit</code> is.</li>
+  <li>Veel bureaus houden een strengere eigen regel aan, zoals "hooguit 80 % van de beveiliging" of "hooguit vijf armaturen per kring". Zet zo'n grens als variabele bovenin het script, zodat iedereen ziet welke regel de knop toetst.</li>
+  <li>Dit is een controle tegen jullie eigen regels, geen NEN 1010-berekening. Kabeldoorsnede, spanningsval en selectiviteit reken je definitief in je E-rekenpakket.</li>
+</ul>
+
+<h2 id="elementset">ElementSet of lijst: de valkuil in IronPython</h2>
+<p>De armaturen in een kring staan in <code>kring.Elements</code>. Dat lijkt een lijst, maar het is een <code>ElementSet</code>: een verzameling uit de Revit-API. Je kunt erover itereren, maar <code>len()</code> en <code>[0]</code> werken in pyRevit (IronPython) niet. Tel met <code>.Size</code>, of maak er eerst een lijst van:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+kring = (<span class="c-revit">FilteredElementCollector</span>(doc)
+         .<span class="c-revit">OfClass</span>(ElectricalSystem)
+         .<span class="c-revit">FirstElement</span>())
+leden = kring.Elements                <span class="c-com"># een ElementSet, geen Python-lijst</span>
+<span class="c-bi">print</span>(leden.Size)                     <span class="c-com"># tellen met Size</span>
+eerste = <span class="c-bi">list</span>(leden)[<span class="c-num">0</span>]               <span class="c-com"># eerst een lijst, dan pas [0]</span>
+<span class="c-bi">print</span>(eerste.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_MARK</span>).<span class="c-revit">AsString</span>())</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kassencomplex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kassencomplex"><code class="language-uitvoer">5
+A1-R1-01</code></pre></figure>
+<p>Schrijf je toch <code>len(kring.Elements)</code>, dan stopt het script met een fout als deze:</p>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer"><code class="language-uitvoer">TypeError: object of type &#x27;ElementSet&#x27; has no len()</code></pre></figure>
+<p>Andersom geldt hetzelfde: methodes die de kring <em>wijzigen</em>, willen een <code>ElementSet</code> en geen Python-lijst. Dit script hangt het armatuur zonder kring in de kring waar het hoort:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Aansluiten.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Aansluiten.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+kringen = {}
+<span class="c-kw">for</span> kring <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(ElectricalSystem):
+    kringen[kring.LoadName] = kring
+doel = kringen[<span class="c-str">&quot;Belichting A1 R2 K2&quot;</span>]
+
+nieuw = ElementSet()
+<span class="c-kw">for</span> armatuur <span class="c-kw">in</span> (<span class="c-revit">FilteredElementCollector</span>(doc)
+                 .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+                 .<span class="c-revit">WhereElementIsNotElementType</span>()):
+    <span class="c-kw">if</span> <span class="c-kw">not</span> <span class="c-bi">list</span>(armatuur.MEPModel.GetElectricalSystems()):
+        nieuw.Insert(armatuur)
+
+t = <span class="c-revit">Transaction</span>(doc, <span class="c-str">&quot;Armaturen aansluiten&quot;</span>)
+t.<span class="c-revit">Start</span>()
+gelukt = doel.AddToCircuit(nieuw)   <span class="c-com"># een ElementSet, geen Python-lijst</span>
+t.<span class="c-revit">Commit</span>()
+<span class="c-bi">print</span>(gelukt)
+<span class="c-bi">print</span>(<span class="c-str">&quot;{}: {} punten, {:.2f} A&quot;</span>.format(
+    doel.LoadName, doel.Elements.Size, doel.ApparentCurrent))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste kassencomplex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste kassencomplex"><code class="language-uitvoer">True
+Belichting A1 R2 K2: 5 punten, 13.40 A</code></pre></figure>
+<ul>
+  <li><code>AddToCircuit</code> en <code>RemoveFromCircuit</code> willen een <code>ElementSet</code>. Met een Python-lijst krijg je een <code>TypeError</code>.</li>
+  <li><code>AddToCircuit</code> geeft <code>False</code> als een armatuur niet in de kring past, bijvoorbeeld door een andere spanning of een ander aantal polen.</li>
+  <li>Een nieuwe kring maken met <code>ElectricalSystem.Create</code> vraagt juist een <code>List[ElementId]</code> uit <code>System.Collections.Generic</code>. Twee methodes, twee soorten verzamelingen: kijk bij twijfel in de documentatie op <a href="https://www.revitapidocs.com/">revitapidocs.com</a>.</li>
+  <li>Wijzigen kan alleen in een transaction. Waarom, en wat er gebeurt als je hem vergeet, staat in <a href="modify-model-outside-of-transaction.html">"Attempt to modify the model outside of transaction"</a>.</li>
+</ul>
+
+<h2 id="van-script-naar-knop">Van script naar knop</h2>
+<p>Elk script hierboven wordt een knop op het lint als je het als <code>script.py</code> in een map <code>Naam.pushbutton</code> in je pyRevit-extensie zet; hoe dat gaat, staat in <a href="pyrevit-installeren-eerste-knop.html">pyRevit installeren en je eerste knop maken</a>. Drie gewoontes maken zo'n knop bruikbaar voor het hele bureau:</p>
+<ul>
+  <li><strong>Een instellingenblok bovenin</strong> met typenamen, parameternamen en grenzen. Wie de knop op een ander project gebruikt, past alleen dat blok aan.</li>
+  <li><strong>Geen f-strings.</strong> pyRevit gebruikt standaard IronPython 2.7; schrijf <code>"{}".format(waarde)</code>.</li>
+  <li><strong>Lijsten naar Excel</strong> als CSV met een puntkomma, dan opent een Nederlandse Excel ze meteen in kolommen.</li>
+</ul>
+<p>Dit is werk dat naast je E-pakket hoort: het telt, controleert en rapporteert uit het Revit-model, volgens jullie eigen regels. Het rekenen volgens de norm blijft in je E-rekenpakket.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <img class="logo" src="../assets/img/logo-128.png" width="48" height="48" alt="" loading="lazy" decoding="async">
+  <h3 class="probeer-kop" id="probeer-kop">Oefen dit in PyPath</h3>
+  <p>Armaturen tellen en armaturen zonder kring vinden oefen je al in week 9 tot 12 van het lesplan. In het <a href="../vakpakket/elektra.html">vakpakket Elektra</a> (binnenkort) bouw je deze controles uit tot drie knoppen, Armaturenstaat, Kringcontrole en Verdeelkaststaat, op een nagebootst kassencomplex met bewuste fouten om te vinden. Week 1 is gratis.</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Verder lezen</h2><ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="filteredelementcollector-python.html"><span class="gids-kaart-meta">Beginners · 4 min lezen</span><h3 class="gids-kaart-titel">FilteredElementCollector uitgelegd, met Python-voorbeelden</h3><p>Elk Revit-script begint met elementen zoeken. Zo werkt de collector, welke filters je nodig hebt, en waarom je soms opeens te veel of helemaal niets vindt.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="revit-parameter-wijzigen-python.html"><span class="gids-kaart-meta">Beginners · 5 min lezen</span><h3 class="gids-kaart-titel">Revit-parameters lezen en wijzigen met Python (met Transaction)</h3><p>Parameters zijn de gegevens van je model. Zo lees je ze, zo vul je ze in bulk in, en dit zijn de valkuilen waardoor Set niets doet of een fout geeft.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="python-leren-voor-revit.html"><span class="gids-kaart-meta">Beginners · 7 min lezen</span><h3 class="gids-kaart-titel">Python leren voor Revit: waar begin je?</h3><p>Een eerlijk stappenplan, van je eerste regel Python tot je eigen pyRevit-knop. Met echte voorbeeldcode en de fouten die bijna iedereen maakt.</p><span class="gids-kaart-lees">Lees de gids <span aria-hidden="true">→</span></span></a></li></ul><p class="gerelateerd-alle"><a href="./">Alle gidsen <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Leer Python voor Revit en pyRevit. Elke dag tien minuten, op iPhone en Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Het 12-wekenplan</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../#vragen">Veelgestelde vragen</a></li></ul></div><div><p class="voet-kop">Voor werkgevers</p><ul><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../bedrijven.html#rekenvoorbeeld">Bereken wat het oplevert</a></li><li><a href="../voor-je-leidinggevende.html">Overtuig je leidinggevende</a></li></ul></div><div><p class="voet-kop">Leren</p><ul><li><a href="./">Alle gidsen</a></li><li><a href="python-leren-voor-revit.html">Python leren voor Revit</a></li><li><a href="pyrevit-installeren-eerste-knop.html">pyRevit installeren</a></li><li><a href="revit-parameter-wijzigen-python.html">Parameters wijzigen</a></li></ul></div><div><p class="voet-kop">Hulp</p><ul><li><a href="../ondersteuning.html">Ondersteuning</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Vraag of probleem melden</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · Geen cookies, geen tracking, geen account.</p>
+    <p>Revit en Autodesk zijn handelsmerken van Autodesk, Inc. PyPath is een onafhankelijke app en is niet verbonden aan Autodesk of het pyRevit-project.</p>
+  </div>
+</footer>
+</body>
+</html>

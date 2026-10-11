@@ -970,9 +970,18 @@ button.knop { border: 0; cursor: pointer; font-family: inherit; }
 .pakket-warmte { background: color-mix(in srgb, var(--vlam) 14%, transparent); color: var(--vlam); }
 .pakket-water { background: var(--revit-zacht); color: var(--revit); }
 .pakket-kas { background: var(--accent-zacht); color: var(--accent-tekst); }
+.pakket-elektra { background: color-mix(in srgb, var(--waarschuwing) 14%, transparent); color: var(--waarschuwing); }
+.pakketten-vier { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .pakketten-vier { grid-template-columns: 1fr; } }
+.pakket-los { font-size: 0.8125rem; font-weight: 650; color: var(--tekst-zacht); }
+/* Modeltekening Elektra: kringen en armaturen */
+.m-kring { stroke: var(--waarschuwing); }
+.m-armaturen circle { fill: var(--waarschuwing); }
+.m-armaturen .m-los { fill: var(--fout); }
 .later { margin-top: 20px; color: var(--tekst-zacht); }
 .pakket-raster { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(28px, 4vw, 56px); align-items: start; margin-bottom: 40px; }
-@media (max-width: 960px) { .pakket-raster { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .pakket-raster { grid-template-columns: minmax(0, 1fr); } }
+.pakket-raster > * { min-width: 0; } /* lange coderegels scrollen in hun eigen blok, niet de hele pagina */
 .pakket-zij { display: grid; gap: 16px; position: sticky; top: 88px; }
 @media (max-width: 960px) { .pakket-zij { position: static; } }
 .pakket-prijs .prijs-bedrag { margin-bottom: 10px; }

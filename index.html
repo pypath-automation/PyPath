@@ -37,7 +37,7 @@
 <link rel="icon" href="assets/img/icoon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
-<link rel="stylesheet" href="assets/site.css?v=f3ccc8cb3b">
+<link rel="stylesheet" href="assets/site.css?v=5756c48c25">
 <script src="assets/site.js?v=bf4b1789b9" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pypath.nl/#organisatie","name":"PyPath","url":"https://www.pypath.nl/","logo":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://www.pypath.nl/#website","url":"https://www.pypath.nl/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://www.pypath.nl/#organisatie"}},{"@type":"WebPage","@id":"https://www.pypath.nl/#webpagina","url":"https://www.pypath.nl/","name":"PyPath: Python leren voor Revit en pyRevit","description":"Leer in 12 weken Python voor Revit en pyRevit. Tien minuten per dag zelf typen op een nagebootst Revit-model van kassen en installaties. Week 1 gratis.","inLanguage":"nl","isPartOf":{"@id":"https://www.pypath.nl/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/deel-nl.jpg","width":1200,"height":630},"about":{"@id":"https://www.pypath.nl/#app"}},{"@type":"MobileApplication","@id":"https://www.pypath.nl/#app","name":"PyPath","description":"Leer in 12 weken Python voor Revit en pyRevit. Tien minuten per dag zelf typen op een nagebootst Revit-model van kassen en installaties. Week 1 gratis.","operatingSystem":"iOS 18, iPadOS 18, macOS 15","applicationCategory":"EducationalApplication","applicationSubCategory":"Programmeren","inLanguage":"nl","url":"https://www.pypath.nl/","publisher":{"@id":"https://www.pypath.nl/#organisatie"},"image":"https://www.pypath.nl/assets/img/icoon-512.png","screenshot":["https://www.pypath.nl/assets/img/app/iphone-vandaag.jpg","https://www.pypath.nl/assets/img/app/iphone-opdracht.jpg","https://www.pypath.nl/assets/img/app/mac-oefening.jpg"],"offers":[{"@type":"Offer","name":"Week 1 gratis","price":"0.00","priceCurrency":"EUR","category":"free","eligibleRegion":{"@type":"Country","name":"NL"}},{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Week 2 tot en met 12, eenmalig"}]},{"@type":"Course","@id":"https://www.pypath.nl/#cursus","name":"Python voor Revit in 12 weken","description":"In 12 weken van je eerste regel Python naar je eigen pyRevit-library, met oefeningen uit installaties (MEP) en kassenbouw (curtain walls).","provider":{"@id":"https://www.pypath.nl/#organisatie"},"inLanguage":"nl","educationalLevel":"Beginner","coursePrerequisites":"Geen programmeerervaring nodig","teaches":["Python","pyRevit","Revit API","FilteredElementCollector","Transactions","Parameters","MEP","Curtain walls"],"timeRequired":"P12W","isAccessibleForFree":false,"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","courseSchedule":{"@type":"Schedule","duration":"PT10M","repeatFrequency":"Daily","repeatCount":60}},"offers":[{"@type":"Offer","name":"PyPath Basis","price":"99.99","priceCurrency":"EUR","category":"one-time purchase","eligibleRegion":{"@type":"Country","name":"NL"},"description":"Week 2 tot en met 12, eenmalig"}],"syllabusSections":[{"@type":"Syllabus","name":"Python basis","description":"Je kent de kern van Python en schrijft kleine, werkende scripts.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Gevorderd en objectgeoriënteerd","description":"Je schrijft je eigen functies en classes en werkt met modules en bestanden.","timeRequired":"P4W"},{"@type":"Syllabus","name":"Richting Revit","description":"Je werkt met pyRevit en de Revit-API en bundelt je beste functies in een eigen library.","timeRequired":"P4W"}]}]}</script>
 </head>
@@ -106,7 +106,7 @@
       <li class="route-stap">
         <span class="route-nr" aria-hidden="true">3</span>
         <h3>Bouw</h3>
-        <p>Je eigen library per vak: Warmte, Water, Glastuinbouw &amp; kassenbouw. <a href="vakpakketten.html">Over de vakpakketten</a></p>
+        <p>Je eigen library per vak: Warmte, Water, Glastuinbouw &amp; kassenbouw en Elektra. <a href="vakpakketten.html">Over de vakpakketten</a></p>
         <span class="status status-straks">Vakpakketten volgen</span>
       </li>
       <li class="route-stap">
@@ -320,6 +320,24 @@ Gevel West: 96 panelen, 220 roeden</code></pre></figure>
         <h3>Ontbrekende ruiten en roeden</h3>
         <p>Vindt lege panelen in de gevels en ontbrekende roeden in het kasdek.</p>
         <span class="tool-waar">Vakpakket Glastuinbouw &amp; kassenbouw (binnenkort)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Elektra</span>
+        <h3>Armaturenstaat</h3>
+        <p>Armaturen per afdeling, type en verdeler, met kVA en kW, als CSV voor Excel.</p>
+        <span class="tool-waar">Vakpakket Elektra (binnenkort)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Elektra</span>
+        <h3>Kringcontrole</h3>
+        <p>Armaturen zonder kring, kringen boven hun beveiliging en scheve fasen, getoetst aan jullie eigen bureauregels.</p>
+        <span class="tool-waar">Vakpakket Elektra (binnenkort)</span>
+      </li>
+      <li class="tool kaart">
+        <span class="tool-vak">Elektra</span>
+        <h3>Verdeelkaststaat</h3>
+        <p>Per verdeler de belasting en de fasestromen, en of de vraag past op het gecontracteerde vermogen.</p>
+        <span class="tool-waar">Vakpakket Elektra (binnenkort)</span>
       </li>
     </ul>
     <p class="voetnoot">Hoeveel tijd elke tool scheelt, meten we in de praktijktest. Tot die tijd noemen we geen getallen.</p>
@@ -552,7 +570,7 @@ Gevel West: 96 panelen, 220 roeden</code></pre></figure>
       <p><strong>Minder dan één cursusdag bij een opleider</strong>, en je bent geen dag afwezig.</p>
       <p><strong>Je werkgever kan dit onbelast vergoeden.</strong> <a href="voor-je-leidinggevende.html">Stuur dit naar je leidinggevende</a></p>
     </div>
-    <p class="kleine-lettertjes">Bedragen in euro voor Nederland, inclusief btw. Prijzen kunnen per land verschillen; de App Store toont altijd jouw prijs. Je betaalt via Apple, en een aankoop geldt op al je apparaten met dezelfde Apple ID. Vakpakketten en PyPath Compleet zijn te koop zodra de vakpakketten lessen hebben.</p>
+    <p class="kleine-lettertjes">Bedragen in euro voor Nederland, inclusief btw. Prijzen kunnen per land verschillen; de App Store toont altijd jouw prijs. Je betaalt via Apple, en een aankoop geldt op al je apparaten met dezelfde Apple ID. Vakpakketten en PyPath Compleet zijn te koop zodra de vakpakketten lessen hebben. Elektra is een los vakpakket (€79,99) en zit niet in PyPath Compleet.</p>
   </div>
 </section>
 
@@ -607,7 +625,7 @@ Gevel West: 96 panelen, 220 roeden</code></pre></figure>
       </details>
       <details class="faq">
         <summary>Is het een abonnement?</summary>
-        <div class="faq-antwoord"><p>Nee, alles is eenmalig. Week 1 is gratis. Daarna koop je PyPath Basis (week 2 tot en met 12) en eventueel vakpakketten voor jouw vak, of alles in één keer met PyPath Compleet. Wat je koopt, blijft van jou.</p></div>
+        <div class="faq-antwoord"><p>Nee, alles is eenmalig. Week 1 is gratis. Daarna koop je PyPath Basis (week 2 tot en met 12) en eventueel vakpakketten voor jouw vak, of Basis met de drie startpakketten in één keer met PyPath Compleet (Elektra koop je los). Wat je koopt, blijft van jou.</p></div>
       </details>
       <details class="faq">
         <summary>Werkt het op iPhone, iPad en Mac?</summary>

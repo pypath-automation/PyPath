@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vakpakket Elektra: armaturen en kringen in Revit | PyPath</title>
+<meta name="description" content="Vakpakket Elektra: eigen pyRevit-tools voor armaturen, kringen en verdelers. Tellen, controleren tegen jullie regels en rapporteren. Eenmalig {{prijs:vakpakket}}.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.pypath.nl/vakpakket/elektra.html">
+<link rel="alternate" hreflang="nl" href="https://www.pypath.nl/vakpakket/elektra.html">
+<link rel="alternate" hreflang="en" href="https://www.pypath.nl/en/trade-pack/electrical.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pypath.nl/en/trade-pack/electrical.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Vakpakket Elektra: armaturen en kringen in Revit | PyPath">
+<meta property="og:description" content="Vakpakket Elektra: eigen pyRevit-tools voor armaturen, kringen en verdelers. Tellen, controleren tegen jullie regels en rapporteren. Eenmalig {{prijs:vakpakket}}.">
+<meta property="og:url" content="https://www.pypath.nl/vakpakket/elektra.html">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://www.pypath.nl/assets/img/deel-nl.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vakpakket Elektra: armaturen en kringen in Revit | PyPath">
+<meta name="twitter:description" content="Vakpakket Elektra: eigen pyRevit-tools voor armaturen, kringen en verdelers. Tellen, controleren tegen jullie regels en rapporteren. Eenmalig {{prijs:vakpakket}}.">
+<meta name="twitter:image" content="https://www.pypath.nl/assets/img/deel-nl.jpg">
+<meta name="twitter:image:alt" content="PyPath: word de persoon op kantoor die Revit kan automatiseren. Python leren voor Revit op iPhone en Mac.">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../assets/site.css?v=5756c48c25">
+<script src="../assets/site.js?v=bf4b1789b9" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pypath.nl/#organisatie","name":"PyPath","url":"https://www.pypath.nl/","logo":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://www.pypath.nl/#website","url":"https://www.pypath.nl/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://www.pypath.nl/#organisatie"}},{"@type":"WebPage","@id":"https://www.pypath.nl/vakpakket/elektra.html#webpagina","url":"https://www.pypath.nl/vakpakket/elektra.html","name":"Vakpakket Elektra: armaturen en kringen in Revit | PyPath","description":"Vakpakket Elektra: eigen pyRevit-tools voor armaturen, kringen en verdelers. Tellen, controleren tegen jullie regels en rapporteren. Eenmalig {{prijs:vakpakket}}.","inLanguage":"nl","isPartOf":{"@id":"https://www.pypath.nl/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/deel-nl.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://www.pypath.nl/vakpakket/elektra.html#kruimels"}},{"@type":"BreadcrumbList","@id":"https://www.pypath.nl/vakpakket/elektra.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://www.pypath.nl/"},{"@type":"ListItem","position":2,"name":"Vakpakketten","item":"https://www.pypath.nl/vakpakketten.html"},{"@type":"ListItem","position":3,"name":"Elektra","item":"https://www.pypath.nl/vakpakket/elektra.html"}]}]}</script>
+</head>
+<body class="pagina-pagina">
+<a class="naar-inhoud" href="#inhoud">Naar de inhoud</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Hoofdmenu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html" aria-current="page">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../gids/">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../en/trade-pack/electrical.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="vh">English</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../vakpakketten.html" aria-current="page">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../gids/">Gidsen</a></li><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../ondersteuning.html">Ondersteuning</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<header class="pagina-kop">
+  <div class="binnen">
+    <nav class="kruimels" aria-label="Kruimelpad"><ol><li><a href="../">PyPath</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><span aria-current="page">Elektra</span></li></ol></nav>
+    <p class="bovenkop">Vakpakket <span class="status">Binnenkort</span></p>
+    <h1>Elektra</h1>
+    <p class="lead">Armaturen, kringen en verdelers: je eigen tools om te tellen, te controleren tegen jullie eigen regels en te rapporteren naar Excel. Geoefend op een nagebootst kassencomplex met assimilatiebelichting, onderverdelers en kabelgoten.</p>
+  </div>
+</header>
+<div class="inhoud-pagina">
+  <div class="binnen pakket-raster">
+    <div class="tekst">
+      <h2>Voor wie</h2>
+      <p>E-tekenaars, BIM-modelleurs elektrotechniek en E-engineers bij installateurs en ingenieursbureaus, in de glastuinbouw en daarbuiten. De oefeningen gaan over belichting in de kas; dezelfde knoppen werken op armaturen, kringen en verdelers in een kantoor, school of bedrijfshal.</p>
+
+      <h2>Werkt naast je E-pakket</h2>
+      <p>Kringen routeren, schema's tekenen en rekenen volgens de norm doe je in je E-pakket, zoals Stabicad of MagiCAD. Dit pakket doet wat daar niet in zit: tellen en optellen, het model controleren tegen <strong>jullie eigen bureauregels</strong> en lijsten maken voor Excel. Een NEN 1010-berekening is het niet: spanningsval en kabeldoorsnede zijn in de knoppen een indicatie, en de knop zegt erbij dat je definitief rekent met je E-rekenpakket.</p>
+
+      <h2>Wat je leert, week voor week</h2>
+      <ol>
+        <li><strong>Meten en tellen.</strong> Armaturen per type, afdeling en verdeler; van VA naar watt en ampère (1-, 2- en 3-polig); de belichting per afdeling in W/m² en µmol/m²·s. Je sluit af met de knop Armaturenstaat.</li>
+        <li><strong>Controleren tegen jullie eigen regels.</strong> Armaturen zonder kring, stroom tegen de beveiliging, punten per kring, de fasebalans L1/L2/L3, kringlengte en spanningsval. De grenzen staan bovenin elke knop, zodat je ze op jullie afspraken zet. Je sluit af met de knop Kringcontrole.</li>
+        <li><strong>Wijzigen en rapporteren.</strong> Kringnamen volgens jullie afspraak, een groepenlijst die netjes 1, 2, 10 sorteert, armaturen over kringen herverdelen, een kabelgotenstaat. Je sluit af met de knop Verdeelkaststaat, met de vermogensbalans tegen de aansluiting en de WKK.</li>
+      </ol>
+
+      <h2>De knoppen die je overhoudt</h2>
+      <ul>
+        <li><strong>Armaturenstaat:</strong> per afdeling, type en verdeler het aantal armaturen, kVA en kW, als CSV voor Excel.</li>
+        <li><strong>Kringcontrole:</strong> vijf controles in één knop, van armaturen zonder kring en te zwaar belaste kringen tot spanningsval, verkeerde spanning en fasebalans. Wat hij vindt, markeert hij in het model.</li>
+        <li><strong>Verdeelkaststaat:</strong> per verdeler de voeding, kringen, kVA, kW en fasestromen, plus de vermogensbalans: past de vraag op het gecontracteerde vermogen, ook als de WKK uit staat?</li>
+        <li>En verder onder meer: Niet aangesloten, Kringbelasting, Fasebalans, Spanningsval, Belichtingsoverzicht, Vermogen per verdeler, Kringnamen, Groepenlijst, Kringen herverdelen en Kabelgotenstaat.</li>
+      </ul>
+      <p class="voetnoot">In totaal houd je er 17 knoppen aan over.</p>
+
+      <h2>Een voorbeeld</h2>
+      <p>Welke kringen zitten boven hun beveiliging, of hebben meer punten dan jullie toestaan? De grenzen staan bovenin, als bureauregel. Op het nagebootste kassencomplex vindt dit script precies de twee kringen waar het misgaat.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Kringbelasting.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Kringbelasting.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystemType
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+<span class="c-com"># ---- Bureauregels: pas aan op jullie afspraken ----</span>
+MAX_BELASTING_PCT = <span class="c-num">100</span>   <span class="c-com"># stroom als % van de beveiliging</span>
+MAX_PUNTEN = <span class="c-num">5</span>            <span class="c-com"># aansluitpunten per kring</span>
+
+REGEL = <span class="c-str">&quot;{} kring {} ({}): {} punten, {:.2f} A op {:.0f} A = {:.0f} %&quot;</span>
+
+<span class="c-kw">for</span> kring <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(ElectricalSystem):
+    <span class="c-kw">if</span> kring.SystemType != ElectricalSystemType.PowerCircuit:
+        <span class="c-kw">continue</span>  <span class="c-com"># alleen vermogenskringen hebben een beveiliging</span>
+    punten = kring.Elements.Size  <span class="c-com"># een ElementSet: geen len()</span>
+    pct = <span class="c-num">100.0</span> * kring.ApparentCurrent / kring.Rating
+    <span class="c-kw">if</span> pct &gt; MAX_BELASTING_PCT <span class="c-kw">or</span> punten &gt; MAX_PUNTEN:
+        <span class="c-bi">print</span>(REGEL.format(kring.PanelName, kring.CircuitNumber,
+                           kring.LoadName, punten,
+                           kring.ApparentCurrent, kring.Rating, pct))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Uitvoer op het nagebootste model</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Uitvoer op het nagebootste model"><code class="language-uitvoer">OV-A1 kring 14 (Belichting A1 R5 K2): 7 punten, 18.76 A op 16 A = 117 %
+OV-A2 kring 4 (Belichting A2 R2 K1): 5 punten, 8.20 A op 6 A = 137 %</code></pre></figure>
+      <p class="voetnoot">Zet <code>MAX_BELASTING_PCT</code> op 80 en de knop vindt ook de kringen die volgens een strengere bureauregel te vol zitten. Gecontroleerd tegen de documentatie van de Revit API 2025; nog niet in een echte Revit gedraaid. Stabicad en MagiCAD zijn merken van hun eigenaars; PyPath is daar niet aan verbonden.</p>
+    </div>
+    <aside class="pakket-zij">
+      <figure class="model">
+        <div class="model-kop"><span>Nagebootst model</span><span>Kas-elektra · plattegrond</span></div>
+        <svg viewBox="0 0 320 190" role="img" aria-labelledby="model-plan-uitleg">
+  <rect x="8" y="8" width="304" height="174" rx="10" class="m-kas"/>
+  <g class="m-raster"><path d="M64 8v174M120 8v174M176 8v174M232 8v174M288 8v174"/></g>
+  <rect x="16" y="150" width="34" height="24" rx="5" class="m-kas"/>
+  <g class="m-lijnen">
+    <path pathLength="1" class="m-lijn m-kring" d="M33 150V30"/>
+    <path pathLength="1" class="m-lijn m-kring m-dun" d="M33 30h267M33 56h267M33 82h267M33 108h267M33 134h267"/>
+    <path pathLength="1" class="m-lijn m-fout" d="M164 108h104"/>
+  </g>
+  <g class="m-armaturen">
+    <circle cx="60" cy="30" r="3.6"/><circle cx="86" cy="30" r="3.6"/><circle cx="112" cy="30" r="3.6"/><circle cx="138" cy="30" r="3.6"/><circle cx="164" cy="30" r="3.6"/><circle cx="190" cy="30" r="3.6"/><circle cx="216" cy="30" r="3.6"/><circle cx="242" cy="30" r="3.6"/><circle cx="268" cy="30" r="3.6"/><circle cx="294" cy="30" r="3.6"/>
+    <circle cx="60" cy="56" r="3.6"/><circle cx="86" cy="56" r="3.6"/><circle cx="112" cy="56" r="3.6"/><circle cx="138" cy="56" r="3.6"/><circle cx="164" cy="56" r="3.6"/><circle cx="190" cy="56" r="3.6"/><circle cx="216" cy="56" r="3.6"/><circle cx="242" cy="56" r="3.6"/><circle cx="268" cy="56" r="3.6"/><circle cx="294" cy="56" r="3.6"/>
+    <circle cx="60" cy="82" r="3.6"/><circle cx="86" cy="82" r="3.6"/><circle cx="112" cy="82" r="3.6"/><circle cx="138" cy="82" r="3.6"/><circle cx="164" cy="82" r="3.6"/><circle cx="190" cy="82" r="3.6"/><circle cx="216" cy="82" r="3.6"/><circle cx="242" cy="82" r="3.6"/><circle cx="268" cy="82" r="3.6"/><circle cx="294" cy="82" r="3.6"/>
+    <circle cx="60" cy="108" r="3.6"/><circle cx="86" cy="108" r="3.6"/><circle cx="112" cy="108" r="3.6"/><circle cx="138" cy="108" r="3.6"/><circle cx="164" cy="108" r="3.6" class="m-los"/><circle cx="190" cy="108" r="3.6" class="m-los"/><circle cx="216" cy="108" r="3.6" class="m-los"/><circle cx="242" cy="108" r="3.6" class="m-los"/><circle cx="268" cy="108" r="3.6" class="m-los"/><circle cx="294" cy="108" r="3.6"/>
+    <circle cx="60" cy="134" r="3.6"/><circle cx="86" cy="134" r="3.6"/><circle cx="112" cy="134" r="3.6"/><circle cx="138" cy="134" r="3.6"/><circle cx="164" cy="134" r="3.6"/><circle cx="190" cy="134" r="3.6"/><circle cx="216" cy="134" r="3.6"/><circle cx="242" cy="134" r="3.6"/><circle cx="268" cy="134" r="3.6"/><circle cx="294" cy="134" r="3.6"/>
+  </g>
+  <circle cx="268" cy="108" r="9" class="m-markering"/>
+</svg>
+
+        <ul class="model-legenda" aria-hidden="true"><li><i style="background:var(--waarschuwing)"></i>Kringen en armaturen</li><li><i style="background:var(--fout)"></i>Gevonden</li></ul>
+        <figcaption id="model-plan-uitleg" class="vh">Plattegrond van een nagebootste kasafdeling met een verdeler en vijf rijen armaturen; één kring met te veel armaturen is gemarkeerd als gevonden door het script.</figcaption>
+      </figure>
+      <div class="kaart pakket-prijs">
+        <p class="prijs-bedrag">€79,99 <small>eenmalig, binnenkort</small></p>
+        <p>Een los vakpakket bovenop PyPath Basis. Het zit niet in PyPath Compleet; dat is Basis met Warmte, Water en Glastuinbouw &amp; kassenbouw.</p>
+        <p><a href="../gids/revit-armaturen-kringen-python.html">Gids: armaturen tellen en kringen controleren</a></p>
+      </div>
+    </aside>
+  </div>
+  <div class="binnen smal"><aside class="tester kaart" aria-label="Binnenkort testen?"><div><p class="tester-kop">Binnenkort testen?</p><p>We zoeken tekenaars en engineers die de app vóór de lancering willen proberen. Laat het weten via GitHub Issues; zet er geen persoonlijke gegevens in.</p></div><a class="knop knop-zacht" href="https://github.com/pypath-automation/PyPath/issues">Laat het weten via Issues</a></aside></div>
+</div>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, naar de startpagina"><img class="logo" src="../assets/img/logo-64.png" srcset="../assets/img/logo-64.png 1x, ../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Leer Python voor Revit en pyRevit. Elke dag tien minuten, op iPhone en Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath komt binnenkort in de App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Binnenkort in de</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#zo-werkt-het">Zo werkt het</a></li><li><a href="../#lesplan">Het 12-wekenplan</a></li><li><a href="../vakpakketten.html">Vakpakketten</a></li><li><a href="../#prijzen">Prijzen</a></li><li><a href="../#vragen">Veelgestelde vragen</a></li></ul></div><div><p class="voet-kop">Voor werkgevers</p><ul><li><a href="../bedrijven.html">Voor bedrijven</a></li><li><a href="../bedrijven.html#rekenvoorbeeld">Bereken wat het oplevert</a></li><li><a href="../voor-je-leidinggevende.html">Overtuig je leidinggevende</a></li></ul></div><div><p class="voet-kop">Leren</p><ul><li><a href="../gids/">Alle gidsen</a></li><li><a href="../gids/python-leren-voor-revit.html">Python leren voor Revit</a></li><li><a href="../gids/pyrevit-installeren-eerste-knop.html">pyRevit installeren</a></li><li><a href="../gids/revit-parameter-wijzigen-python.html">Parameters wijzigen</a></li></ul></div><div><p class="voet-kop">Hulp</p><ul><li><a href="../ondersteuning.html">Ondersteuning</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Vraag of probleem melden</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · Geen cookies, geen tracking, geen account.</p>
+    <p>Revit en Autodesk zijn handelsmerken van Autodesk, Inc. PyPath is een onafhankelijke app en is niet verbonden aan Autodesk of het pyRevit-project.</p>
+  </div>
+</footer>
+</body>
+</html>

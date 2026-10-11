@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Count lighting fixtures and check circuits in Revit | PyPath</title>
+<meta name="description" content="Count lighting fixtures per type, find fixtures without a circuit and spot overloaded circuits in Revit with Python and pyRevit. With working examples.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<link rel="alternate" hreflang="nl" href="https://www.pypath.nl/gids/revit-armaturen-kringen-python.html">
+<link rel="alternate" hreflang="en" href="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<link rel="alternate" hreflang="x-default" href="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)">
+<!-- Zoekmachine-verificatie (alleen op de home): vul google_verificatie / bing_verificatie in _bron/site.toml in (alleen de content-waarde uit Search Console / Bing) en bouw opnieuw. -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PyPath">
+<meta property="og:title" content="Count lighting fixtures and check circuits in Revit | PyPath">
+<meta property="og:description" content="Count lighting fixtures per type, find fixtures without a circuit and spot overloaded circuits in Revit with Python and pyRevit. With working examples.">
+<meta property="og:url" content="https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://www.pypath.nl/assets/img/deel-en.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Count lighting fixtures and check circuits in Revit | PyPath">
+<meta name="twitter:description" content="Count lighting fixtures per type, find fixtures without a circuit and spot overloaded circuits in Revit with Python and pyRevit. With working examples.">
+<meta name="twitter:image" content="https://www.pypath.nl/assets/img/deel-en.jpg">
+<meta name="twitter:image:alt" content="PyPath: become the person at the office who can automate Revit. Learn Python for Revit on iPhone and Mac.">
+<meta property="article:published_time" content="2026-10-11">
+<meta property="article:modified_time" content="2026-10-11">
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../assets/img/icoon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.ppKlaar)document.documentElement.classList.remove('js')},3000)</script>
+<link rel="stylesheet" href="../../assets/site.css?v=5756c48c25">
+<script src="../../assets/site.js?v=bf4b1789b9" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pypath.nl/#organisatie","name":"PyPath","url":"https://www.pypath.nl/","logo":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/icoon-512.png","width":512,"height":512},"sameAs":["https://github.com/pypath-automation/PyPath"]},{"@type":"WebSite","@id":"https://www.pypath.nl/#website","url":"https://www.pypath.nl/","name":"PyPath","inLanguage":["nl","en"],"publisher":{"@id":"https://www.pypath.nl/#organisatie"}},{"@type":"WebPage","@id":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html#webpagina","url":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html","name":"Count lighting fixtures and check circuits in Revit | PyPath","description":"Count lighting fixtures per type, find fixtures without a circuit and spot overloaded circuits in Revit with Python and pyRevit. With working examples.","inLanguage":"en","isPartOf":{"@id":"https://www.pypath.nl/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.pypath.nl/assets/img/deel-en.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html#kruimels"}},{"@type":"TechArticle","@id":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html#artikel","proficiencyLevel":"Expert","headline":"Count lighting fixtures and check electrical circuits in Revit with Python (pyRevit)","description":"Count lighting fixtures per type, find fixtures without a circuit and spot overloaded circuits in Revit with Python and pyRevit. With working examples.","image":["https://www.pypath.nl/assets/img/deel-en.jpg"],"datePublished":"2026-10-11","dateModified":"2026-10-11","author":{"@type":"Organization","name":"PyPath","url":"https://www.pypath.nl/"},"publisher":{"@id":"https://www.pypath.nl/#organisatie"},"inLanguage":"en","mainEntityOfPage":{"@id":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html#webpagina"},"isPartOf":{"@id":"https://www.pypath.nl/#website"},"wordCount":1588},{"@type":"BreadcrumbList","@id":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html#kruimels","itemListElement":[{"@type":"ListItem","position":1,"name":"PyPath","item":"https://www.pypath.nl/en/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://www.pypath.nl/en/guides/"},{"@type":"ListItem","position":3,"name":"Fixtures and circuits","item":"https://www.pypath.nl/en/guides/revit-lighting-fixtures-circuits-python.html"}]}]}</script>
+</head>
+<body class="pagina-gids">
+<a class="naar-inhoud" href="#inhoud">Skip to content</a>
+<header class="kop">
+  <div class="kop-binnen">
+    <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+    <nav class="nav-breed" aria-label="Main menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li></ul></nav>
+    <div class="kop-rechts">
+      <a class="taalwissel" href="../../gids/revit-armaturen-kringen-python.html" hreflang="nl" lang="nl"><span aria-hidden="true">NL</span><span class="vh">Nederlands</span></a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <nav class="nav-smal" aria-label="Menu"><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../business.html">For business</a></li><li><a href="../support.html">Support</a></li></ul></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="inhoud">
+<article class="gids">
+  <header class="gids-kop"><div class="binnen smal">
+    <nav class="kruimels" aria-label="Breadcrumb"><ol><li><a href="../">PyPath</a></li><li><a href="./">Guides</a></li><li><span aria-current="page">Fixtures and circuits</span></li></ol></nav>
+    <h1>Count lighting fixtures and check electrical circuits in Revit with Python (pyRevit)</h1>
+    <p class="gids-intro">Three short pyRevit scripts for electrical modellers: count fixtures per type, find fixtures without a circuit and spot circuits above their breaker rating. Plus the trap everyone falls into: an ElementSet is not a list.</p>
+    <p class="gids-meta"><span>8 min read</span><span aria-hidden="true">·</span><span>Updated October 11, 2026</span><span aria-hidden="true">·</span><span>Checked against the Revit API 2025 documentation</span></p>
+  </div></header>
+  <div class="binnen gids-raster">
+    <nav class="toc" aria-labelledby="toc-kop">
+      <details open><summary id="toc-kop">On this page</summary><ol><li><a href="#where-electrical-lives">Where electrical lives in the Revit API</a></li><li><a href="#fixtures-per-type">Count fixtures per type</a></li><li><a href="#without-circuit">Find fixtures without a circuit</a></li><li><a href="#above-breaker">Circuits above their breaker rating</a></li><li><a href="#elementset">ElementSet or list: the IronPython trap</a></li><li><a href="#from-script-to-button">From script to button</a></li></ol></details>
+    </nav>
+    <div class="gids-tekst">
+<div class="kort-antwoord">
+  <p><strong>Short answer:</strong> get the lighting fixtures with a <code>FilteredElementCollector</code> on <code>BuiltInCategory.OST_LightingFixtures</code>. The circuits of a fixture come from <code>fixture.MEPModel.GetElectricalSystems()</code>; if that is empty, the fixture is not on any circuit. Circuits themselves are <code>ElectricalSystem</code> elements: compare <code>ApparentCurrent</code> with <code>Rating</code> and you see which circuit is above its breaker rating. Watch out: <code>circuit.Elements</code> is an <code>ElementSet</code>, not a list; count it with <code>.Size</code>.</p>
+</div>
+
+<h2 id="where-electrical-lives">Where electrical lives in the Revit API</h2>
+<p>For electrical modellers almost everything revolves around four kinds of elements:</p>
+<ul>
+  <li><strong>Lighting fixtures</strong>: category <code>OST_LightingFixtures</code>. Receptacles and other connection points are in <code>OST_ElectricalFixtures</code>.</li>
+  <li><strong>Panels</strong>: category <code>OST_ElectricalEquipment</code>, with the name in <code>RBS_ELEC_PANEL_NAME</code>.</li>
+  <li><strong>Circuits</strong>: the class <code>ElectricalSystem</code> from <code>Autodesk.Revit.DB.Electrical</code>. A circuit knows its panel (<code>PanelName</code>), its number (<code>CircuitNumber</code>), its description (<code>LoadName</code>), the current (<code>ApparentCurrent</code>) and the breaker rating (<code>Rating</code>).</li>
+  <li><strong>Cable trays and conduit</strong>: <code>CableTray</code> and <code>Conduit</code>, also from <code>Autodesk.Revit.DB.Electrical</code>.</li>
+</ul>
+<p>Like lengths, power and voltage are stored in internal units in Revit. So always read them with <code>UnitUtils.ConvertFromInternalUnits</code> and <code>UnitTypeId.VoltAmperes</code> or <code>UnitTypeId.Volts</code>, never as a bare number. The examples below run on a simulated greenhouse complex with three sections of grow lighting, 270 fixtures and four panels. The model uses Dutch names: "Belichting" is lighting, "kring" is circuit and "OV" is a sub-panel.</p>
+
+<h2 id="fixtures-per-type">Count fixtures per type</h2>
+<p>The first question is nearly always: how many fixtures of which type, and how much load is that? This script counts them and adds up the apparent load per type:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">FixturesPerType.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: FixturesPerType.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+fixtures = (<span class="c-revit">FilteredElementCollector</span>(doc)
+            .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+            .<span class="c-revit">WhereElementIsNotElementType</span>()
+            .<span class="c-revit">ToElements</span>())
+
+per_type = {}
+<span class="c-kw">for</span> fixture <span class="c-kw">in</span> fixtures:
+    type_name = fixture.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ELEM_TYPE_PARAM</span>).<span class="c-revit">AsValueString</span>()
+    va = fixture.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">RBS_ELEC_APPARENT_LOAD</span>).<span class="c-revit">AsDouble</span>()
+    va = <span class="c-revit">UnitUtils</span>.<span class="c-revit">ConvertFromInternalUnits</span>(va, <span class="c-revit">UnitTypeId</span>.<span class="c-revit">VoltAmperes</span>)
+    count, total = per_type.get(type_name, (<span class="c-num">0</span>, <span class="c-num">0.0</span>))
+    per_type[type_name] = (count + <span class="c-num">1</span>, total + va)
+
+<span class="c-kw">for</span> type_name <span class="c-kw">in</span> <span class="c-bi">sorted</span>(per_type):
+    count, total = per_type[type_name]
+    <span class="c-bi">print</span>(<span class="c-str">&quot;{}: {} fixtures, {:.1f} kVA&quot;</span>.format(
+        type_name, count, total / <span class="c-num">1000</span>))
+<span class="c-bi">print</span>(<span class="c-str">&quot;Total: {} fixtures&quot;</span>.format(<span class="c-bi">len</span>(fixtures)))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse complex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse complex"><code class="language-uitvoer">LED 520W 230V: 89 fixtures, 47.2 kVA
+LED 645W 400V: 91 fixtures, 59.7 kVA
+SON-T 1000W 400V: 90 fixtures, 96.5 kVA
+Total: 270 fixtures</code></pre></figure>
+<ul>
+  <li>Read the type name with <code>ELEM_TYPE_PARAM</code> and <code>AsValueString()</code>. That works in any language version of Revit, unlike looking a parameter up by its visible name.</li>
+  <li>A dictionary with <code>.get(key, default)</code> is the shortest way to add up per type.</li>
+  <li>Notice: 91 fixtures "LED 645W 400V", while each section has 90. In the practice model one of them sits in the wrong section. A count finds this kind of deviation sooner than your eye does.</li>
+</ul>
+
+<h2 id="without-circuit">Find fixtures without a circuit</h2>
+<p>A fixture that is not on any circuit does not count towards the panel load and is missing from the circuit list. <code>GetElectricalSystems()</code> on the fixture's <code>MEPModel</code> returns its circuits; if that collection is empty, you have found one.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">WithoutCircuit.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: WithoutCircuit.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+fixtures = (<span class="c-revit">FilteredElementCollector</span>(doc)
+            .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+            .<span class="c-revit">WhereElementIsNotElementType</span>()
+            .<span class="c-revit">ToElements</span>())
+
+without_circuit = []
+<span class="c-kw">for</span> fixture <span class="c-kw">in</span> fixtures:
+    mep = fixture.MEPModel
+    circuits = <span class="c-bi">list</span>(mep.GetElectricalSystems()) <span class="c-kw">if</span> mep <span class="c-kw">else</span> []
+    <span class="c-kw">if</span> <span class="c-kw">not</span> circuits:
+        without_circuit.append(fixture)
+
+<span class="c-kw">for</span> fixture <span class="c-kw">in</span> without_circuit:
+    mark = fixture.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_MARK</span>).<span class="c-revit">AsString</span>()
+    type_name = fixture.<span class="c-revit">get_Parameter</span>(
+        <span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ELEM_TYPE_PARAM</span>).<span class="c-revit">AsValueString</span>()
+    <span class="c-bi">print</span>(<span class="c-str">&quot;Without circuit: {} ({})&quot;</span>.format(mark, type_name))
+<span class="c-bi">print</span>(<span class="c-str">&quot;{} of {} fixtures without a circuit&quot;</span>.format(
+    <span class="c-bi">len</span>(without_circuit), <span class="c-bi">len</span>(fixtures)))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse complex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse complex"><code class="language-uitvoer">Without circuit: A1-R2-08 (SON-T 1000W 400V)
+1 of 270 fixtures without a circuit</code></pre></figure>
+<ul>
+  <li><code>GetElectricalSystems()</code> returns a .NET collection. Wrap it in <code>list(...)</code> and you can use it like any Python list: <code>if not circuits</code>, <code>len(circuits)</code>, <code>circuits[0]</code>.</li>
+  <li>Not every element has an <code>MEPModel</code>; hence the <code>if mep</code> check first.</li>
+  <li>To check receptacles as well, use the same loop with <code>OST_ElectricalFixtures</code>.</li>
+</ul>
+
+<h2 id="above-breaker">Circuits above their breaker rating</h2>
+<p>Every circuit knows its current and its breaker. <code>ApparentCurrent</code> is the current in amps: apparent load divided by the voltage, and for a 3-pole circuit divided by √3 times the voltage. <code>Rating</code> is the breaker rating in amps. If the current is higher than the rating, something is wrong.</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">AboveBreaker.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: AboveBreaker.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystemType
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+overloaded = []
+<span class="c-kw">for</span> circuit <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(ElectricalSystem):
+    <span class="c-kw">if</span> circuit.SystemType != ElectricalSystemType.PowerCircuit:
+        <span class="c-kw">continue</span>
+    <span class="c-kw">if</span> circuit.ApparentCurrent &gt; circuit.Rating:
+        overloaded.append(<span class="c-str">&quot;{} circuit {}: {:.2f} A on {:.0f} A&quot;</span>.format(
+            circuit.PanelName, circuit.CircuitNumber,
+            circuit.ApparentCurrent, circuit.Rating))
+
+<span class="c-kw">for</span> line <span class="c-kw">in</span> <span class="c-bi">sorted</span>(overloaded):
+    <span class="c-bi">print</span>(line)</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse complex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse complex"><code class="language-uitvoer">OV-A1 circuit 14: 18.76 A on 16 A
+OV-A2 circuit 4: 8.20 A on 6 A</code></pre></figure>
+<ul>
+  <li><code>Rating</code> only exists on power circuits. On a data or fire alarm circuit Revit raises an <code>InvalidOperationException</code>, which is why the script skips everything that is not a <code>PowerCircuit</code>.</li>
+  <li>Many offices use a stricter rule of their own, such as "at most 80 % of the breaker rating" or "at most five fixtures per circuit". Put that limit in a variable at the top of the script, so everyone can see which rule the button checks.</li>
+  <li>This is a check against your own rules, not a code-compliant design calculation. Do the final cable sizing, voltage drop and selectivity in your electrical design software.</li>
+</ul>
+
+<h2 id="elementset">ElementSet or list: the IronPython trap</h2>
+<p>The fixtures on a circuit are in <code>circuit.Elements</code>. It looks like a list, but it is an <code>ElementSet</code>: a collection from the Revit API. You can loop over it, but <code>len()</code> and <code>[0]</code> do not work in pyRevit (IronPython). Count with <code>.Size</code>, or turn it into a list first:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+circuit = (<span class="c-revit">FilteredElementCollector</span>(doc)
+           .<span class="c-revit">OfClass</span>(ElectricalSystem)
+           .<span class="c-revit">FirstElement</span>())
+members = circuit.Elements            <span class="c-com"># an ElementSet, not a Python list</span>
+<span class="c-bi">print</span>(members.Size)                   <span class="c-com"># count with Size</span>
+first = <span class="c-bi">list</span>(members)[<span class="c-num">0</span>]              <span class="c-com"># make a list first, then [0]</span>
+<span class="c-bi">print</span>(first.<span class="c-revit">get_Parameter</span>(<span class="c-revit">BuiltInParameter</span>.<span class="c-revit">ALL_MODEL_MARK</span>).<span class="c-revit">AsString</span>())</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse complex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse complex"><code class="language-uitvoer">5
+A1-R1-01</code></pre></figure>
+<p>Write <code>len(circuit.Elements)</code> anyway, and the script stops with an error like this:</p>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output"><code class="language-uitvoer">TypeError: object of type &#x27;ElementSet&#x27; has no len()</code></pre></figure>
+<p>The same holds the other way round: methods that <em>change</em> a circuit want an <code>ElementSet</code>, not a Python list. This script puts the fixture without a circuit on the circuit where it belongs:</p>
+<figure class="code-venster"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Connect.pushbutton/script.py</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Connect.pushbutton/script.py"><code class="language-python"><span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span> <span class="c-kw">import</span> *
+<span class="c-kw">from</span> <span class="c-revit">Autodesk</span>.<span class="c-revit">Revit</span>.<span class="c-revit">DB</span>.<span class="c-revit">Electrical</span> <span class="c-kw">import</span> ElectricalSystem
+
+doc = <span class="c-revit">__revit__</span>.<span class="c-revit">ActiveUIDocument</span>.<span class="c-revit">Document</span>
+
+circuits = {}
+<span class="c-kw">for</span> circuit <span class="c-kw">in</span> <span class="c-revit">FilteredElementCollector</span>(doc).<span class="c-revit">OfClass</span>(ElectricalSystem):
+    circuits[circuit.LoadName] = circuit
+target = circuits[<span class="c-str">&quot;Belichting A1 R2 K2&quot;</span>]
+
+to_add = ElementSet()
+<span class="c-kw">for</span> fixture <span class="c-kw">in</span> (<span class="c-revit">FilteredElementCollector</span>(doc)
+                .<span class="c-revit">OfCategory</span>(<span class="c-revit">BuiltInCategory</span>.<span class="c-revit">OST_LightingFixtures</span>)
+                .<span class="c-revit">WhereElementIsNotElementType</span>()):
+    <span class="c-kw">if</span> <span class="c-kw">not</span> <span class="c-bi">list</span>(fixture.MEPModel.GetElectricalSystems()):
+        to_add.Insert(fixture)
+
+t = <span class="c-revit">Transaction</span>(doc, <span class="c-str">&quot;Connect fixtures&quot;</span>)
+t.<span class="c-revit">Start</span>()
+ok = target.AddToCircuit(to_add)   <span class="c-com"># an ElementSet, not a Python list</span>
+t.<span class="c-revit">Commit</span>()
+<span class="c-bi">print</span>(ok)
+<span class="c-bi">print</span>(<span class="c-str">&quot;{}: {} points, {:.2f} A&quot;</span>.format(
+    target.LoadName, target.Elements.Size, target.ApparentCurrent))</code></pre></figure>
+<figure class="code-venster code-uitvoer"><figcaption class="code-kop"><span class="code-stippen" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-bestand">Output on the simulated greenhouse complex</span></figcaption><pre class="code" tabindex="0" aria-label="Code: Output on the simulated greenhouse complex"><code class="language-uitvoer">True
+Belichting A1 R2 K2: 5 points, 13.40 A</code></pre></figure>
+<ul>
+  <li><code>AddToCircuit</code> and <code>RemoveFromCircuit</code> want an <code>ElementSet</code>. With a Python list you get a <code>TypeError</code>.</li>
+  <li><code>AddToCircuit</code> returns <code>False</code> if a fixture does not fit the circuit, for example because of a different voltage or number of poles.</li>
+  <li>Creating a new circuit with <code>ElectricalSystem.Create</code> takes a <code>List[ElementId]</code> from <code>System.Collections.Generic</code> instead. Two methods, two kinds of collection: when in doubt, check the documentation at <a href="https://www.revitapidocs.com/">revitapidocs.com</a>.</li>
+  <li>Changes are only allowed inside a transaction. Why, and what happens if you forget it, is in <a href="modify-model-outside-of-transaction.html">"Attempt to modify the model outside of transaction"</a>.</li>
+</ul>
+
+<h2 id="from-script-to-button">From script to button</h2>
+<p>Each script above becomes a button on the ribbon when you save it as <code>script.py</code> in a <code>Name.pushbutton</code> folder in your pyRevit extension; how that works is in <a href="pyrevit-tutorial-first-button.html">pyRevit tutorial: your first button</a>. Three habits make such a button useful for the whole office:</p>
+<ul>
+  <li><strong>A settings block at the top</strong> with type names, parameter names and limits. Whoever uses the button on another project only edits that block.</li>
+  <li><strong>No f-strings.</strong> pyRevit uses IronPython 2.7 by default; write <code>"{}".format(value)</code>.</li>
+  <li><strong>Schedules to Excel</strong> as a CSV file. In countries that use a decimal comma, a semicolon as separator makes Excel open it straight into columns.</li>
+</ul>
+<p>This is work that belongs next to your electrical package: it counts, checks and reports from the Revit model, following your own rules. Calculating to the standard stays in your electrical design software.</p>
+
+<aside class="probeer" aria-labelledby="probeer-kop">
+  <img class="logo" src="../../assets/img/logo-128.png" width="48" height="48" alt="" loading="lazy" decoding="async">
+  <h3 class="probeer-kop" id="probeer-kop">Practise this in PyPath</h3>
+  <p>Counting fixtures and finding fixtures without a circuit is already part of weeks 9 to 12 of the lesson plan. In the <a href="../trade-pack/electrical.html">Electrical trade pack</a> (coming soon) you grow these checks into three buttons, a fixture schedule, a circuit check and a panel schedule, on a simulated greenhouse complex with deliberate mistakes to find. Week 1 is free; the lessons are in Dutch for now.</p>
+  <p class="appstore appstore-binnenkort " aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+</aside>
+    </div>
+  </div>
+</article>
+<section class="gerelateerd" aria-labelledby="verder-lezen"><div class="binnen"><h2 id="verder-lezen">Keep reading</h2><ul class="gidsen-lijst" role="list"><li><a class="gids-kaart" href="filteredelementcollector-python.html"><span class="gids-kaart-meta">Beginners · 4 min read</span><h3 class="gids-kaart-titel">FilteredElementCollector explained, with Python examples</h3><p>Every Revit script starts by finding elements. How the collector works, which filters you need, and why you sometimes find too many elements or none at all.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="revit-set-parameter-python.html"><span class="gids-kaart-meta">Beginners · 5 min read</span><h3 class="gids-kaart-titel">Read and set Revit parameters with Python (with a Transaction)</h3><p>Parameters are the data of your model. How to read them, how to fill them in bulk, and the pitfalls that make Set do nothing or raise an error.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li><li><a class="gids-kaart" href="learn-python-for-revit.html"><span class="gids-kaart-meta">Beginners · 7 min read</span><h3 class="gids-kaart-titel">Learning Python for Revit: where do you start?</h3><p>An honest step-by-step plan, from your first line of Python to your own pyRevit button. With real example code and the mistakes almost everyone makes.</p><span class="gids-kaart-lees">Read the guide <span aria-hidden="true">→</span></span></a></li></ul><p class="gerelateerd-alle"><a href="./">All guides <span aria-hidden="true">→</span></a></p></div></section>
+</main>
+<footer class="voet">
+  <div class="voet-binnen">
+    <div class="voet-merk">
+      <a class="merk" href="../" aria-label="PyPath, go to the homepage"><img class="logo" src="../../assets/img/logo-64.png" srcset="../../assets/img/logo-64.png 1x, ../../assets/img/logo-128.png 2x" width="30" height="30" alt=""><span>PyPath</span></a>
+      <p>Learn Python for Revit and pyRevit. Ten minutes a day, on iPhone and Mac.</p>
+      <p class="appstore appstore-binnenkort appstore-klein" aria-label="PyPath is coming soon to the App Store"><svg class="appstore-icoon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><small>Coming soon to the</small> App Store</span></p>
+    </div>
+    <nav class="voet-links" aria-label="Footer"><div><p class="voet-kop">Product</p><ul><li><a href="../#how-it-works">How it works</a></li><li><a href="../#curriculum">The 12-week plan</a></li><li><a href="../trade-packs.html">Trade packs</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../#faq">FAQ</a></li></ul></div><div><p class="voet-kop">For employers</p><ul><li><a href="../business.html">For business</a></li><li><a href="../business.html#calculator">Calculate the return</a></li><li><a href="../convince-your-manager.html">Convince your manager</a></li></ul></div><div><p class="voet-kop">Learn</p><ul><li><a href="./">All guides</a></li><li><a href="learn-python-for-revit.html">Learning Python for Revit</a></li><li><a href="pyrevit-tutorial-first-button.html">pyRevit first button</a></li><li><a href="revit-set-parameter-python.html">Setting parameters</a></li></ul></div><div><p class="voet-kop">Help</p><ul><li><a href="../support.html">Support</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="https://github.com/pypath-automation/PyPath/issues">Report a question or problem</a></li></ul></div></nav>
+  </div>
+  <div class="voet-onder">
+    <p>© 2026 PyPath · No cookies, no tracking, no account.</p>
+    <p>Revit and Autodesk are trademarks of Autodesk, Inc. PyPath is an independent app and is not affiliated with Autodesk or the pyRevit project.</p>
+  </div>
+</footer>
+</body>
+</html>
